@@ -1,0 +1,45 @@
+\documentclass{book}
+%Basic Maths
+\usepackage{amsmath}
+\usepackage{mathtools}
+%For definining theorem-like environments
+\usepackage{amsthm}
+%For drawing commutative diagrams
+\usepackage{tikz-cd}
+
+%Fix section numbering to match the book's convention
+\renewcommand\thesection{\arabic{section}}
+
+%Displays "Exercises". To put after each section.
+\newcommand{\extitle}{\subsection*{Exercises}}
+
+%Exercise environment
+\theoremstyle{definition}
+\newtheorem{exercise}{}[chapter]
+
+%Solution environment
+\newenvironment{solution}
+{\begin{proof}[Solution]}
+	{\end{proof}}
+
+
+\begin{document}
+	\chapter{Preliminaries: Set theory and categories}
+	\section{Naive set theory}
+	\extitle
+	\begin{exercise}
+		Locate a discussion of Russell's paradox, and understand it.
+	\end{exercise}
+	\begin{solution}
+		content...
+	\end{solution}
+	\section{Functions between sets}
+	\extitle
+	\section{Categories}
+	\extitle
+	\section{Morphisms}
+	\extitle
+	\section{Universal properties}
+	\extitle
+	
+\end{document}
