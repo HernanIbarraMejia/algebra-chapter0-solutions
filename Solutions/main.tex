@@ -1,0 +1,56 @@
+\documentclass{report}
+%I'm using the package cm-super implicitly since I had some trouble displaying \S in the same font as in the book. Let me know if you're having the same issue. 
+%Basic Maths
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+%For definining theorem-like environments
+\usepackage{amsthm}
+%For drawing commutative diagrams
+\usepackage{tikz-cd}
+%For beautiful letters (e.g. for a partition, see $\mathscr{P}$)
+\usepackage{mathrsfs}
+%For importing the solution file
+\usepackage{import}
+
+\usepackage{lipsum}
+
+
+%Fix section numbering to match the book's convention
+\renewcommand\thesection{\arabic{section}}
+
+%Displays "Exercises". To put after each section.
+\newcommand{\extitle}{\subsection*{Exercises}}
+
+%Roman numerals!
+\newcommand{\RN}[1]{%
+	\textup{\uppercase\expandafter{\romannumeral#1}}%
+}
+
+%Shorthands for commum sets
+\newcommand{\bN}{\mathbb{N}}
+\newcommand{\bZ}{\mathbb{Z}}
+\newcommand{\bQ}{\mathbb{Q}}
+\newcommand{\bR}{\mathbb{R}}
+\newcommand{\bC}{\mathbb{C}}
+
+%Exercise environment
+\theoremstyle{definition}
+\newtheorem{exercise}{}[chapter]
+
+%Solution environment
+\newenvironment{solution}
+{\begin{proof}[Solution]}
+	{\end{proof}}
+
+
+\begin{document}
+	
+	%Chapter 1
+	\import{Chapters/Chapter_I/}{section_1.tex}
+	\import{Chapters/Chapter_I/}{section_2.tex}
+	\import{Chapters/Chapter_I/}{section_3.tex}
+	\import{Chapters/Chapter_I/}{section_4.tex}
+	\import{Chapters/Chapter_I/}{section_5.tex}
+	
+\end{document}
