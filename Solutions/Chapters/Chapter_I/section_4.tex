@@ -1,2 +1,57 @@
 \section{Morphisms}
-	\extitle
+\extitle
+
+\begin{exercise}
+	\(\triangleright\) Composition is defined for \textit{two} morphisms. If more than two morphisms are given, e.g., \vspace*{-0.4em}
+	\begin{center}
+		\begin{tikzcd}
+			A \ar[r, "f"] & B \ar[r, "g"] & C \ar[r, "h"] & D \ar[r, "i"] & E
+		\end{tikzcd}
+	\end{center}
+	then one may compose them in several ways, for example:
+	\begin{center}
+		\begin{tabular}{c c c c}
+			\((ih)(gf)\), & \((i(hg))f\), & \(i((hg)f)\), & etc.
+		\end{tabular}
+	\end{center}
+	so that at every step one is only composing two morphisms. Prove that the result of any such nested composition is independent of the placement of the parentheses. (Hint: Use induction on \(n\) to show that any such choice for \(f_n f_{n-1} \dots f_1\) equals
+	\begin{equation*}
+		((\dots ((f_n f_{n-1}) f_{n-2}) \dots )f_1).
+	\end{equation*}
+	Carefully working out the case \(n = 5\) is helpful.) [\(\S 4.1, \S \RN{2}.1.3\)]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	\(\triangleright\) In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)? [\(\S 4.1\)]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Let \(A, B\) be objects of a category \serif{C}, and let \(f \in \Hom_C(A,B)\) be a morphism.
+	\begin{itemize}
+		\item Prove that if \(f\) has a right-inverse, then \(f\) is an epimorphism.
+		\item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
+	\end{itemize}
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory \serif{C\(_{\text{mono}}\)} of a category \serif{C} by taking the same objects as in \serif{C} and defining \serif{\(\Hom_{\text{C}_{\text{mono}}}(A, B)\)} to be the subset of \(\Hom_{\text{\serif{C}}}(A, B)\) consisting of monomorphisms, for all objects \(A, B\). (Cf. Exercise 3.8; of course, in general \serif{C\(_{\text{mono}}\)} is not full in \serif{C}.) Do the same for epimorphisms. Can you define a subcategory \serif{C\(_{\text{nonmono}}\)} of \serif{C} by restricting to morphisms that are \textit{not} monomorphisms?
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Give a concrete description of monomorphisms and epimorphisms in the category \serif{MSet} you constructed in Exercise 3.9. (Your answer will depend on the notion of morphism you defined in that exercise!)
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}

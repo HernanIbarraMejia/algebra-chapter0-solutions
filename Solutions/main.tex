@@ -1,5 +1,6 @@
 \documentclass{report}
-%I'm using the package cm-super implicitly since I had some trouble displaying \S in the same font as in the book. Let me know if you're having the same issue. 
+%I'm using the package cm-super implicitly since I had some trouble displaying \S in the same font as in the book. Let me know if you're having the same issue.
+\usepackage[margin = 1.75in]{geometry}
 %Basic Maths
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -27,6 +28,9 @@
 	\textup{\uppercase\expandafter{\romannumeral#1}}%
 }
 
+%San-serif for names of categories
+\newcommand{\serif}[1]{{\fontfamily{cmss}\selectfont #1}}
+
 %Shorthands for commum sets
 \newcommand{\bN}{\mathbb{N}}
 \newcommand{\bZ}{\mathbb{Z}}
@@ -34,9 +38,18 @@
 \newcommand{\bR}{\mathbb{R}}
 \newcommand{\bC}{\mathbb{C}}
 
+%Miscellaneous commands
+\newcommand{\defeq}{\vcentcolon=}
+
+%Useful operations and delimiters
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclarePairedDelimiter{\ord}{\lvert}{\rvert}
+
 %Exercise environment
 \theoremstyle{definition}
-\newtheorem{exercise}{}[chapter]
+\newtheorem{exercise}{}[section]
 
 %Solution environment
 \newenvironment{solution}
@@ -45,12 +58,12 @@
 
 
 \begin{document}
-	
 	%Chapter 1
+	\chapter{Preliminaries: Set theory and categories}
 	\import{Chapters/Chapter_I/}{section_1.tex}
 	\import{Chapters/Chapter_I/}{section_2.tex}
 	\import{Chapters/Chapter_I/}{section_3.tex}
 	\import{Chapters/Chapter_I/}{section_4.tex}
 	\import{Chapters/Chapter_I/}{section_5.tex}
-	
+		
 \end{document}
