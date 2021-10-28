@@ -1,5 +1,6 @@
 \documentclass{report}
 %I'm using the package cm-super implicitly since I had some trouble displaying \S in the same font as in the book. Let me know if you're having the same issue.
+%Setting margins
 \usepackage[margin = 1.75in]{geometry}
 %Basic Maths
 \usepackage{amsmath}
@@ -31,7 +32,7 @@
 %San-serif for names of categories
 \newcommand{\serif}[1]{{\fontfamily{cmss}\selectfont #1}}
 
-%Shorthands for commum sets
+%Shorthands for common sets
 \newcommand{\bN}{\mathbb{N}}
 \newcommand{\bZ}{\mathbb{Z}}
 \newcommand{\bQ}{\mathbb{Q}}
@@ -39,7 +40,7 @@
 \newcommand{\bC}{\mathbb{C}}
 
 %Miscellaneous commands
-\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\defeq}{\coloneqq}
 
 %Useful operations and delimiters
 \DeclareMathOperator{\Hom}{Hom}
