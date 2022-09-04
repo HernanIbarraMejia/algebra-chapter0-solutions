@@ -11,45 +11,64 @@
 	\end{itemize}
 	Show how to make this into a category (that is, define composition of morphisms in \serif{C}\(^{op}\) and verify the properties listed in \(\S 3.1\)).
 	
-	Intuitively, the ‘opposite’ category \serif{C}\(^{op}\) is simply obtained by ‘reversing all the arrows’ in \serif{C}. [\(5.1, \S \RN{8}.1.1, \S \RN{9}.1.2, \RN{9}.1.10\)]
+	Intuitively, the ‘opposite’ category \serif{C}\(^{op}\) is simply obtained by ‘reversing all the arrows’ in \serif{C}. [\(5.1, \S \RNo{8}.1.1, \S \RNo{9}.1.2, \RNo{9}.1.10\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $A,B,C$ be objects of $\srf{C}^{op}$ and let $f\in \Hom_{\srf{C}^{op}}(A,B)$ and let $g \in \Hom_{\srf{C}^{op}}(B,C)$. Then $f\in \Hom_{\srf{C}}(B,A)$ and $g \in \Hom_{\srf{C}}(C,B)$. As $\srf{C}$ is a category, let us write the composition of $g$ and $f$ as $f\circ_\srf{C} g\in \Hom_{\srf{C}}(C,A)$. Then we can define
+	\[
+		g\circ_{\srf{C}^{op}} f \coloneqq f \circ_{\srf{C}} g \in \Hom_{\srf{C}}(C,A) = \Hom_{\srf{C}^{op}}(A,C).
+	\]
+	
+	For simplicity, we omit the symbol $\circ_{\srf{C}}$ from now on. This law of composition is associative since, if we let $D$ be an object of $\srf{C}^{op}$ and $h\in\Hom_{\srf{C}^{op}}(C,D)$, then
+	\begin{equation*}
+		h \circ_{\srf{C}^{op}} (g \circ_{\srf{C}^{op}} f) = h \circ_{\srf{C}^{op}} (fg)  = (fg)h \stackrel{!}{=} f(gh) = f(h\circ_{\srf{C}^{op}} g) = (h\circ_{\srf{C}^{op}} g) \circ_{\srf{C}^{op}} f.
+	\end{equation*}
+	Notice we used the associativity in $\srf{C}$ at $\stackrel{!}{=}$.
+	
+	If $A$ is an object of $\srf{C}^{op}$ then it is an object of $\srf{C}$ and hence we must have an identity in $\srf{C}$, denoted $1_A \in \Hom_{\srf{C}}(A,A)$. But then $1\in \Hom_{\srf{C}^{op}}(A,A)$ and thus it works as an identity in $C^{op}$ as well. Indeed, if $B$ is an object of $\srf{C}^{op}$ then $1_B\in \Hom_{\srf{C}^{op}}(B,B)$ and we have, for all $f\in \Hom_{\srf{C}^{op}}(A,B)$,
+	\begin{gather*}
+		f\circ_{\srf{C}^{op}}1_A = 1_Af = f,  \\
+		1_B \circ_{\srf{C}^{op}} f = f1_B = f.
+	\end{gather*}
 \end{solution}
 
 \begin{exercise}
 	If \(A\) is a finite set, how large is \(\End_{\text{\serif{Set}}}(A)\)?
 \end{exercise}
 \begin{solution}
-	content...
+		$|A|^{|A|}$.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Formulate precisely what it means to say that \(1_a\) is an identity with respect to composition in Example 3.3, and prove this assertion. [\(\S 3.2\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $a,b\in S$, and let $f\in \Hom(a,b)$. Then $f= (a,b)$ by necessity. Furthermore, $1_a = (a,a)$ and $1_b = (b,b)$. Thus
+	\begin{gather*}
+		1_a f = (a,a)(a,b) = (a,b) = f, \\
+		f1_b = (a,b)(b,b) = (a,b) = f.
+	\end{gather*}
 \end{solution}
 
 \begin{exercise}
 	Can we define a category in the style of Example 3.3 using the relation \(<\) on the set \(\bZ\)?
 \end{exercise}
 \begin{solution}
-	content...
+	No because $<$ is not reflexive; hence the resulting ``category'' would not have identities.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Explain in what sense Example 3.4 is an instance of the categories considered in Example 3.3. [\(\S 3.2\)]
 \end{exercise}
 \begin{solution}
-	content...
+	In the power set of a set (or more generally in any set of sets), the relation $\subseteq$ is reflexive and transitive. 
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) (Assuming some familiarity with linear algebra.) Define a category \serif{V} by taking Obj(\serif{V}) = \(\bN\) and letting \(\Hom_{\text{\serif{V}}}(n,m)\) = the set of \(n \times m\) matrices with real entries, for all \(n, m \in \bN\) (We will leave the reader the task of making sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category ‘feel’ familiar? [\(\S \RN{6}.2.1, \S \RN{8}.1.3\)]
+	\(\triangleright\) (Assuming some familiarity with linear algebra.) Define a category \serif{V} by taking Obj(\serif{V}) = \(\bN\) and letting \(\Hom_{\text{\serif{V}}}(n,m)\) = the set of \(n \times m\) matrices with real entries, for all \(n, m \in \bN\) (We will leave the reader the task of making sense of a matrix with 0 rows or columns.) Use product of matrices to define composition. Does this category ‘feel’ familiar? [\(\S \RNo{6}.2.1, \S \RNo{8}.1.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	In this category the product of matrices is associative, hence they form a valid composition law. Furthermore, identity matrices clearly behave like identities with respect to this composition.
 \end{solution}
 
 \begin{exercise}
@@ -57,33 +76,160 @@
 	corresponding to composition. [\(\S 3.2\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Objects of $\srf{C}^A$ are morphisms from $A$ to $Z$ for some object $Z$ of $\srf{C}$, i.e. $A \rightarrow Z$. Then if we have some $A \xrightarrow{f} Z_1$ and some $A \xrightarrow{g} Z_2$ then a morphism from the former to the latter is a commutative diagram
+	% https://q.uiver.app/?q=WzAsMyxbMCwxLCJBIl0sWzEsMCwiWl8xIl0sWzEsMiwiWl8yIl0sWzAsMSwiZiJdLFswLDIsImciLDJdLFsxLDIsIlxcc2lnbWEiXV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& {Z_1} \\
+		A \\
+		& {Z_2}
+		\arrow["f", from=2-1, to=1-2]
+		\arrow["g"', from=2-1, to=3-2]
+		\arrow["\sigma", from=1-2, to=3-2]
+	\end{tikzcd}\]
+	where $\sigma \in \Hom_{\srf{C}}(Z_1,Z_2)$.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) A \textit{subcategory} \serif{C'} of a category \serif{C} consists of a collection of objects of \serif{C}, with morphisms \(\Hom_{\text{\serif{C'}}}(A,B) \subseteq \Hom_{\text{\serif{C}}}(A,B)\) for all objects \(A, B\) in Obj(\serif{C'}), such that identities and compositions in \serif{C} make \serif{C'} into a category. A subcategory \serif{C'} is \textit{full} if \(\Hom_{\text{\serif{C'}}}(A,B) = \Hom_{\text{\serif{C}}}(A,B)\) for all \(A, B\) in Obj(\serif{C'}). Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of \serif{Set}. [\(4.4, \S \RN{6}.1.1, \S \RN{8}.1.3\)]
+	\(\triangleright\) A \textit{subcategory} \serif{C'} of a category \serif{C} consists of a collection of objects of \serif{C}, with morphisms \(\Hom_{\text{\serif{C'}}}(A,B) \subseteq \Hom_{\text{\serif{C}}}(A,B)\) for all objects \(A, B\) in Obj(\serif{C'}), such that identities and compositions in \serif{C} make \serif{C'} into a category. A subcategory \serif{C'} is \textit{full} if \(\Hom_{\text{\serif{C'}}}(A,B) = \Hom_{\text{\serif{C}}}(A,B)\) for all \(A, B\) in Obj(\serif{C'}). Construct a category of \textit{infinite sets} and explain how it may be viewed as a full subcategory of \serif{Set}. [\(4.4, \S \RNo{6}.1.1, \S \RNo{8}.1.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Define $\textnormal{Obj}(\srf{C}')$ to be all infinite sets, and define $\Hom_{\srf{C}'}(A,B) \coloneqq B^A = \Hom_{\srf{Set}}(A,B)$. Under these definitions, it is clear that $\srf{C}'$ is a full subcategory of $\srf{Set}$.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) An alternative to the notion of \textit{multiset} introduced in \(\S 2.2\) is obtained by considering sets endowed with equivalence relations; equivalent elements are taken to be multiple instances of elements ‘of the same kind’. Define a notion of morphism between such enhanced sets, obtaining a category \serif{MSet} containing (a ‘copy’ of) \serif{Set} as a full subcategory. (There may be more than one reasonable way to do this! This is intentionally an open-ended exercise.) Which objects in \serif{MSet} determine ordinary multisets as defined in \(\S 2.2\) and how? Spell out what a morphism of multisets would be from this point of view. (There are several natural notions of morphisms of multisets. Try to define morphisms in \serif{MSet} so that the notion you obtain for ordinary multisets captures your intuitive understanding of these objects.) [\(\S 2.2, \S 3.2, 4.5\)]
 \end{exercise}
 \begin{solution}
-	content...
+	If $(A,\sim_A)$ and $(B,\sim_B)$ are multisets as described in the question, then morphisms from $(A,\sim_A)$ to $(B,\sim_B)$ are functions $f\colon A \to B$ such that
+	\[
+		a' \sim_A a'' \implies f(a')\sim_B f(a'')\textnormal{ for all }a',a''\in A.
+	\]
+	It is trivial to check the axioms of a category. An isomorphism between to multisets would be a bijection between the underlying sets that preserves the equivalence classes.
+	
+	$\srf{Set}$ is a full subcategory of $\srf{MSet}$ in the sense that it is the same as the full subcategory consisting of multisets of the form $(S,=)$.
+	
+	The objects of $\srf{MSet}$ that are multisets in the sense of $\S 2.2$ are the ones in which the equivalence classes contain finitely many elements.
 \end{solution}
 
 \begin{exercise}
 	Since the objects of a category \serif{C} are not (necessarily) sets, it is not clear how to make sense of a notion of ‘subobject’ in general. In some situations it \textit{does} make sense to talk about subobjects, and the subobjects of any given object \(A\) in \serif{C} are in one-to-one correspondence with the morphisms \(A \to \Omega\) for a fixed, special object \(\Omega\) of \serif{C}, called a \textit{subobject classifier}. Show that \serif{Set} has a subobject classifier.
 \end{exercise}
 \begin{solution}
-	content...
+	Indeed, $\{0,1\}$ is such a subobject classifier; this is the content of Exercise 2.11.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Draw the relevant diagrams and define composition and identities for the category \serif{C}\(^{A,B}\) mentioned in Example 3.9. Do the same for the category \serif{C}\(^{\alpha,\beta}\) mentioned in Example 3.10. [\(\S 5.5, 5.12\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Objects in $\srf{C}^{A,B}$ are diagrams of the form
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBIl0sWzAsMiwiQiJdLFsxLDEsIloiXSxbMCwyXSxbMSwyXV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A \\
+		& Z \\
+		B
+		\arrow[from=1-1, to=2-2]
+		\arrow[from=3-1, to=2-2]
+	\end{tikzcd},\]
+	where $Z$ is an object of $\srf{C}$ and arrows correspond to morphisms in $\srf{C}$ in the obvious way. 
+	
+	Given two objects of $\srf{C}^{A,B}$
+	% https://q.uiver.app/?q=WzAsNixbMCwwLCJBIl0sWzAsMiwiQiJdLFsxLDEsIlpfMSJdLFszLDAsIkEiXSxbMywyLCJCIl0sWzQsMSwiWl8yIl0sWzAsMiwiZl8xIl0sWzEsMiwiZ18xIiwyXSxbMyw1LCJmXzIiXSxbNCw1LCJnXzIiXV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A &&& A \\
+		& {Z_1} &&& {Z_2} \\
+		B &&& B
+		\arrow["{f_1}", from=1-1, to=2-2]
+		\arrow["{g_1}"', from=3-1, to=2-2]
+		\arrow["{f_2}", from=1-4, to=2-5]
+		\arrow["{g_2}", from=3-4, to=2-5]
+	\end{tikzcd}.\]
+	
+	A morphism from the leftmost one to the other one is given by a commutative diagram of the form
+	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMCwyLCJCIl0sWzAsMCwiQSJdLFswLDEsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMiwwLCJnXzEiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMiwxLCJnXzIiLDIseyJjdXJ2ZSI6Mn1dLFszLDAsImZfMSIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFszLDEsImZfMiIsMCx7ImN1cnZlIjotMn1dXQ==
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A \\
+		& {Z_1} & {Z_2} \\
+		B
+		\arrow["\sigma"{pos=0.3}, from=2-2, to=2-3]
+		\arrow["{g_1}"'{pos=0.6}, from=3-1, to=2-2]
+		\arrow["{g_2}"', curve={height=12pt}, from=3-1, to=2-3]
+		\arrow["{f_1}"{pos=0.6}, from=1-1, to=2-2]
+		\arrow["{f_2}", curve={height=-12pt}, from=1-1, to=2-3]
+	\end{tikzcd},\]
+	for some $\sigma\in \Hom_{\srf{C}}(Z_1,Z_2)$. Given two morphisms
+	% https://q.uiver.app/?q=WzAsOCxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMywwLCJBIl0sWzMsMiwiQiJdLFswLDIsIkIiXSxbMCwwLCJBIl0sWzQsMSwiWl8yIl0sWzUsMSwiWl8zIl0sWzAsMSwiXFxzaWdtYSIsMCx7ImxhYmVsX3Bvc2l0aW9uIjozMH1dLFs0LDAsImdfMSIsMix7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFs0LDEsImdfMiIsMix7ImN1cnZlIjoyfV0sWzUsMCwiZl8xIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzUsMSwiZl8yIiwwLHsiY3VydmUiOi0yfV0sWzIsNiwiZl8yIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzMsNiwiZ18yIiwyLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzIsNywiZl8zIiwwLHsiY3VydmUiOi0yfV0sWzMsNywiZ18zIiwyLHsiY3VydmUiOjJ9XSxbNiw3LCJcXHRhdSIsMCx7ImxhYmVsX3Bvc2l0aW9uIjozMH1dXQ==
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A &&& A \\
+		& {Z_1} & {Z_2} && {Z_2} & {Z_3} \\
+		B &&& B
+		\arrow["\sigma"{pos=0.3}, from=2-2, to=2-3]
+		\arrow["{g_1}"'{pos=0.6}, from=3-1, to=2-2]
+		\arrow["{g_2}"', curve={height=12pt}, from=3-1, to=2-3]
+		\arrow["{f_1}"{pos=0.6}, from=1-1, to=2-2]
+		\arrow["{f_2}", curve={height=-12pt}, from=1-1, to=2-3]
+		\arrow["{f_2}"{pos=0.6}, from=1-4, to=2-5]
+		\arrow["{g_2}"'{pos=0.6}, from=3-4, to=2-5]
+		\arrow["{f_3}", curve={height=-12pt}, from=1-4, to=2-6]
+		\arrow["{g_3}"', curve={height=12pt}, from=3-4, to=2-6]
+		\arrow["\tau"{pos=0.3}, from=2-5, to=2-6]
+	\end{tikzcd},\]	
+	we can combine them to form one big commutative diagram.
+	% https://q.uiver.app/?q=WzAsNSxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMCwyLCJCIl0sWzAsMCwiQSJdLFszLDEsIlpfMyJdLFswLDEsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMiwwLCJnXzEiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMiwxLCJnXzIiLDIseyJsYWJlbF9wb3NpdGlvbiI6NzAsImN1cnZlIjoyfV0sWzMsMCwiZl8xIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzMsMSwiZl8yIiwwLHsibGFiZWxfcG9zaXRpb24iOjcwLCJjdXJ2ZSI6LTJ9XSxbMyw0LCJmXzMiLDAseyJjdXJ2ZSI6LTR9XSxbMiw0LCJnXzMiLDIseyJjdXJ2ZSI6NH1dLFsxLDQsIlxcdGF1IiwwLHsibGFiZWxfcG9zaXRpb24iOjMwfV1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A \\
+		& {Z_1} & {Z_2} & {Z_3} \\
+		B
+		\arrow["\sigma"{pos=0.3}, from=2-2, to=2-3]
+		\arrow["{g_1}"'{pos=0.6}, from=3-1, to=2-2]
+		\arrow["{g_2}"'{pos=0.7}, curve={height=12pt}, from=3-1, to=2-3]
+		\arrow["{f_1}"{pos=0.6}, from=1-1, to=2-2]
+		\arrow["{f_2}"{pos=0.7}, curve={height=-12pt}, from=1-1, to=2-3]
+		\arrow["{f_3}", curve={height=-24pt}, from=1-1, to=2-4]
+		\arrow["{g_3}"', curve={height=24pt}, from=3-1, to=2-4]
+		\arrow["\tau"{pos=0.3}, from=2-3, to=2-4]
+	\end{tikzcd}.\]
+	It is immediate that the diagram obtained by removing the middle object is commutative; that is to say that the diagram
+	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMCwyLCJCIl0sWzAsMCwiQSJdLFswLDEsIlxcdGF1XFxzaWdtYSIsMCx7ImxhYmVsX3Bvc2l0aW9uIjozMH1dLFsyLDAsImdfMSIsMix7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFsyLDEsImdfMyIsMix7ImN1cnZlIjoyfV0sWzMsMCwiZl8xIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzMsMSwiZl8zIiwwLHsiY3VydmUiOi0yfV1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A \\
+		& {Z_1} & {Z_2} \\
+		B
+		\arrow["\tau\sigma"{pos=0.3}, from=2-2, to=2-3]
+		\arrow["{g_1}"'{pos=0.6}, from=3-1, to=2-2]
+		\arrow["{g_3}"', curve={height=12pt}, from=3-1, to=2-3]
+		\arrow["{f_1}"{pos=0.6}, from=1-1, to=2-2]
+		\arrow["{f_3}", curve={height=-12pt}, from=1-1, to=2-3]
+	\end{tikzcd}\]
+	commutes. Identities in $\srf{C}^{A,B}$ are just diagrams of the form
+	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJaIl0sWzAsMiwiQiJdLFswLDAsIkEiXSxbMiwxLCJaIl0sWzEsMCwiZyIsMix7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFsyLDAsImYiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMSwzLCJnIiwyLHsiY3VydmUiOjJ9XSxbMCwzLCIxX1oiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMiwzLCJmIiwwLHsiY3VydmUiOi0yfV1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		A \\
+		& Z & Z \\
+		B
+		\arrow["g"'{pos=0.6}, from=3-1, to=2-2]
+		\arrow["f"{pos=0.6}, from=1-1, to=2-2]
+		\arrow["g"', curve={height=12pt}, from=3-1, to=2-3]
+		\arrow["{1_Z}"{pos=0.3}, from=2-2, to=2-3]
+		\arrow["f", curve={height=-12pt}, from=1-1, to=2-3]
+	\end{tikzcd}.\]
+	Again, it is immediate that this diagram commutes and it behaves like an identity with respect to composition.
+	
+	For the category $\srf{C}^{\alpha, \beta}$ we are given some fixed objects of $\srf{C}$, call them $A,B,C$, and fixed morphisms $\alpha\colon C \to A$ and $\beta\colon C \to B$. An object in $\srf{C}^{\alpha, \beta}$ is a commutative diagram of the form 
+	% https://q.uiver.app/?q=WzAsNCxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaIl0sWzIsMSwiXFxhbHBoYSJdLFsyLDAsIlxcYmV0YSIsMl0sWzEsM10sWzAsM11d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A \\
+		C && Z \\
+		& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow[from=1-2, to=2-3]
+		\arrow[from=3-2, to=2-3]
+	\end{tikzcd},\]
+	where $Z$ is an object of $\srf{C}$ and arrows correspond to morphisms in $\srf{C}$ in the obvious way. 
+	
+	Given two objects 
+	
+	
+	
 \end{solution}

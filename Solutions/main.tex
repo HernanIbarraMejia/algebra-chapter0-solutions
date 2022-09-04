@@ -8,14 +8,16 @@
 \usepackage{mathtools}
 %For definining theorem-like environments
 \usepackage{amsthm}
-%For drawing commutative diagrams
-\usepackage{tikz-cd}
 %For beautiful letters (e.g. for a partition, see $\mathscr{P}$)
 \usepackage{mathrsfs}
 %For importing the solution file
 \usepackage{import}
+%For drawing commutative diagrams
+\usepackage{quiver}
 
-\usepackage{lipsum}
+%For bibliography
+\usepackage{biblatex}
+\addbibresource{main.bib}
 
 
 %Fix section numbering to match the book's convention
@@ -25,12 +27,13 @@
 \newcommand{\extitle}{\subsection*{Exercises}}
 
 %Roman numerals!
-\newcommand{\RN}[1]{%
+\newcommand{\RNo}[1]{%
 	\textup{\uppercase\expandafter{\romannumeral#1}}%
 }
 
 %San-serif for names of categories
 \newcommand{\serif}[1]{{\fontfamily{cmss}\selectfont #1}}
+\newcommand{\srf}{\textsf}
 
 %Shorthands for common sets
 \newcommand{\bN}{\mathbb{N}}
@@ -46,6 +49,7 @@
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\id}{id}
 \DeclarePairedDelimiter{\ord}{\lvert}{\rvert}
 
 %Exercise environment
@@ -57,6 +61,14 @@
 {\begin{proof}[Solution]}
 	{\end{proof}}
 
+%Function restrictions
+% From https://tex.stackexchange.com/a/22255
+\newcommand\restr[2]{{% we make the whole thing an ordinary symbol
+		\left.\kern-\nulldelimiterspace % automatically resize the bar with \right
+		#1 % the function
+		\vphantom{\big|} % pretend it's a little taller at normal size
+		\right|_{#2} % this is the delimiter
+}}
 
 \begin{document}
 	%Chapter 1
@@ -66,5 +78,6 @@
 	\import{Chapters/Chapter_I/}{section_3.tex}
 	\import{Chapters/Chapter_I/}{section_4.tex}
 	\import{Chapters/Chapter_I/}{section_5.tex}
-		
+	
+	\printbibliography
 \end{document}

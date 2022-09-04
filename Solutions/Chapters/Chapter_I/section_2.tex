@@ -2,78 +2,136 @@
 \extitle
 
 \begin{exercise}
-	\(\triangleright\) How many different bijections are there between a set \(S\) with \(n\) elements and itself? [\(\S \RN{2}.2.1\)]
+	\(\triangleright\) How many different bijections are there between a set \(S\) with \(n\) elements and itself? [\(\S \RNo{2}.2.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	$n!$.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint subsets of a set, there is a way to choose one element in each member of the family. [\(\S 2.5, \RN{5}.3.3\)]
+	\(\triangleright\) Prove statement (2) in Proposition 2.1. You may assume that given a family of disjoint subsets of a set, there is a way to choose one element in each member of the family. [\(\S 2.5, \RNo{5}.3.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	First we prove that if $f\colon A \to B$ has a right inverse then it is a surjection. Let $g\colon B \to A$ the the right inverse of $f$. Let $b\in B$. Then clearly $f(g(b)) = b$, so $f$ is surjective.
+	
+	Conversely, assume $f$ is surjective. Then, if $b\in B$, we have that $f^{-1}(\{b\})$ is nonempty. For $b \in B$ we pick some $a_b\in f^{-1}(\{b\})$ and define $g\colon B \to A$ by $g(b)\coloneqq a_b$. By construction, $f\circ g = \textnormal{id}_B$.
 \end{solution}
 
 \begin{exercise}
 	Prove that the inverse of a bijection is a bijection and that the composition of two bijections is a bijection.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $f\colon A \to B$ and $g\colon B \to C$ be two bijections. Then $f^{-1}$ is also a bijection since it has a two-sided inverse, namely $f$. Also, $g\circ f$ is a bijection since $f^{-1} \circ g^{-1}$ is a two-sided inverse.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Prove that ‘isomorphism’ is an equivalence relation (on any set of sets). [\(\S 4.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	See Exercise 2.3 for some necessary results. Clearly for any set $A$ we have that $A$ is isomorphic to $A$ since $\id_A \colon A \to A$ is a bijection. If $A$ is isomorphic to $B$ then there is some bijection $f \colon A \to B$. But then $f^{-1}\colon B \to A$ is also a bijection and hence $B$ is isomorphic to $A$. Now suppose $A$ is isomorphic to $B$ and $B$ is isomorphic to $C$, where $f\colon A \to B$ and $g\colon B \to C$ are bijections. Then $g\circ f\colon A \to C$ is also a bijection and so $A$ is isomorphic to $C$.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Formulate a notion of \textit{epimorphism}, in the style of the notion of \textit{monomorphism} seen in \(\S 2.6\), and prove a result analogous to Proposition 2.3, for epimorphisms and surjections. [\(\S 2.6, \S 4.2\)]
 \end{exercise}
 \begin{solution}
-	content...
+	We say a function $f\colon A \to B$ is an \emph{epimorphism} (or \emph{epic}) if the following holds:
+	\[
+		\textnormal{\textit{for all sets $Z$ and all functions $\beta',\beta''\colon B \to Z$}}
+	\]
+	\[
+		\beta'\circ f = \beta'' \circ f \implies \beta' = \beta''.
+	\]
+	Now we claim that a function is an epimorphism iff it is a surjection. Indeed, if $f\colon A \to B$ is a surjection then it has a right inverse $g\colon B \to A$. Suppose $Z$ is a set and let $\beta', \beta''\colon B \to Z$ be functions with $\beta' \circ f = \beta'' \circ f$. Then $(\beta' \circ f)\circ g = (\beta'' \circ f)\circ g$ which implies $\beta' \circ (f\circ g) = \beta'' \circ (f\circ g)$, and this in turn implies $\beta' \circ \id_B = \beta'' \circ \id_B$, and so $\beta = \beta''$ as desired.
+	
+	Now suppose $f\colon A \to B$ is an epimorphism. For the sake of contradiction, suppose there is some $b_0\in B$ such that $f(a) \neq b_0$ for all $a\in A$. Let $Z = \{0,1\}$ and define $\beta',\beta''\colon B \to Z$ by
+	\[
+		\beta'(b) \coloneqq 0 \,\textnormal{ and } \,\beta''(b)\coloneqq \begin{cases}
+			0 & \textnormal{if } b\neq b_0\\
+			1 & \textnormal{if } b = b_0
+		\end{cases},
+	\]
+	for all $b\in B$. Clearly $\beta'\circ f = \beta'' \circ f$ but $\beta' \neq \beta''$, a contradiction. So $f$ must be a surjection.
 \end{solution}
 
 \begin{exercise}
 	With notation as in Example 2.4, explain how any function \(f \colon A \to B\) determines a section of \(\pi_A\).
 \end{exercise}
 \begin{solution}
-	content...
+	Define $\pi_A^*\colon A \to A \times B$ by the rule $\pi_A^*(a) \coloneqq (a, f(a))$. This is manifestly a section of $\pi_A$.
 \end{solution}
 
 \begin{exercise}
 	Let \(f \colon A \to B\) be any function. Prove that the graph \(\Gamma_f\) of \(f\) is isomorphic to \(A\).
 \end{exercise}
 \begin{solution}
-	content...
+	Define $f^*\colon A \to \Gamma_f$ by the rule $f^*(a) \coloneqq (a,f(a))$. We claim that $f^*$ is a bijection. Indeed, we will see that the natural projection restricted to $\Gamma_f$, written as $\restr{\pi_A}{\Gamma_f}$, is a two-sided inverse. Let $a\in A$ and consider
+	\begin{align*}
+		(\restr{\pi_A}{\Gamma_f} \circ f^*)(a) &= \restr{\pi_A}{\Gamma_f}(a,f(a))\\
+		&= a = \id_A(a).
+	\end{align*}
+	Similarly, let $(a,f(a))$ be an arbitrary element of $\Gamma_f$. Then
+	\begin{align*}
+		(f^*\circ \restr{\pi_A}{\Gamma_f})(a,f(a)) &= f^{*}(a)\\
+		&= (a,f(a)) = \id_{\Gamma_f}(a,f(a)).
+	\end{align*}
+	Thus $f^*$ is a bijection.
 \end{solution}
 
 \begin{exercise}
 	Describe as explicitly as you can all terms in the canonical decomposition (cf. \(\S 2.8\)) of the function \(\bR \to \bC\) defined by \(r \mapsto e^{2\pi ir}\). (This exercise matches one assigned previously. Which one?)
 \end{exercise}
 \begin{solution}
-	content...
+	Let $f \colon \bR \to \bC$ be defined by $f(r) \coloneqq e^{2\pi i r}$. We define an equivalence relation on $\bR$ by $a\sim a' \iff f(a') = f(a'')$. This is easily seen to be equivalent the same as the equivalence relation defined in Exercise 1.6. In that exercise we saw that the quotient can be identified with the interval $[0,1)$ and the projection $\pi \colon \bR \to \bR/\sim$ is assigning to each real number its (positive) fractional part. Then the canonical decomposition gives a bijection from the quotient, i.e. $[0,1)$, to the image of $f$, i.e. the unit circle in the complex plane, by assigning to each $x \in [0,1)$ the point $e^{2\pi ix}$. Finally, this unit circle is included in the whole complex plane, in the obvious sense.
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Show that if \(A' \cong A''\) and \(B' \cong B''\), and further \(A' \cap B' = \emptyset\) and \(A'' \cap B'' = \emptyset\), then \(A' \cup B' \cong A'' \cup B''\). Conclude that the operation \(A \sqcup B\) (as described in \(\S 1.4\)) is well-defined up to \textit{isomorphism} (cf. \(\S 2.9\)). [\(\S 2.9, 5.7\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $f\colon A' \to A''$ and $g\colon B \to B'$ be bijections. Let us define $f\oplus g \colon A'\cup B' \to A''\cup B''$ by the rule
+	\[
+		f\oplus g(x) \coloneqq 
+		\begin{cases}
+			f(x) & \textnormal{if } x\in A'\\
+			g(x) & \textnormal{if } x\in B'
+		\end{cases}.
+	\]
+	This is well defined since if $x\in A'\cup B'$ then $x\in A'$ or $x\in B'$ but not both, since $A'\cap B' = \emptyset$.
+	
+	Now we prove $f\oplus g$ is a bijection. Define $f^{-1} \oplus g^{-1}\colon A''\cup B'' \to A' \cup B'$ by 
+	\[
+		f^{-1}\oplus g^{-1} (y)\coloneqq 
+		\begin{cases}
+			f^{-1}(y) & \textnormal{if } y \in A''\\
+			g^{-1}(y) & \textnormal{if } y \in B''
+		\end{cases}.
+	\]
+	This is well defined since if $y\in A''\cup B''$ then $y\in A''$ or $y\in B''$ but not both, since $A''\cap B'' = \emptyset$. It is immediately verified that $f\oplus g$ and $f^{-1}\oplus g^{-1}$ are inverses of each other and hence they are bijections.
+	
+	In conclusion, no matter how we make disjoint copies of $A$ and $B$, the resulting disjoint unions will be isomorphic. Hence, it makes some sense to talk about \emph{the} disjoint union of $A$ and $B$.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) Show that if \(A\) and \(B\) are finite sets, then \(\ord{BA} = \ord{B}^{\ord{A}}\). [\(\S 2.1, 2.11, \S \RN{2}.4.1\)]
+	\(\triangleright\) Show that if \(A\) and \(B\) are finite sets, then \(\ord{B^A} = \ord{B}^{\ord{A}}\). [\(\S 2.1, 2.11, \S \RNo{2}.4.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $|A| = n$. We use induction on $n$. If $n = 0$ then $A = \emptyset$ and there is only one function $\emptyset \to B$, and further $1 = |B|^0$. This closes the base case. 
+	
+	Suppose the claim is true for some natural number $n$. Defining a function from a set of $n+1$ elements to $B$ is the same as first defining it for $n$ elements, for which there are $|B|^n$ choices by inductive hypothesis, and then figuring out where the last element goes, for which there are $|B|$ choices. Overall, there must be $|B|^n|B| = |B|^{n+1}$ ways of defining the function when $|A| = n+1$. This closes the induction.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) In view of Exercise 2.10, it is not unreasonable to use \(2^A\) to denote the set of functions from an arbitrary set \(A\) to a set with 2 elements (say \(\{0, 1\}\). Prove that there is a bijection between \(2^A\) and the \textit{power set} of \(A\) (cf. \(\S 1.2\)). [\(\S 1.2, \RN{3}.2.3\)]
+	\(\triangleright\) In view of Exercise 2.10, it is not unreasonable to use \(2^A\) to denote the set of functions from an arbitrary set \(A\) to a set with 2 elements (say \(\{0, 1\}\). Prove that there is a bijection between \(2^A\) and the \textit{power set} of \(A\) (cf. \(\S 1.2\)). [\(\S 1.2, \RNo{3}.2.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Define $F\colon 2^A \to \mathscr{P}(A)$ by the rule
+	\[
+		F(f) \coloneqq g^{-1}(\{1\}),\textnormal{ for all }f\colon A \to \{0,1\}.
+	\]
+	Now define $G\colon \mathscr{P}(A) \to 2^A$ by saying that, for all $S \subseteq A$ we have
+	\[
+		G(S) \coloneqq \mathbf{1}_S,
+	\]
+	where $\mathbf{1}_S$ is the indicator function of $S$, defined on $A$. It is readily seen that $F$ and $G$ are inverses of each other and hence bijections.
 \end{solution}

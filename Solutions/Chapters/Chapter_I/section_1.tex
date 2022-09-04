@@ -4,33 +4,56 @@
 	Locate a discussion of Russell's paradox, and understand it.
 \end{exercise}
 \begin{solution}
+	There are many available options. I first read about Russell's paradox in Section 3.2 of \cite{tao2014analysis}.
 \end{solution}
 \begin{exercise}
 	$\triangleright$ Prove that if $\sim$ is a relation on a set $S$, then the corresponding family $\mathscr{P}_{\sim}$ defined in $\S1.5$  is indeed a partition of $S$: that is, its elements are nonempty, disjoint, and their union is $S$. [$\S1.5$]
 \end{exercise}
 \begin{solution}
+	Let $[a]_\sim\in \mathscr{P}_{\sim}$ for some $a\in S$. Then $[a]_\sim$ is nonempty since it contains $a$, by reflexivity. 
+	
+	Let $[b]_\sim$ be another equivalence class, where $b\in S$. Suppose $c\in [a]_\sim \cap\, [b]_\sim$, that is $c\sim a$ and $c \sim b$. By symmetry we have $a \sim c$ and $c \sim b$. By transitivity this implies $a\sim b$. From this, it is not hard to show that $[a]_\sim = [b]_\sim$. In conclusion, equivalence classes are either equal or disjoint.
+	
+	Clearly $\bigcup_{s\in S} [s]_\sim \subseteq S$ since we are taking the union of subsets of $S$. Conversely, $S\subseteq \bigcup_{s\in S} [s]_\sim$ since $s\in [s]_{\sim}$ for all $s\in S$ by reflexivity. 
 \end{solution}
 \begin{exercise}
 	$\triangleright$ Given a partition $\mathscr{P}$ on a set $S$, show how to define an equivalence relation $\sim$ on $S$ such that $\mathscr{P}$ is the corresponding partition. [$\S1.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	For $a,b\in S$ we say $a\sim b$ iff there exists some $X \in \mathscr{P}$ such that $a,b\in X$. 
 \end{solution}
 \begin{exercise}
 	How many different equivalence relations may be defined on the set $\{1,2,3\}$?
 \end{exercise}
 \begin{solution}
-	content...
+	This is equivalent to finding all partitions of $\{1,2,3\}$.
+	\[
+	\begin{matrix}
+		\{\{1\},\{2\},\{3\}\} & \{\{1\}, \{2,3\}\} & \{\{1,3\},\{2\}\}
+	\end{matrix}
+	\]
+	\[
+		\begin{matrix}
+			\{\{1,2\},\{3\}\} & \{\{1,2,3\}\}.
+		\end{matrix}
+	\]
 \end{solution}
 \begin{exercise}
 	Give an example of a relation that is reflexive and symmetric but not transitive. What happens if you attempt to use this relation to define a partition on the set? (Hint: Thinking about the second question will help you answer the first one.)
 \end{exercise}
 \begin{solution}
-	content...
+	Consider the relation in the set $\bR$, defined by the following rule. Let $a,b \in \bR$. We say $a\sim b$ iff $|a-b| \leq 1$. This relation is clearly reflexive and symmetric, but it is not transitive (why?).
+	
+	A reflexive, symmetric, non-transitive relation will result in a ``partition'' in which the classes are no longer disjoint.
+	
 \end{solution}
 \begin{exercise}
-	$\triangleright$ Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a \sim b \iff b-a\in \mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/{\sim}$. Do the same for the relation $\approx$ on the plane $\mathbb{R} \times \mathbb{R}$ defined by declaring $(a_1,a_2) \approx (b_1,b_2) \iff b_1 - a_1 \in \mathbb{Z}\textnormal{ and }b_2 - a_2\in\mathbb{Z}$. [$\S \RN{2}.8.1,\RN{2}.8.10$]
+	$\triangleright$ Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a \sim b \iff b-a\in \mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/{\sim}$. Do the same for the relation $\approx$ on the plane $\mathbb{R} \times \mathbb{R}$ defined by declaring $(a_1,a_2) \approx (b_1,b_2) \iff b_1 - a_1 \in \mathbb{Z}\textnormal{ and }b_2 - a_2\in\mathbb{Z}$. [$\S \RNo{2}.8.1,\RNo{2}.8.10$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $a,b,c \in \bR$. We have that $a-a = 0 \in \bZ$, so $a\sim a$ and the relation is reflexive. If $a\sim b$ then $b-a \in \bZ$ and so $-(b-a) = a -b \in \bZ$, which means $b\sim a$; hence the relation is symmetric. Finally, if $a\sim b$ and $b \sim c$ then $b-a$ and $c - b$ are integers and so $(b-a) + (c-b) = c-a \in \bZ$, which means $a\sim c$ and the relation is transitive. We have shown that this is an equivalence relation. Notice that we are identifying real numbers that differ by an integer. In particular, we are identifying each (positive) real number with its fractional part (a similar thing is true for negative real numbers). So we can think of the quotient $\bR/{\sim}$ as the interval $[0,1)$ since every number in this interval is a representative of a unique equivalence class, and these are all the equivalence classes.
+	
+	For $\approx$ a similar discussion applies: it is analogously showed it is an equivalence relation, and one can think of the quotient as the unit square $[0,1)\times [0,1)$. This result also follows from Exercise 5.11.
+	
+	
 \end{solution}
