@@ -1,0 +1,143 @@
+\section{Definition of group}
+\extitle
+\begin{exercise}
+	$\triangleright$ Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category. [$\S 2.1$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ Consider the `sets of numbers' listed in $\S 1.1$, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for example, $(\bR, \cdot)$ is not a group), see if variations on the definitions of these sets lead to groups (for example, $(\bR^{*}, \cdot)$ \emph{is} a group; cf. $\S 1.4$). [$\S 1.2$] 
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	The `multiplication table' of a group is an array compiling the results of all multiplications $g\bullet h$:
+	{%Make spacing between the rows in the table a bit bigger
+	\renewcommand{\arraystretch}{1.5}
+	\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & \cdots & h & \cdots\\
+			\hline
+			\hline
+			e & e & \cdots & h & \cdots \\
+			\hline
+			\cdots & \cdots & \cdots & \cdots & \cdots \\
+			\hline
+			g & g & \cdots & g\bullet h & \cdots \\
+			\hline
+			\cdots & \cdots & \cdots & \cdots & \cdots 
+		\end{array}
+	\]
+	}
+	(Here $e$ is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly $1,2$, or $3$ elements. Analyze the possible multiplication tables for groups with exactly $4$ elements, and show that there are \emph{two} distinct tables, up to reordering of the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.
+	
+	(You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) [$2.19$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove Corollary 1.11.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Prove that $\prod_{g\in G}g = f$. [4.16]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g\in G$ of order exactly 2. Prove that $n-m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Suppose the order of $g$ is odd. What can you say about the order of $g^2$?
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that for all $g$, $h$ in a group $G$, $|gh| = |hg|$. (Hint: Prove that $|aga^{-1}| = |g|$ for all $a$, $g$ in $G$.)
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ In the group of invertible $2\times 2$ matrices, consider
+	\[
+		g = 
+		\begin{pmatrix*}[r]
+			0 & -1\\
+			1 & 0\\
+		\end{pmatrix*},
+		\; \; \;
+		h= 
+		\begin{pmatrix*}[r]
+			0 & 1 \\
+			-1 & -1
+		\end{pmatrix*}.
+	\]
+	Verify that $|g| = 4$, $|h| = 3$, and $|gh| = \infty$. [$\S 1.6$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ Give an example showing that $|gh|$ is not necessarily equal to $\lcm(|g|,|h|)$, even if $g$ and $h$ commute. [$\S 1.6$, 1.14]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ As a counterpoint to Exercise 1.13, prove that if $g$ and $h$ commute \emph{and} $\gcd(|g|,|h|) = 1$, then $|gh| = |g||h|$. (Hint: Let $N=|gh|$; then $g^N = (h^{-1})^N$. What can you say about this element?) [$\S 1.6$, 1.15, $\RNo{4}.2.5$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Let $G$ be a commutative group, and let $g\in G$ be an element of maximal \emph{finite} order, that is, such that if $h\in G$ has finite order, then $|h|\leq |g|$. Prove that in fact if $h$ has finite order in $G$, then $h$ \emph{divides} $g$. (Hint: Argue by contradiction. If $h$ is finite but does not divide $g$, then there is a prime integer $p$ such that $|g| = p^mr$, $|h| = p^ns$, with $r$ and $s$ relatively prime to $p$ and $m < n$. Use Exercise 1.14 to compute the order of $g^{p^{m}}h^s$.) [$\S 2.1$, 4.11, \RNo{4}.6.15]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+
+
