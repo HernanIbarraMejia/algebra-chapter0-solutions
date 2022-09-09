@@ -82,7 +82,7 @@
 	Describe as explicitly as you can all terms in the canonical decomposition (cf. \(\S 2.8\)) of the function \(\bR \to \bC\) defined by \(r \mapsto e^{2\pi ir}\). (This exercise matches one assigned previously. Which one?)
 \end{exercise}
 \begin{solution}
-	Let $f \colon \bR \to \bC$ be defined by $f(r) \coloneqq e^{2\pi i r}$. We define an equivalence relation on $\bR$ by $a\sim a' \iff f(a') = f(a'')$. This is easily seen to be equivalent the same as the equivalence relation defined in Exercise 1.6. In that exercise we saw that the quotient can be identified with the interval $[0,1)$ and the projection $\pi \colon \bR \to \bR/\sim$ is assigning to each real number its (positive) fractional part. Then the canonical decomposition gives a bijection from the quotient, i.e. $[0,1)$, to the image of $f$, i.e. the unit circle in the complex plane, by assigning to each $x \in [0,1)$ the point $e^{2\pi ix}$. Finally, this unit circle is included in the whole complex plane, in the obvious sense.
+	Let $f \colon \bR \to \bC$ be defined by $f(r) \coloneqq e^{2\pi i r}$. We define an equivalence relation on $\bR$ by $a\sim a' \iff f(a') = f(a'')$. This is easily seen to be the same as the equivalence relation defined in Exercise 1.6. In that exercise we saw that the quotient can be identified with the interval $[0,1)$ and the projection $\pi \colon \bR \to \bR/\sim$ is assigning to each real number its (positive) fractional part. Then the canonical decomposition gives a bijection from the quotient, i.e. $[0,1)$, to the image of $f$, i.e. the unit circle in the complex plane, by assigning to each $x \in [0,1)$ the point $e^{2\pi ix}$. Finally, this unit circle is included in the whole complex plane, in the obvious sense.
 \end{solution}
 
 \begin{exercise}
@@ -127,7 +127,7 @@
 \begin{solution}
 	Define $F\colon 2^A \to \mathscr{P}(A)$ by the rule
 	\[
-		F(f) \coloneqq g^{-1}(\{1\}),\textnormal{ for all }f\colon A \to \{0,1\}.
+		F(f) \coloneqq f^{-1}(\{1\}),\textnormal{ for all }f\colon A \to \{0,1\}.
 	\]
 	Now define $G\colon \mathscr{P}(A) \to 2^A$ by saying that, for all $S \subseteq A$ we have
 	\[

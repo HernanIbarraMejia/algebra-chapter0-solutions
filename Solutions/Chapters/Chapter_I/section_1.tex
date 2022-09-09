@@ -35,7 +35,7 @@
 	\[
 		\begin{matrix}
 			\{\{1,2\},\{3\}\} & \{\{1,2,3\}\}.
-		\end{matrix}
+		\end{matrix}\qedhere
 	\]
 \end{solution}
 \begin{exercise}
@@ -45,7 +45,6 @@
 	Consider the relation in the set $\bR$, defined by the following rule. Let $a,b \in \bR$. We say $a\sim b$ iff $|a-b| \leq 1$. This relation is clearly reflexive and symmetric, but it is not transitive (why?).
 	
 	A reflexive, symmetric, non-transitive relation will result in a ``partition'' in which the classes are no longer disjoint.
-	
 \end{solution}
 \begin{exercise}
 	$\triangleright$ Define a relation $\sim$ on the set $\mathbb{R}$ of real numbers by setting $a \sim b \iff b-a\in \mathbb{Z}$. Prove that this is an equivalence relation, and find a `compelling' description for $\mathbb{R}/{\sim}$. Do the same for the relation $\approx$ on the plane $\mathbb{R} \times \mathbb{R}$ defined by declaring $(a_1,a_2) \approx (b_1,b_2) \iff b_1 - a_1 \in \mathbb{Z}\textnormal{ and }b_2 - a_2\in\mathbb{Z}$. [$\S \RNo{2}.8.1,\RNo{2}.8.10$]
@@ -54,6 +53,4 @@
 	Let $a,b,c \in \bR$. We have that $a-a = 0 \in \bZ$, so $a\sim a$ and the relation is reflexive. If $a\sim b$ then $b-a \in \bZ$ and so $-(b-a) = a -b \in \bZ$, which means $b\sim a$; hence the relation is symmetric. Finally, if $a\sim b$ and $b \sim c$ then $b-a$ and $c - b$ are integers and so $(b-a) + (c-b) = c-a \in \bZ$, which means $a\sim c$ and the relation is transitive. We have shown that this is an equivalence relation. Notice that we are identifying real numbers that differ by an integer. In particular, we are identifying each (positive) real number with its fractional part (a similar thing is true for negative real numbers). So we can think of the quotient $\bR/{\sim}$ as the interval $[0,1)$ since every number in this interval is a representative of a unique equivalence class, and these are all the equivalence classes.
 	
 	For $\approx$ a similar discussion applies: it is analogously showed it is an equivalence relation, and one can think of the quotient as the unit square $[0,1)\times [0,1)$. This result also follows from Exercise 5.11.
-	
-	
 \end{solution}

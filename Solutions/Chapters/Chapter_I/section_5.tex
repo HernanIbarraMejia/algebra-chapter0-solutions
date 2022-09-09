@@ -2,77 +2,205 @@
 \extitle
 	
 \begin{exercise}
-	Prove that a final object in a category \serif{C} is initial in the opposite category \serif{C\(^{\text{op}}\)}  (cf. Exercise 3.1).
+	Prove that a final object in a category \serif{C} is initial in the opposite category \serif{C\(^{op}\)}  (cf. Exercise 3.1).
 \end{exercise}
 \begin{solution}
-	content...
+	Let $A$ be a final object in $\srf{C}$. This means that for all objects $X$ of $\srf{C}$ we have that $|\Hom_{\srf{C}}(X,A)| = 1$. But then for all objects $X$ of $\srf{C}^{op}$ (recall that $\Obj(\srf{C}^{op}) = \Obj(\srf{C})$) we have that $|\Hom_{\srf{C}^{op}}(A,X)| = |\Hom_{\srf{C}}(X,A)| = 1$, which shows $A$ is initial in $\srf{C}^{op}$.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) Prove that \(\emptyset\) is the unique initial object in \serif{Set}. [\(\S 5.1\)]
+	\(\triangleright\) Prove that \(\emptyset\) is the \emph{unique} initial object in \serif{Set}. [\(\S 5.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Indeed, for any set $X$ there is exactly one function $\emptyset \to X$ (the empty function). Further, only the empty set has this property since any other initial object has to be isomorphic to $\emptyset$ which would force it to have cardinality 0, and only the empty set has cardinality 0.
 \end{solution}
 
 \begin{exercise}
-	\(\triangleright\) Prove that final objects are \textit{unique} up to isomorphism. [\(\S 5.1\)]
+	\(\triangleright\) Prove that final objects are unique up to isomorphism. [\(\S 5.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Two final objects $A,B$ are initial in the opposite category by Exercise 5.1, and hence they are isomorphic in $C^{op}$. It is readily verified that an isomorphism $A \to B$ in $\srf{C}^{op}$ is an isomorphism $B \to A$ in $\srf{C}$. Hence, $A$ and $B$ are isomorphic in $\srf{C}$.
 \end{solution}
 
 \begin{exercise}
 	What are initial and final objects in the category of ‘pointed sets’ (Example 3.8)? Are they unique?
 \end{exercise}
 \begin{solution}
-	content...
+	Let $(\{p\},p)$ be a singleton pointed set. Then $(\{p\},p)$ is both initial and final in the category $\srf{Set}^*$. Let $(A,a)$ be a pointed set with $a\in A$. There is only one function $A \to \{p\}$ (recall $\{p\}$ is final in $\srf{Set}$), and this function happens to preserve the distinguished element. Therefore $(\{p\},p)$ is final in $\srf{Set}^{*}$.
+	
+	But more is true! There are, in principle, many functions $\{p\} \to A$ but only one that preserves the distinguished element, namely the function $p\mapsto a$. Hence $(\{p\},p)$ is initial in $\srf{Set}^*$. 
+	
+	Since $p$ was arbitrary, terminal objects are not unique (but they are unique up to isomorphism).
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) What are the final objects in the category considered in \(\S 5.3\)? [\(\S 5.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	It is the singleton set (again). To spell this out, for any $p$, recall that $\{p\}$ is final in $\srf{Set}$. Hence there is a unique set-function $\xi \colon A \to \{p\}$, and it happens to send equivalent elements to the same image, so that $(\xi,\{p\})$ gives an object of our category. If $(\varphi, Z)$ is any other object then there exists a unique $\sigma \colon Z \to \{p\}$ such that the following diagram commutes.
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJaIl0sWzIsMCwiXFx7cFxcfSJdLFsxLDEsIkEiXSxbMiwwLCJcXHZhcnBoaSJdLFsyLDEsIlxceGkiLDJdLFswLDEsIlxcc2lnbWEiXV0=
+	\[\begin{tikzcd}[column sep=tiny,row sep=normal]
+		Z && {\{p\}} \\
+		& A
+		\arrow["\varphi", from=2-2, to=1-1]
+		\arrow["\xi"', from=2-2, to=1-3]
+		\arrow["\sigma", from=1-1, to=1-3]
+	\end{tikzcd}\]
+	Indeed, $\sigma$ exists as a set-function and is unique because $\{p\}$ is final in $\srf{Set}$, and $\xi = \sigma\varphi$ since any two functions $A \to \{p\}$ must be equal (again, because $\{p\}$ is final in $\srf{Set}$).
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) Consider the category corresponding to endowing (as in Example 3.3) the set \(\bZ^+\) of positive integers with the \textit{divisibility} relation. Thus there is exactly one morphism \(d \to m\) in this category if and only if \(d\) divides \(m\) without remainder; there is no morphism between \(d\) and \(m\) otherwise. Show that this category has products and coproducts. What are their ‘conventional’ names? [\(\S \RNo{7}.5.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	In this category, the product of $a$ and $b$ is $\gcd(a,b)$, while their coproduct is $\lcm(a,b)$. 
+	
+	Clearly $\gcd(a,b)\divides a$ and $\gcd(a,b)\divides b$, so there are ``projection'' maps $\gcd(a,b) \to a$ and $\gcd(a,b)\to b$. Suppose there is some $z$ that divides both $a$ and $b$, depicted below.
+	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJaIl0sWzEsMSwiXFxnY2QoYSxiKSJdLFsyLDAsImEiXSxbMiwyLCJiIl0sWzAsMSwiIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV0sWzAsMiwiIiwyLHsiY3VydmUiOi0yfV0sWzAsMywiIiwyLHsiY3VydmUiOjJ9XSxbMSwyXSxbMSwzXV0=
+	\[\begin{tikzcd}[column sep=small,row sep=tiny]
+		&& a \\
+		z & {\gcd(a,b)} \\
+		&& b
+		\arrow[dashed, from=2-1, to=2-2]
+		\arrow[curve={height=-12pt}, from=2-1, to=1-3]
+		\arrow[curve={height=12pt}, from=2-1, to=3-3]
+		\arrow[from=2-2, to=1-3]
+		\arrow[from=2-2, to=3-3]
+	\end{tikzcd}\]
+	Then we can deduce that $z$ divides $\gcd(a,b)$, producing a morphism making the diagram commute (because all diagrams commute in this category). Further, the morphism is unique since there is at most one morphism $z \to \gcd(a,b)$. This all shows that $\gcd(a,b)$ is a product in this category.
+	
+	Similarly, we note that $a\divides \lcm(a,b)$ and $b\divides \lcm(a,b)$, so there are ``inclusion'' maps $a\to \lcm(a,b)$ and $b\to \lcm(a,b)$. Further, if there is some $z$ such that $a\divides z$ and $b\divides z$ then $\lcm(a,b)$ divides $z$.
+	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJcXGxjbShhLGIpIl0sWzIsMSwieiJdLFswLDIsImIiXSxbMCwwLCJhIl0sWzAsMSwiIiwwLHsibGFiZWxfcG9zaXRpb24iOjMwLCJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMiwwLCIiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMiwxLCIiLDIseyJjdXJ2ZSI6Mn1dLFszLDAsIiIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFszLDEsIiIsMCx7ImN1cnZlIjotMn1dXQ==
+	\[\begin{tikzcd}[column sep=small,row sep=tiny]
+		a \\
+		& {\lcm(a,b)} & z \\
+		b
+		\arrow[dashed, from=2-2, to=2-3]
+		\arrow[from=3-1, to=2-2]
+		\arrow[curve={height=12pt}, from=3-1, to=2-3]
+		\arrow[from=1-1, to=2-2]
+		\arrow[curve={height=-12pt}, from=1-1, to=2-3]
+	\end{tikzcd}\]
+	After some routine checks (diagram commutes, morphism is unique, etc.), this proves that $\lcm(a,b)$ is a coproduct in this category.
 \end{solution}
 
 \begin{exercise}
 	Redo Exercise 2.9, this time using Proposition 5.4.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $A \cong A'\cong A''$ and $B \cong B'\cong B''$ with $A'\cap B' = \emptyset$ and $A''\cap B'' = \emptyset$. Then clearly $A'\cup B'$ and $A'' \cup B''$ both satisfy the categorical definition of the coproduct $A\amalg B$, as in Proposition 5.6 (with essentially the same proof). Therefore $A'\cup B' \cong A'' \cup B''$ by Proposition 5.4.
 \end{solution}
 
 \begin{exercise}
 	Show that in every category \serif{C} the products \(A \times B\) and \(B \times A\) are isomorphic, if they exist. (Hint: Observe that they both satisfy the universal property for the product of \(A\) and \(B\); then use Proposition 5.4.)
 \end{exercise}
 \begin{solution}
-	content...
+	Note that $\srf{C}^{A,B}$ and $\srf{C}^{B,A}$ are the same category. Hence both $A\times B$ and $B \times A$ are final objects of the same category, and thus they are isomorphic by Proposition 5.4. 
 \end{solution}
 
 \begin{exercise}
-	Let \serif{ C} be a category with products. Find a reasonable candidate for the	universal property that the product \(A \times B \times C\) of three objects of \serif{C} ought to satisfy, and prove that both \((A \times B) \times C\) and \(A \times (B \times C)\) satisfy this universal property. Deduce that \((A \times B) \times C\) and \(A \times (B \times C)\) are necessarily isomorphic.
+	Let \serif{C} be a category with products. Find a reasonable candidate for the	universal property that the product \(A \times B \times C\) of three objects of \serif{C} ought to satisfy, and prove that both \((A \times B) \times C\) and \(A \times (B \times C)\) satisfy this universal property. Deduce that \((A \times B) \times C\) and \(A \times (B \times C)\) are necessarily isomorphic.
 \end{exercise}
 \begin{solution}
-	content...
+	For objects $A,B,C$ the triple product $A\times B \times C$ must satisfy the following. There must be three morphisms $\pi_1, \pi_2,\pi_3$ such that for any object $Z$ and morphisms $f_A, f_B,f_C$ there exists a unique morphism $\sigma$ such that the following diagram commutes. 
+	% https://q.uiver.app/?q=WzAsNSxbMCwxLCJaIl0sWzEsMSwiQVxcdGltZXMgQiBcXHRpbWVzIEMiXSxbMiwxLCJCIl0sWzIsMCwiQSJdLFsyLDIsIkMiXSxbMCwxLCJcXHNpZ21hIl0sWzEsMiwiXFxwaV8yIl0sWzEsMywiXFxwaV8xIl0sWzEsNCwiXFxwaV8zIiwyXSxbMCwzLCJmX0EiLDAseyJjdXJ2ZSI6LTN9XSxbMCw0LCJmX0MiLDIseyJjdXJ2ZSI6M31dLFswLDIsImZfQiIsMix7ImN1cnZlIjozfV1d
+	\[\begin{tikzcd}[column sep=scriptsize]
+		&& A \\
+		Z & {A\times B \times C} & B \\
+		&& C
+		\arrow["\sigma", from=2-1, to=2-2]
+		\arrow["{\pi_2}", from=2-2, to=2-3]
+		\arrow["{\pi_1}", from=2-2, to=1-3]
+		\arrow["{\pi_3}"', from=2-2, to=3-3]
+		\arrow["{f_A}", curve={height=-18pt}, from=2-1, to=1-3]
+		\arrow["{f_C}"', curve={height=18pt}, from=2-1, to=3-3]
+		\arrow["{f_B}"', curve={height=18pt}, from=2-1, to=2-3]
+	\end{tikzcd}\]
+	We show that $(A\times B)\times C$ satisfies this property. Since $A\times B$ is a product, there are two associated projection morphisms $\pi_A$ and $\pi_B$, to this product. Similarly since $(A\times B) \times C$ is a product, there are two associated projection morphisms, $\pi_{A\times B}$ and $\pi_C$, to this product. We claim that there is a unique $\sigma$ such that the following diagram commutes.
+	% https://q.uiver.app/?q=WzAsNixbMCwyLCJaIl0sWzEsMiwiQVxcdGltZXMgQiBcXHRpbWVzIEMiXSxbMiwxLCJBXFx0aW1lcyBCIl0sWzIsMywiQyJdLFszLDAsIkEiXSxbMywyLCJCIl0sWzAsMSwiXFxzaWdtYSJdLFsxLDIsIlxccGlfe0FcXHRpbWVzIEJ9IiwwLHsibGFiZWxfcG9zaXRpb24iOjcwfV0sWzEsMywiXFxwaV8zIiwyXSxbMCwzLCJmX0MiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjAsImN1cnZlIjozfV0sWzIsNCwiXFxwaV9BIl0sWzIsNSwiXFxwaV9CIl0sWzAsNCwiZl9BIiwwLHsiY3VydmUiOi00fV0sWzAsNSwiZl9CIiwyLHsiY3VydmUiOjV9XV0=
+	\[\begin{tikzcd}[row sep=scriptsize]
+		&&& A \\
+		&& {A\times B} \\
+		Z & {A\times B \times C} && B \\
+		&& C
+		\arrow["\sigma", from=3-1, to=3-2]
+		\arrow["{\pi_{A\times B}}"{pos=0.7}, from=3-2, to=2-3]
+		\arrow["{\pi_C}"', from=3-2, to=4-3]
+		\arrow["{f_C}"'{pos=0.6}, curve={height=18pt}, from=3-1, to=4-3]
+		\arrow["{\pi_A}", from=2-3, to=1-4]
+		\arrow["{\pi_B}", from=2-3, to=3-4]
+		\arrow["{f_A}", curve={height=-24pt}, from=3-1, to=1-4]
+		\arrow["{f_B}"', curve={height=64pt}, from=3-1, to=3-4]
+	\end{tikzcd}\]
+	
+	If we can show this, then we have shown $(A\times B) \times C$ is a triple product, since we can take $\pi_1\coloneqq \pi_A\circ\pi_{A\times B}$, and $\pi_2\coloneqq \pi_B \circ \pi_{A\times B}$, and $\pi_3 \coloneqq \pi_C$ in the first diagram.
+	
+	As $A\times B$ is a product, there is a unique morphism $\tau$ from $Z$ to $A\times B$ such that $\pi_A\circ \tau = f_A$ and $\pi_B \circ \tau = f_B$. In addition, we have the following sub-diagram.
+	% https://q.uiver.app/?q=WzAsNCxbMCwxLCJaIl0sWzEsMSwiKEFcXHRpbWVzIEIpIFxcdGltZXMgQyJdLFsyLDAsIkFcXHRpbWVzIEIiXSxbMiwyLCJDIl0sWzEsMiwiXFxwaV97QVxcdGltZXMgQn0iXSxbMSwzLCJcXHBpX0MiLDJdLFswLDIsIlxcdGF1IiwwLHsiY3VydmUiOi0zfV0sWzAsMywiZl9DIiwyLHsiY3VydmUiOjN9XSxbMCwxLCJcXHNpZ21hIl1d
+	\[\begin{tikzcd}
+		&& {A\times B} \\
+		Z & {(A\times B) \times C} \\
+		&& C
+		\arrow["{\pi_{A\times B}}", from=2-2, to=1-3]
+		\arrow["{\pi_C}"', from=2-2, to=3-3]
+		\arrow["\tau", curve={height=-18pt}, from=2-1, to=1-3]
+		\arrow["{f_C}"', curve={height=18pt}, from=2-1, to=3-3]
+		\arrow["\sigma", from=2-1, to=2-2]
+	\end{tikzcd}\]
+	Which commutes for a unique $\sigma$ since $(A\times B) \times C$ is a product. For completeness, we can check that this $\sigma$ indeed makes the whole diagram commute. We have three equalities to check, one of which is already given by the sub-diagram, namely $\pi_C \circ \sigma = f_C$. Next, consider $\pi_A \circ \pi_{A\times B} \circ \sigma$, which equals $\pi_A \circ \tau$ by commutativity of the sub-diagram, and this in turn equals $f_A$ (we remarked this when we defined $\tau$). Similarly, one can check that $\pi_B\circ \pi_{A\times B}\circ \sigma = f_B$. 
+	So, we have shown the existence of a $\sigma$ that makes the diagram commute, but we haven't yet shown that it is the unique morphism with this property. Let $\sigma'$ be a morphism that also makes the diagram commute. Then
+	\begin{align*}
+		f_A &= \pi_A \circ (\pi_{A\times B} \circ \sigma')\\
+		f_B &= \pi_B \circ (\pi_{A\times B}\circ \sigma').
+	\end{align*}
+	We conclude that $\pi_{A\times B}\circ \sigma' = \tau$ since $\tau$ is the unique morphism that satisfies the above identities. Then we have 
+	\begin{align*}
+		\tau &= \pi_{A\times B} \circ \sigma'\\
+		f_C &= \pi_C \circ \sigma.
+	\end{align*}
+	Hence $\sigma' = \sigma$ since $\sigma$ is the only morphism that makes the sub-diagram commute. We have shown that $(A\times B)\times C$ is a triple product, and in a similar fashion one can prove that $A\times (B \times C)$ is a triple product. One can define a category $\srf{C}^{A,B,C}$ such that the triple products are terminal in that category; hence all triple products are isomorphic. 
+	
+	\note{This is a more personal note; I just don't want to forget how proud of myself I was when I first came up with this argument (ages ago). It must've been my first arrow-theoretic proof. I LaTeX'ed it for an online course I was doing (eventually dropped out). Showed up late for class, whilst they were going through the homework, and bam! the whole class was reading my proof. I was ecstatic as I explained to everyone what I had done. Few months later this grad student at my uni wanted to go over this proof (or was it me, who wanted to?). I spent 2-3 hours with them, late at night in the library, defining all the morphisms and checking the commutativity of the diagrams. And uniqueness, oh uniqueness. I lost the original LaTeX file, but I was able to find the pdf of it, so I rewrote it to the best of my abilities.}
 \end{solution}
 
 \begin{exercise}
 	Push the envelope a little further still, and define products and coproducts for \textit{families} (i.e., indexed sets) of objects of a category.
 	\begin{itemize}
 		\item[] Do these exist in \serif{Set}?
-		\item[] It is common to denote the product \(\underbrace{A \times \dots \times A}_{n \text{times}}\) by \(A^n\).
+		\item[] It is common to denote the product \(\underbrace{A \times \dots \times A}_{n \text{ times}}\) by \(A^n\).
 	\end{itemize}
 \end{exercise}
 \begin{solution}
-	content...
+	Let $(A_i)_{i\in I}$ be a family of objects of a category $\srf{C}$, where $I$ is a set. Then a product of this family is an object $\prod_{i\in I}A_i$ with maps $\pi_j \colon \prod_{i\in I}A_i \to A_j$ for all $j\in I$. This product must satisfy the property that, given any object $Z$ with maps $f_j \colon Z \to A_j$ for all $j\in I$, there is a unique map $\sigma\colon Z \to \prod_{i\in I}A_i$ such that, for all $j\in I$, the following diagram commutes.
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJaIl0sWzEsMCwiXFxwcm9kX3tpXFxpbiBJfUFfaSJdLFsyLDAsIkFfaiJdLFswLDEsIlxcc2lnbWEiXSxbMSwyLCJcXHBpX2oiXSxbMCwyLCJmX2oiLDAseyJjdXJ2ZSI6LTR9XV0=
+	\[\begin{tikzcd}
+		Z & {\prod_{i\in I}A_i} & {A_j}
+		\arrow["\sigma", from=1-1, to=1-2]
+		\arrow["{\pi_j}", from=1-2, to=1-3]
+		\arrow["{f_j}", curve={height=-24pt}, from=1-1, to=1-3]
+	\end{tikzcd}.\]
+
+	Similarly, a coproduct of the family $(A_i)_{i\in I}$ is an object $\coprod_{i\in I} A_i$ together with a collection of morphisms $\iota_j\colon A_j \to \coprod_{i\in I}$ for each $j\in I$. This coproduct must satisfy the property that, given any object $Z$ with maps $f_j \colon A_j \to Z$ for all $j\in I$, there exists a unique $\sigma \colon \coprod_{i\in I} \to Z$ such that the following diagram commutes for all $j\in I$.
+	% https://q.uiver.app/?q=WzAsMyxbMCwwLCJBX2oiXSxbMiwwLCJaIl0sWzEsMCwiXFxjb3Byb2Rfe2lcXGluIEl9QV9pIl0sWzAsMSwiZl9qIiwwLHsiY3VydmUiOi00fV0sWzAsMiwiXFxpb3RhX2oiXSxbMiwxLCJcXHNpZ21hIl1d
+	\[\begin{tikzcd}
+		{A_j} & {\coprod_{i\in I}A_i} & Z
+		\arrow["{f_j}", curve={height=-24pt}, from=1-1, to=1-3]
+		\arrow["{\iota_j}", from=1-1, to=1-2]
+		\arrow["\sigma", from=1-2, to=1-3]
+	\end{tikzcd}\] 
+	Products exist in $\srf{Set}$, but their construction is a bit tricky. If the index set $I$ is finite then we already know what products look like. If $I$ is infinite, it's not as clear how we are going to define ``infinite ordered tuples'' of elements of our sets to make up the product. It is better to think of them (the tuples) as functions taking an element $i\in I$ and returning an element of $A_i$; you should convince yourself that this is essentially the same as an ordinary ordered tuple when $I$ is finite. We now proceed to the construction.
+	
+	If $A_i$ is a set for all $i\in I$ then so is $\bigcup_{i\in I}A_i$. As $I$ is also a set then so is $\left(\bigcup_{i\in I}A_i\right)^{I}$. Then define
+	\[
+		\prod_{i\in I}A_i \coloneqq \left\{f \in \left(\bigcup_{i\in I}A_i\right)^{I} \mathrel{\Bigg|} f(j) \in A_j\text{ for all }j\in I \right\}.
+	\]
+	A projection $\pi_j \colon \prod_{i\in I}A_i \to A_j$ would be defined by the rule $f \mapsto f(j)$. And if there was some set $Z$ with maps $f_j \colon Z \to A_j$ for all $j\in I$ then we define $\sigma\colon Z \to \prod_{i\in I}A_i$ by saying that $\sigma(z)$ is the function $I \to \bigcup_{i\in I}A_i$ mapping $j \mapsto f_j(z)$. Commutativity of the relevant diagram is immediately verified and one will notice that the definition of $\sigma$ was forced unto us, i.e. $\sigma$ is unique.
+	
+	Coproducts also exist in $\srf{Set}$. We define
+	\[
+		\coprod_{i\in I}A_i \coloneqq \bigcup\{\{i\}\times A_i \mid i\in I\}.
+	\]
+	It is clear that we are producing disjoint copies of our sets and then taking their union. We do not bother to spell out the rest of the details, since they are essentially the same as in the finite case.
 \end{solution}
 
 \begin{exercise}
@@ -90,7 +218,136 @@
 	\end{itemize}
 \end{exercise}
 \begin{solution}
-	content...
+	First, we need to setup our notation. Let $\pi_A \colon A\times B \to A$ and $\pi_B \colon A\times B \to B$ be the projections. Let $p_{A} \colon A \to  A/{\sim_{A}}$, $p_B\colon B \to B/{\sim_B}$, and $p_{A\times B}\colon A \times B \to (A\times B)/{\sim}$ be the canonical surjections.
+	% https://q.uiver.app/?q=WzAsNixbMCwxLCJBXFx0aW1lcyBCIl0sWzEsMSwiKEFcXHRpbWVzIEIpL3tcXHNpbX0iXSxbMSwwLCJBIl0sWzEsMiwiQiJdLFsyLDAsIkEve1xcc2ltX0F9Il0sWzIsMiwiQi97XFxzaW1fQn0iXSxbMCwxLCJwX3tBXFx0aW1lcyBCfSJdLFswLDIsIlxccGlfQSJdLFsyLDQsInBfQSJdLFswLDMsIlxccGlfQiIsMl0sWzMsNSwicF9CIiwyXSxbMSw0LCJcXGV4aXN0cyFcXCxxX0EiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSw1LCJcXGV4aXN0cyFcXCxxX0IiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}[column sep=large]
+		& A & {A/{\sim_A}} \\
+		{A\times B} & {(A\times B)/{\sim}} \\
+		& B & {B/{\sim_B}}
+		\arrow["{p_{A\times B}}", from=2-1, to=2-2]
+		\arrow["{\pi_A}", from=2-1, to=1-2]
+		\arrow["{p_A}", from=1-2, to=1-3]
+		\arrow["{\pi_B}"', from=2-1, to=3-2]
+		\arrow["{p_B}"', from=3-2, to=3-3]
+		\arrow["{\exists!\,q_A}", dashed, from=2-2, to=1-3]
+		\arrow["{\exists!\,q_B}"', dashed, from=2-2, to=3-3]
+	\end{tikzcd}\]
+	\begin{itemize}
+		\item Notice that there is a map $A\times B \to A/{\sim}$ given by $p_A\circ\pi_{A}$. To spell things out, $p_A  \circ\pi_A(a,b) = [a]_{\sim_A}$. Furthermore, if $(a_1, b_1) \sim (a_2, b_2)$ then 
+		\[
+			p_A  \circ\pi_A (a_1,b_1) = [a_1]_{\sim_A} = [a_2]_{\sim_A} = p_A \circ\pi_A(a_2,b_2),
+		\] 
+		by virtue of the fact that $a_1\sim_A a_2$. Thus equivalent elements in $A\times B$ have the same image under $p_A \circ \pi_A$. By the universal property of quotients there is a unique map $q_A \colon (A\times B)/{\sim} \to A/{\sim_A}$ such that the top parallelogram in the diagram above commutes. The same argument gives a unique $q_B \colon (A\times B)/{\sim} \to B/{\sim_B}$ so that the whole diagram commutes.
+		\item Let $Z$ be a set with maps $f_A\colon Z \to A/{\sim_A}$ and $f_B\colon Z \to B/{\sim_B}$.
+		% https://q.uiver.app/?q=WzAsNCxbMCwxLCJaIl0sWzEsMSwiKEFcXHRpbWVzIEIpL3tcXHNpbX0iXSxbMiwwLCJBL3tcXHNpbV9BfSJdLFsyLDIsIkIve1xcc2ltX0J9Il0sWzEsMiwicV9CIl0sWzEsMywicV9BIiwyXSxbMCwyLCJmX0EiLDAseyJjdXJ2ZSI6LTN9XSxbMCwzLCJmX0IiLDIseyJjdXJ2ZSI6M31dLFswLDEsIlxcZXhpc3RzIVxcLFxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+		\[\begin{tikzcd}[row sep=2.25em]
+			&& {A/{\sim_A}} \\
+			Z & {(A\times B)/{\sim}} \\
+			&& {B/{\sim_B}}
+			\arrow["{q_A}", from=2-2, to=1-3]
+			\arrow["{q_B}"', from=2-2, to=3-3]
+			\arrow["{f_A}", curve={height=-18pt}, from=2-1, to=1-3]
+			\arrow["{f_B}"', curve={height=18pt}, from=2-1, to=3-3]
+			\arrow["{\exists!\,\sigma}", dashed, from=2-1, to=2-2]
+		\end{tikzcd}\]
+		We claim that there is a unique $\sigma\colon Z \to (A\times B)/{\sim}$ such that the above diagram commutes. Said differently, there is a unique $\sigma\colon Z \to (A\times B)/{\sim}$ such that
+		\begin{equation}\label{eq:sigma_req_prod_quot}
+		\begin{aligned}
+			q_A \circ \sigma &= f_A\\
+			q_B \circ \sigma &= f_B.
+		\end{aligned}
+		\end{equation}
+		
+		\subsubsection*{Existence of $\sigma$}
+		Let $p_A'\colon A/{\sim_A} \to A$ be a right inverse of $p_A$, and let $p_B'\colon B/{\sim_B} \to B$ be a right inverse of $p_B$; these exist because $p_A$ and $p_B$ are surjections. We draw these grey in the diagram below.
+		% https://q.uiver.app/?q=WzAsNyxbMSwxLCJBXFx0aW1lcyBCIl0sWzIsMSwiKEFcXHRpbWVzIEIpL3tcXHNpbX0iXSxbMiwwLCJBIl0sWzIsMiwiQiJdLFszLDAsIkEve1xcc2ltX0F9Il0sWzMsMiwiQi97XFxzaW1fQn0iXSxbMCwxLCJaIl0sWzAsMSwicF97QVxcdGltZXMgQn0iXSxbMCwyLCJcXHBpX0EiXSxbMiw0LCJwX0EiXSxbMCwzLCJcXHBpX0IiLDJdLFszLDUsInBfQiIsMl0sWzEsNCwiXFxleGlzdHMhXFwscV9BIl0sWzEsNSwiXFxleGlzdHMhXFwscV9CIiwyXSxbNiw0LCJmX0EiLDAseyJjdXJ2ZSI6LTV9XSxbNiw1LCJmX0IiLDIseyJjdXJ2ZSI6NX1dLFs1LDMsInBfQiciLDAseyJsYWJlbF9wb3NpdGlvbiI6NzAsImN1cnZlIjotMiwiY29sb3VyIjpbMCwwLDUxXX0sWzAsMCw1MSwxXV0sWzYsMCwiXFxleGlzdHMhIFxcLCBcXHRhdSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFs0LDIsInBfQSciLDIseyJsYWJlbF9wb3NpdGlvbiI6NzAsImN1cnZlIjoyLCJjb2xvdXIiOlswLDAsNTFdfSxbMCwwLDUxLDFdXV0=
+		\[\begin{tikzcd}[column sep=2.25em,row sep=large]
+			&& A & {A/{\sim_A}} \\
+			Z & {A\times B} & {(A\times B)/{\sim}} \\
+			&& B & {B/{\sim_B}}
+			\arrow["{p_{A\times B}}", from=2-2, to=2-3]
+			\arrow["{\pi_A}", from=2-2, to=1-3]
+			\arrow["{p_A}", from=1-3, to=1-4]
+			\arrow["{\pi_B}"', from=2-2, to=3-3]
+			\arrow["{p_B}"', from=3-3, to=3-4]
+			\arrow["{\,q_A}", from=2-3, to=1-4]
+			\arrow["{\,q_B}"', from=2-3, to=3-4]
+			\arrow["{f_A}", curve={height=-64pt}, from=2-1, to=1-4]
+			\arrow["{f_B}"', curve={height=64pt}, from=2-1, to=3-4]
+			\arrow["{p_B'}"{pos=0.7}, color={rgb,255:red,130;green,130;blue,130}, curve={height=-12pt}, from=3-4, to=3-3]
+			\arrow["{\exists! \, \tau}", dashed, from=2-1, to=2-2]
+			\arrow["{p_A'}"'{pos=0.7}, color={rgb,255:red,130;green,130;blue,130}, curve={height=12pt}, from=1-4, to=1-3]
+		\end{tikzcd}\]
+		Notice that we have maps $p_A' \circ f_A \colon Z \to A$ and $p_B' \circ f_B \colon Z \to B$. By the universal property of products there exists a unique map $\tau \colon Z\to A\times B$ such that the following equalities are satisfied.
+		\begin{align*}
+			\pi_A \circ \tau &= p_A'\circ f_A\\
+			\pi_B \circ \tau &= p_B'\circ f_B.
+		\end{align*}
+		We claim that $\sigma \coloneqq p_{A\times B} \circ \tau$ has the required properties. We need to check that the equations in (\ref{eq:sigma_req_prod_quot}) hold. Indeed,
+		\begin{align*}
+			q_A\circ \sigma &= q_A \circ (p_{A\times B}\circ \tau)\\
+			&=  (q_A \circ p_{A\times B})\circ \tau\\
+			&= (p_A \circ \pi_A)\circ\tau\\
+			&= p_A\circ (\pi_A \circ \tau)\\
+			&= p_A \circ (p_A' \circ f_A) \\
+			&= (p_A\circ p_A') \circ f_A\\
+			&= f_A.
+		\end{align*}
+		Notice that we used the defining properties of $q_A$, $p'_A$, and $\tau$. A similar computation shows that $q_B\circ \sigma = f_B$.
+		\subsubsection*{Uniqueness of $\sigma$}
+		Suppose that there are two maps $\sigma',\sigma''\colon Z \to (A\times B)/{\sim}$ that satisfy the equations in (\ref{eq:sigma_req_prod_quot}). We will show that $\sigma' = \sigma''$.
+		% https://q.uiver.app/?q=WzAsNyxbMSwxLCJBXFx0aW1lcyBCIl0sWzIsMSwiKEFcXHRpbWVzIEIpL3tcXHNpbX0iXSxbMiwwLCJBIl0sWzIsMiwiQiJdLFszLDAsIkEve1xcc2ltX0F9Il0sWzMsMiwiQi97XFxzaW1fQn0iXSxbMCwxLCJaIl0sWzAsMSwicF97QVxcdGltZXMgQn0iLDAseyJvZmZzZXQiOi0xfV0sWzAsMiwiXFxwaV9BIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzIsNCwicF9BIl0sWzAsMywiXFxwaV9CIiwyLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzMsNSwicF9CIiwyXSxbMSw0LCJcXCxxX0EiXSxbMSw1LCJcXCxxX0IiLDJdLFs2LDQsImZfQSIsMCx7ImN1cnZlIjotNX1dLFs2LDUsImZfQiIsMix7ImN1cnZlIjo1fV0sWzYsMSwiXFxzaWdtYSciLDAseyJjdXJ2ZSI6LTUsImNvbG91ciI6WzM2MCwxMDAsNTBdfSxbMzYwLDEwMCw1MCwxXV0sWzYsMSwiXFxzaWdtYScnIiwyLHsiY3VydmUiOjUsImNvbG91ciI6WzM2MCwxMDAsNTBdfSxbMzYwLDEwMCw1MCwxXV0sWzEsMCwicF97QVxcdGltZXMgQn0nIiwwLHsibGFiZWxfcG9zaXRpb24iOjQwLCJvZmZzZXQiOi0xLCJjb2xvdXIiOlswLDAsNTBdfSxbMCwwLDUwLDFdXV0=
+		\[\begin{tikzcd}[column sep=2.25em,row sep=large]
+			&& A & {A/{\sim_A}} \\
+			Z & {A\times B} & {(A\times B)/{\sim}} \\
+			&& B & {B/{\sim_B}}
+			\arrow["{p_{A\times B}}", shift left=1, from=2-2, to=2-3]
+			\arrow["{\pi_A}"{pos=0.6}, from=2-2, to=1-3]
+			\arrow["{p_A}", from=1-3, to=1-4]
+			\arrow["{\pi_B}"'{pos=0.6}, from=2-2, to=3-3]
+			\arrow["{p_B}"', from=3-3, to=3-4]
+			\arrow["{\,q_A}", from=2-3, to=1-4]
+			\arrow["{\,q_B}"', from=2-3, to=3-4]
+			\arrow["{f_A}", curve={height=-52pt}, from=2-1, to=1-4]
+			\arrow["{f_B}"', curve={height=52pt}, from=2-1, to=3-4]
+			\arrow["{\sigma'}", color={rgb,255:red,255;green,0;blue,0}, curve={height=-30pt}, from=2-1, to=2-3]
+			\arrow["{\sigma''}"', color={rgb,255:red,255;green,0;blue,0}, curve={height=30pt}, from=2-1, to=2-3]
+			\arrow["{p_{A\times B}'}"{pos=0.4}, shift left=1, color={rgb,255:red,128;green,128;blue,128}, from=2-3, to=2-2]
+		\end{tikzcd}\]
+		Let $p_{A\times B}' \colon (A\times B)/{\sim}\to A\times B$ be a right inverse of $p_{A\times B}$. Notice the following.
+		\begin{align*}
+			p_A \circ \pi_A \circ p'_{A\times B}\circ \sigma' &= (p_A \circ \pi_A) \circ p'_{A\times B}\circ \sigma'\\
+			&= (q_A \circ p_{A\times B})\circ p'_{A\times B} \circ \sigma'\\
+			&= q_A \circ (p_{A\times B}\circ p'_{A\times B}) \circ \sigma' \\
+			&= q_A \circ \sigma'\\
+			&= f_A.
+		\end{align*}
+		The last equality used the fact that $\sigma'$ satisfies (\ref{eq:sigma_req_prod_quot}). Doing the same calculation for $\sigma''$ yields $p_A \circ \pi_A \circ p'_{A\times B}\circ \sigma'' = f_A$. In particular,
+		\begin{equation}\label{eq:sigmas_A}
+			p_A \circ \pi_A \circ (p'_{A\times B}\circ \sigma') = p_A \circ \pi_A \circ (p'_{A\times B}\circ \sigma'').
+		\end{equation}
+		The same calculation on the bottom part of the diagram will give
+		\begin{equation}\label{eq:sigmas_B}
+			p_B \circ \pi_B \circ (p'_{A\times B}\circ \sigma') = p_B \circ \pi_B \circ (p'_{A\times B}\circ \sigma'').
+		\end{equation}
+	
+		Let $z\in Z$ be arbitrary. Suppose $p_{A\times B}'\circ \sigma'(z) = (a',b')$ and also that $p_{A\times B}'\circ \sigma''(z) = (a'',b'')$. Then if we apply (\ref{eq:sigmas_A}) to $z$ we have that
+		\[
+			p_A\circ\pi_A(a',b') = p_A\circ\pi_A(a'',b'') \implies [a']_{\sim_{A}} = [a'']_{\sim_A} \implies a' \sim_A a''.
+		\]
+		Similarly, (\ref{eq:sigmas_B}) when applied to $z$ says that
+		\[
+			p_B\circ\pi_B(a',b') = p_B\circ\pi_B(a'',b'') \implies [b']_{\sim_{B}} = [b'']_{\sim_B} \implies b' \sim_B b''.
+		\]
+		As $a' \sim_A a''$ and $b' \sim_B b''$ we conclude that $(a',b') \sim (a'',b'')$; in other words $[(a',b')]_\sim = [(a'',b'')]_{\sim}$. But then we have these two chains of equalities.
+		\begin{gather*}
+			\sigma'(z) = p_{A\times B}\circ (p_{A\times B}' \circ \sigma') (z) = p_{A\times B}(a',b') = [(a',b')]_\sim\\[6pt]
+			\sigma''(z) = p_{A\times B}\circ (p_{A\times B}' \circ \sigma'') (z) = p_{A\times B}(a'',b'') = [(a'',b'')]_\sim
+		\end{gather*}
+		In conclusion, $\sigma'(z) = \sigma''(z)$. As $z\in Z$ was arbitrary, $\sigma' = \sigma''$.
+		\item We showed that $(A\times B)/{\sim}$ is a (categorical) product of $A/{\sim_A}$ and $B/{\sim_B}$. By definition, $(A/{\sim_A}) \times (B/{\sim_B})$ is also their product. Products are unique up to isomorphism, so the result follows.
+	\end{itemize}
+	\note{I spent a whole day coming up with this proof. I am sure there are easier ways to do this exercise, but, in my very biased opinion, this should be the most elegant proof, or at least it is much closer to the philosophy of category theory. It hints at the fact that similar results should be true in categories other than $\srf{Set}$, but I'm too tired to pursue this further.}
 \end{solution}
 
 \begin{exercise}
@@ -99,5 +356,130 @@
 	As it happens, \serif{Set} has both fibered products and coproducts. Define these objects ‘concretely’, in terms of naive set theory. [\(\RNo{2}.3.9, \RNo{3}.6.10, \RNo{3}.6.11\)]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $A,B,C$ be objects of a category $\srf{C}$. Let $\alpha \colon A \to C$ and $\beta \colon B \to C$ be morphisms. A \emph{fibered product} of $\alpha$ and $\beta$ (also called \emph{pullback}) is an object $A \times_C B$ together with morphisms $p_A \colon A \times_C B \to A$ and $p_B \colon A \times_C B \to B$ such that $\alpha \circ p_A = \beta \circ p_B$ and furthermore it is universal with that property; this means that for any object $Z$ with morphisms $f\colon Z \to A$ and $g\colon Z \to B$ such that $\alpha \circ f = \beta \circ g$, then there exists a unique morphism $\sigma \colon Z \to A\times_C B$ such that the following diagram commutes.
+	% https://q.uiver.app/?q=WzAsNSxbMiwyLCJCIl0sWzIsMCwiQSJdLFsxLDEsIkFcXHRpbWVzX0MgQiJdLFszLDEsIkMiXSxbMCwxLCJaIl0sWzIsMSwicF9BIiwwLHsibGFiZWxfcG9zaXRpb24iOjQwfV0sWzIsMCwicF9CIiwyLHsibGFiZWxfcG9zaXRpb24iOjQwfV0sWzEsMywiXFxhbHBoYSJdLFswLDMsIlxcYmV0YSIsMl0sWzQsMSwiZiIsMCx7ImN1cnZlIjotM31dLFs0LDAsImciLDIseyJjdXJ2ZSI6M31dLFs0LDIsIlxcZXhpc3RzIVxcLFxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		&& A \\
+		Z & {A\times_C B} && C \\
+		&& B
+		\arrow["{p_A}"{pos=0.4}, from=2-2, to=1-3]
+		\arrow["{p_B}"'{pos=0.4}, from=2-2, to=3-3]
+		\arrow["\alpha", from=1-3, to=2-4]
+		\arrow["\beta"', from=3-3, to=2-4]
+		\arrow["f", curve={height=-18pt}, from=2-1, to=1-3]
+		\arrow["g"', curve={height=18pt}, from=2-1, to=3-3]
+		\arrow["{\exists!\,\sigma}", dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	If we are working in $\srf{Set}$ then we can explicitly define the fibered product. 
+	\[
+		A\times_C B \coloneqq \{(a,b)\mid \alpha(a) = \beta(b)\}.
+	\]
+	The maps are defined by $p_A(a,b) \coloneqq a$ and $p_B(a,b) \coloneqq b$. By definition, $\alpha \circ p_A = \beta \circ p_B$. If $Z$ is a set with $f$ and $g$ as above then we can define $\sigma$ by saying that $\sigma(z) \coloneqq (f(z), g(z))$ for all $z$. This definition is forced, so $\sigma$ is unique, but we do need to check that $(f(z), g(z))\in A\times_C B$ in the first place. This is saying that $\alpha(f (z)) = \beta(g(z))$ and this holds precisely by the conditions we imposed on $f$ and $g$.
+	
+	Now suppose we are working with maps out of $C$, that is $\alpha \colon C \to A$ and $\beta \colon C \to B$. A \emph{fibered coproduct} of $\alpha$ and $\beta$ (also called \emph{pushout}) is an object $A \amalg_C B$ together with morphisms $i_A \colon A \to A \amalg_C B $ and $i_B \colon B \to A \amalg_C B $ such that $i_A \circ \alpha = i_B \circ \beta $ and furthermore it is universal with that property; this means that for any object $Z$ with morphisms $f\colon A \to Z$ and $g\colon B \to Z$ such that $f\circ \alpha  = g\circ \beta $, then there exists a unique morphism $\sigma \colon A\amalg_C B\to Z$ such that the following diagram commutes.
+	% https://q.uiver.app/?q=WzAsNSxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJBXFxhbWFsZ19DIEIiXSxbMywxLCJaIl0sWzIsMSwiXFxhbHBoYSJdLFsyLDAsIlxcYmV0YSIsMl0sWzEsMywiaV9BIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzAsMywiaV9CIiwyLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzEsNCwiZiIsMCx7ImN1cnZlIjotM31dLFswLDQsImciLDIseyJjdXJ2ZSI6M31dLFszLDQsIlxcZXhpc3RzIVxcLFxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+	 	& A \\
+	 	C && {A\amalg_C B} & Z \\
+	 	& B
+	 	\arrow["\alpha", from=2-1, to=1-2]
+	 	\arrow["\beta"', from=2-1, to=3-2]
+	 	\arrow["{i_A}"{pos=0.6}, from=1-2, to=2-3]
+	 	\arrow["{i_B}"'{pos=0.6}, from=3-2, to=2-3]
+	 	\arrow["f", curve={height=-18pt}, from=1-2, to=2-4]
+	 	\arrow["g"', curve={height=18pt}, from=3-2, to=2-4]
+	 	\arrow["{\exists!\,\sigma}", dashed, from=2-3, to=2-4]
+	 \end{tikzcd}\]
+ 	Fibered coproducts exist in $\srf{Set}$ but their construction is more complicated (and more fun). Let $A\amalg B$ be the disjoint union (coproduct) of $A, B$, equipped with the canonical inclusions, $\iota_A\colon A \to A\amalg B$ and $\iota_B \colon B \to A \amalg B$. Of course this does not work as the fibered coproduct because $\iota_A\circ \alpha(c) \neq \iota_B\circ\beta(c)$ for all $c\in C$, given that the images of $\iota_A$ and $\iota_B$ are disjoint. The idea is to force this to be true by quotienting out by a suitable equivalence relation.
+ 	
+ 	Define a relation in $A\amalg B$ by saying that for all $x,y \in A\amalg B$
+ 	\[
+ 		x\sim y \iff 
+ 		\begin{cases}
+ 			\hfil x = y & \text{; or}\\
+ 			x = \iota_A\circ\alpha(c)\textnormal{ and }y = \iota_B\circ\beta(c)\textnormal{ for some }c\in C & \textnormal{; or}\\
+ 			x= \iota_B\circ\beta(c) \textnormal{ and }y = \iota_A\circ\alpha(c)\textnormal{ for some }c\in C. &
+ 		\end{cases}
+ 	\]
+ 	This relation is clearly reflexive and symmetric. Unfortunately it is not necessarily transitive (why? Try proving it is and see what goes wrong). We will define a new relation ``generated'' by $\sim$ and this will be an equivalence relation. Don't get too bogged down in the details; the definition of $\sim$ is all that really matters.
+ 	
+ 	Let $x,y\in A\amalg B$. We define a new relation $\approx$ on $A\amalg B$ as follows.
+ 	\begin{center}
+ 	\begin{tabular}{c	c	p{5cm}}
+ 		$	x\approx y$ & $\iff$ & There exists $s_0,\ldots,s_n\in A\amalg B$ such that $x= s_0, s_n = y$ and $s_{i} \sim s_{i+1}$ for all $i$.
+ 	\end{tabular}
+ 	\end{center}
+ 	
+ 	This is the most natural way to ``force'' transitivity. This relation is easily seen to be reflexive and symmetric (because $\sim$ is). Transitivity holds because if we have
+ 	\begin{gather*}
+ 		x = s_1 \sim s_2\sim \ldots \sim s_n = y\\
+ 		y = s_1'\sim s_2' \sim \ldots \sim s_n' = z,
+ 	\end{gather*}
+ 	then it follows that
+ 	\[
+ 		x = s_1 \sim s_2\sim \ldots \sim s_n \sim s_1'\sim s_2' \ldots\sim s_n' = z.
+ 	\]
+ 	Thus $\approx$ is an equivalence relation.
+ 	
+ 	We can then talk about the quotient $(A\amalg B)/{\approx}$ together with the canonical surjection $\pi \colon A\amalg B \to (A\amalg B)/{\approx}$. We claim that $A\amalg_C B \coloneqq (A\amalg B)/{\approx}$ is the fibered coproduct of $\alpha$ and $\beta$, together with the maps $i_A \coloneqq \pi\circ \iota_A$ and $i_B \coloneqq \pi\circ \iota_B$.
+ 	
+ 	First, we need to check that $i_A \circ \alpha = i_B \circ \beta$. Let $c \in C$ be arbitrary. Then $\iota_A \circ \alpha(c) \sim \iota_B \circ \beta(c)$ by definition, and this implies $\iota_A \circ \alpha(c) \approx \iota_B \circ \beta(c)$, which means $\pi\circ \iota_A \circ \alpha(c) = \pi \circ \iota_B \circ \beta(c)$, that is to say  $i_A \circ \alpha = i_B \circ \beta$, which is what we were after.
+ 	
+ 	Next, we need to check that $(A\amalg B)/{\approx}$ indeed satisfies the universal property. This is the fun part. After this strenuous abstract setup comes our reward: all of the other universal properties will come to our aid, in harmonious choreography, and give us our $\sigma$ in a silver platter.
+ 	% https://q.uiver.app/?q=WzAsNixbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJBXFxhbWFsZ19DIEIiXSxbNCwxLCJaIl0sWzMsMSwiKEFcXGFtYWxnIEIpL3tcXGFwcHJveH0iXSxbMiwxLCJcXGFscGhhIl0sWzIsMCwiXFxiZXRhIiwyXSxbMSwzLCJpX0EiLDAseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMCwzLCJpX0IiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMSw0LCJmIiwwLHsiY3VydmUiOi01fV0sWzAsNCwiZyIsMix7ImN1cnZlIjo1fV0sWzMsNSwiXFxwaSIsMix7InN0eWxlIjp7ImhlYWQiOnsibmFtZSI6ImVwaSJ9fX1dLFs1LDQsIlxcZXhpc3RzIVxcLFxcc2lnbWEiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMyw0LCJcXGV4aXN0cyEgXFx0YXUiLDAseyJjdXJ2ZSI6LTMsInN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+ 	\[\begin{tikzcd}[column sep=large]
+ 		& A \\
+ 		C && {A\amalg B} & {(A\amalg B)/{\approx}} & Z \\
+ 		& B
+ 		\arrow["\alpha", from=2-1, to=1-2]
+ 		\arrow["\beta"', from=2-1, to=3-2]
+ 		\arrow["{\iota_A}"{pos=0.6}, from=1-2, to=2-3]
+ 		\arrow["{\iota_B}"'{pos=0.6}, from=3-2, to=2-3]
+ 		\arrow["f", curve={height=-30pt}, from=1-2, to=2-5]
+ 		\arrow["g"', curve={height=30pt}, from=3-2, to=2-5]
+ 		\arrow["\pi"', two heads, from=2-3, to=2-4]
+ 		\arrow["{\exists!\,\sigma}"', dashed, from=2-4, to=2-5]
+ 		\arrow["{\exists! \tau}", curve={height=-18pt}, dashed, from=2-3, to=2-5]
+ 	\end{tikzcd}\]
+ 	Recall that $Z$ and $f,g$ are arbitrary, with the only restriction that $f\circ \alpha = g\circ \beta$. We are looking for a unique $\sigma\colon (A\amalg B)/{\approx} \to Z$ such that 
+ 	\begin{equation}\label{eq:sigma_req_fiber_coprod}
+ 		\begin{aligned}
+ 			\sigma \circ \pi \circ \iota_A&= f\\
+ 			\sigma \circ \pi \circ \iota_B&= g.
+ 		\end{aligned}
+ 	\end{equation}
+ 	Notice that $f$ and $g$ are maps out of $A$ and $B$ respectively, and going into a common target $Z$. By the universal property of coproducts, there is some $\tau\colon A\amalg B \to Z$, which is the unique function such that
+ 	\begin{equation}\label{eq:tau_fiber_coprod}
+ 		\begin{aligned}
+ 			\tau \circ \iota_A&= f\\
+ 			\tau \circ \iota_B&= g.
+ 		\end{aligned}
+ 	\end{equation}
+ 	
+ 	Further (and this is the key) $\tau$ sends equivalent elements to the same image. Indeed, from $(\ref{eq:tau_fiber_coprod})$ we deduce
+ 	\begin{equation*}
+ 		\begin{aligned}
+ 			\tau \circ \iota_A\circ \alpha &= f\circ \alpha\\
+ 			\tau \circ \iota_B\circ \beta&= g\circ \beta.
+ 		\end{aligned}
+ 	\end{equation*}
+ 	But we said $f\circ \alpha = g\circ \beta$. Hence,
+ 	\begin{equation}\label{eq:tau_resp_equiv}
+ 		\tau \circ \iota_A\circ \alpha =  \tau \circ \iota_B\circ \beta
+ 	\end{equation}
+ 	Let $x,y \in A\amalg B$. So, if $x\sim y$ then either $x = y$, in which case $\tau(x) = \tau(y)$, or else there is some $c\in C$ such that $x = \iota_A\circ\alpha(c)$ and $y = \iota_B\circ\beta(c)$ (or vice versa). Then (\ref{eq:tau_resp_equiv}) says $\tau(x) = \tau (y)$. In conclusion, $x\sim y \implies \tau(x) = \tau(y)$.
+ 	
+ 	What about $\approx$, the equivalence relation? Well, if $x\approx y$ then we have
+ 	\[
+ 		x = s_1 \sim s_2\sim \ldots \sim s_n = y.
+ 	\]
+ 	But then, by what we said in the previous paragraph, we deduce $\tau(x) = \tau (s_2)$ and then $\tau(s_2) = \tau(s_3)$, and so on (use induction). Hence in this case we also have $x\approx y \implies \tau(x) = \tau(y)$.
+ 	
+ 	We have gone through the work of showing this because now we can apply the universal property of quotients (!) to deduce that there is a map $\sigma \colon (A\amalg B)/{\approx} \to Z$, which is unique in satisfying 
+ 	\begin{equation}\label{eq:sigma_univ}
+ 		\tau = \sigma\circ \pi .
+ 	\end{equation}
+ 	Applying (\ref{eq:sigma_univ}) to (\ref{eq:tau_fiber_coprod}) yields the equations in (\ref{eq:sigma_req_fiber_coprod}), so this is indeed the $\sigma$ we are looking for. We can work backwards to deduce uniqueness as well (!!): if $\sigma'$ satisfies the equations in (\ref{eq:sigma_req_fiber_coprod}) then $\tau = \sigma'\circ \pi$ by universality of $\tau$, and then $\sigma' = \sigma$ by universality of $\sigma$.
+ 	
+ 	\note{I spent half a day on this one. As you can probably tell by the way I wrote it, I am very fond of this proof, and I'm proud I figured out what the fibered coproduct is in $\srf{Set}$. Hopefully I was able to lay it out in a more or less intuitive manner; I did my best to emphasize that all steps are fairly natural, and we are only doing ``the next obvious thing'' (even when this is not true, it's important to convince the reader and ourselves that there is some narrative going on: we humans understand things better when they are told as a story). \par The idea of defining two relations was tricky and took most of my time. It clearly generalizes as a way to turn any reflexive and symmetric relation into an equivalence relation. There are other ways to phrase this process, as I'm now learning, such as the ``intersection of all equivalence relations containing $\sim$'' when we view relations on a set $S$ as subsets of $S\times S$. (It'd be interesting to show that this and my definition result in the same equivalence relation, but I'm too tired to pursue this further). \par There's a more interesting question lurking in the background. There is (is there?) a category $\srf{Rel}$ whose objects are sets equipped with a relation, and its morphisms are relation-preserving functions. There is also a category $\srf{Equiv}$ of equivalence relations defined in a similar way (alternatively one could view an equivalence relation as a small groupoid category, per Exercise 4.2, and we could think of $\srf{Equiv}$ as the category whose objects are these categories and whose morphisms are functors..., but nevermind). Quite obviously, there is a forgetful functor $\srf{Equiv}\to \srf{Rel} $. Does this functor have an adjoint? If so, does it coincide with the processes we've been describing above? I'll try to come back to this later, when I know enough about adjoints.}
 \end{solution}

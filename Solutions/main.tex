@@ -14,6 +14,11 @@
 \usepackage{import}
 %For drawing commutative diagrams
 \usepackage{quiver}
+%For pretty colours
+\usepackage{xcolor}
+%For scaling some relations, for instance see https://tex.stackexchange.com/a/108482
+\usepackage{mleftright}
+
 
 %For bibliography
 \usepackage{biblatex}
@@ -25,6 +30,10 @@
 
 %Displays "Exercises". To put after each section.
 \newcommand{\extitle}{\subsection*{Exercises}}
+
+%For personal notes
+\newcommand{\note}[1]
+{\smallskip {\noindent\textbf{Note} #1}}
 
 %Roman numerals!
 \newcommand{\RNo}[1]{%
@@ -44,12 +53,15 @@
 
 %Miscellaneous commands
 \newcommand{\defeq}{\coloneqq}
+\newcommand{\divides}{\mid}
 
 %Useful operations and delimiters
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Obj}{Obj}
 \DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\lcm}{lcm}
 \DeclarePairedDelimiter{\ord}{\lvert}{\rvert}
 
 %Exercise environment
@@ -69,6 +81,7 @@
 		\vphantom{\big|} % pretend it's a little taller at normal size
 		\right|_{#2} % this is the delimiter
 }}
+
 
 \begin{document}
 	%Chapter 1

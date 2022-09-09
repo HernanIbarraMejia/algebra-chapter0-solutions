@@ -25,10 +25,10 @@
 	\end{equation*}
 	Notice we used the associativity in $\srf{C}$ at $\stackrel{!}{=}$.
 	
-	If $A$ is an object of $\srf{C}^{op}$ then it is an object of $\srf{C}$ and hence we must have an identity in $\srf{C}$, denoted $1_A \in \Hom_{\srf{C}}(A,A)$. But then $1\in \Hom_{\srf{C}^{op}}(A,A)$ and thus it works as an identity in $C^{op}$ as well. Indeed, if $B$ is an object of $\srf{C}^{op}$ then $1_B\in \Hom_{\srf{C}^{op}}(B,B)$ and we have, for all $f\in \Hom_{\srf{C}^{op}}(A,B)$,
+	If $A$ is an object of $\srf{C}^{op}$ then it is an object of $\srf{C}$ and hence we must have an identity in $\srf{C}$, denoted $1_A \in \Hom_{\srf{C}}(A,A)$. But then $1_A\in \Hom_{\srf{C}^{op}}(A,A)$ and thus it works as an identity in $C^{op}$ as well. Indeed, if $B$ is an object of $\srf{C}^{op}$ then $1_B\in \Hom_{\srf{C}^{op}}(B,B)$ and we have, for all $f\in \Hom_{\srf{C}^{op}}(A,B)$,
 	\begin{gather*}
 		f\circ_{\srf{C}^{op}}1_A = 1_Af = f,  \\
-		1_B \circ_{\srf{C}^{op}} f = f1_B = f.
+		1_B \circ_{\srf{C}^{op}} f = f1_B = f.\qedhere
 	\end{gather*}
 \end{solution}
 
@@ -46,7 +46,7 @@
 	Let $a,b\in S$, and let $f\in \Hom(a,b)$. Then $f= (a,b)$ by necessity. Furthermore, $1_a = (a,a)$ and $1_b = (b,b)$. Thus
 	\begin{gather*}
 		1_a f = (a,a)(a,b) = (a,b) = f, \\
-		f1_b = (a,b)(b,b) = (a,b) = f.
+		f1_b = (a,b)(b,b) = (a,b) = f.\qedhere
 	\end{gather*}
 \end{solution}
 
@@ -69,6 +69,8 @@
 \end{exercise}
 \begin{solution}
 	In this category the product of matrices is associative, hence they form a valid composition law. Furthermore, identity matrices clearly behave like identities with respect to this composition.
+	
+	\note{Having thought about it, I'm not sure what he means by that last question.}
 \end{solution}
 
 \begin{exercise}
@@ -134,7 +136,7 @@
 	where $Z$ is an object of $\srf{C}$ and arrows correspond to morphisms in $\srf{C}$ in the obvious way. 
 	
 	Given two objects of $\srf{C}^{A,B}$
-	% https://q.uiver.app/?q=WzAsNixbMCwwLCJBIl0sWzAsMiwiQiJdLFsxLDEsIlpfMSJdLFszLDAsIkEiXSxbMywyLCJCIl0sWzQsMSwiWl8yIl0sWzAsMiwiZl8xIl0sWzEsMiwiZ18xIiwyXSxbMyw1LCJmXzIiXSxbNCw1LCJnXzIiXV0=
+	% https://q.uiver.app/?q=WzAsNixbMCwwLCJBIl0sWzAsMiwiQiJdLFsxLDEsIlpfMSJdLFszLDAsIkEiXSxbMywyLCJCIl0sWzQsMSwiWl8yIl0sWzAsMiwiZl8xIl0sWzEsMiwiZ18xIiwyXSxbMyw1LCJmXzIiXSxbNCw1LCJnXzIiLDJdXQ==
 	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
 		A &&& A \\
 		& {Z_1} &&& {Z_2} \\
@@ -142,8 +144,8 @@
 		\arrow["{f_1}", from=1-1, to=2-2]
 		\arrow["{g_1}"', from=3-1, to=2-2]
 		\arrow["{f_2}", from=1-4, to=2-5]
-		\arrow["{g_2}", from=3-4, to=2-5]
-	\end{tikzcd}.\]
+		\arrow["{g_2}"', from=3-4, to=2-5]
+	\end{tikzcd}\]
 	
 	A morphism from the leftmost one to the other one is given by a commutative diagram of the form
 	% https://q.uiver.app/?q=WzAsNCxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMCwyLCJCIl0sWzAsMCwiQSJdLFswLDEsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMiwwLCJnXzEiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMiwxLCJnXzIiLDIseyJjdXJ2ZSI6Mn1dLFszLDAsImZfMSIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFszLDEsImZfMiIsMCx7ImN1cnZlIjotMn1dXQ==
@@ -174,7 +176,7 @@
 		\arrow["{g_3}"', curve={height=12pt}, from=3-4, to=2-6]
 		\arrow["\tau"{pos=0.3}, from=2-5, to=2-6]
 	\end{tikzcd},\]	
-	we can combine them to form one big commutative diagram.
+	we can compose them as follows. First, combine them to form one big commutative diagram.
 	% https://q.uiver.app/?q=WzAsNSxbMSwxLCJaXzEiXSxbMiwxLCJaXzIiXSxbMCwyLCJCIl0sWzAsMCwiQSJdLFszLDEsIlpfMyJdLFswLDEsIlxcc2lnbWEiLDAseyJsYWJlbF9wb3NpdGlvbiI6MzB9XSxbMiwwLCJnXzEiLDIseyJsYWJlbF9wb3NpdGlvbiI6NjB9XSxbMiwxLCJnXzIiLDIseyJsYWJlbF9wb3NpdGlvbiI6NzAsImN1cnZlIjoyfV0sWzMsMCwiZl8xIiwwLHsibGFiZWxfcG9zaXRpb24iOjYwfV0sWzMsMSwiZl8yIiwwLHsibGFiZWxfcG9zaXRpb24iOjcwLCJjdXJ2ZSI6LTJ9XSxbMyw0LCJmXzMiLDAseyJjdXJ2ZSI6LTR9XSxbMiw0LCJnXzMiLDIseyJjdXJ2ZSI6NH1dLFsxLDQsIlxcdGF1IiwwLHsibGFiZWxfcG9zaXRpb24iOjMwfV1d
 	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
 		A \\
@@ -229,7 +231,101 @@
 	where $Z$ is an object of $\srf{C}$ and arrows correspond to morphisms in $\srf{C}$ in the obvious way. 
 	
 	Given two objects 
+	% https://q.uiver.app/?q=WzAsOCxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaXzEiXSxbMywxLCJDIl0sWzUsMSwiWl8yIl0sWzQsMCwiQSJdLFs0LDIsIkIiXSxbMiwxLCJcXGFscGhhIl0sWzIsMCwiXFxiZXRhIiwyXSxbMSwzLCJmXzEiXSxbMCwzLCJnXzEiLDJdLFs0LDYsIlxcYWxwaGEiXSxbNCw3LCJcXGJldGEiLDJdLFs2LDUsImZfMiJdLFs3LDUsImdfMiIsMl1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A &&& A \\
+		C && {Z_1} & C && {Z_2} \\
+		& B &&& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{f_1}", from=1-2, to=2-3]
+		\arrow["{g_1}"', from=3-2, to=2-3]
+		\arrow["\alpha", from=2-4, to=1-5]
+		\arrow["\beta"', from=2-4, to=3-5]
+		\arrow["{f_2}", from=1-5, to=2-6]
+		\arrow["{g_2}"', from=3-5, to=2-6]
+	\end{tikzcd},\]
+	a morphism between from the leftmost one to the other one is a commutative diagram of the form 
+	% https://q.uiver.app/?q=WzAsNSxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaXzEiXSxbMywxLCJaXzIiXSxbMiwxLCJcXGFscGhhIl0sWzIsMCwiXFxiZXRhIiwyXSxbMSwzLCJmXzEiXSxbMCwzLCJnXzEiLDJdLFsxLDQsImZfMiIsMCx7ImN1cnZlIjotMn1dLFswLDQsImdfMiIsMix7ImN1cnZlIjoyfV0sWzMsNCwiXFxzaWdtYSJdXQ==
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A \\
+		C && {Z_1} & {Z_2} \\
+		& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{f_1}", from=1-2, to=2-3]
+		\arrow["{g_1}"', from=3-2, to=2-3]
+		\arrow["{f_2}", curve={height=-12pt}, from=1-2, to=2-4]
+		\arrow["{g_2}"', curve={height=12pt}, from=3-2, to=2-4]
+		\arrow["\sigma", from=2-3, to=2-4]
+	\end{tikzcd},\]
+	where $\sigma\in \Hom_{\srf{C}}(Z_1,Z_2)$. Given two morphisms
+	% https://q.uiver.app/?q=WzAsMTAsWzEsMiwiQiJdLFsxLDAsIkEiXSxbMCwxLCJDIl0sWzIsMSwiWl8xIl0sWzMsMSwiWl8yIl0sWzQsMSwiQyJdLFs1LDAsIkEiXSxbNSwyLCJCIl0sWzYsMSwiWl8yIl0sWzcsMSwiWl8zIl0sWzIsMSwiXFxhbHBoYSJdLFsyLDAsIlxcYmV0YSIsMl0sWzEsMywiZl8xIl0sWzAsMywiZ18xIiwyXSxbMSw0LCJmXzIiLDAseyJjdXJ2ZSI6LTJ9XSxbMCw0LCJnXzIiLDIseyJjdXJ2ZSI6Mn1dLFszLDQsIlxcc2lnbWEiXSxbNiw4LCJmXzIiXSxbNyw4LCJnXzIiLDJdLFs2LDksImZfMyIsMCx7ImN1cnZlIjotMn1dLFs1LDYsIlxcYWxwaGEiXSxbNSw3LCJcXGJldGEiLDJdLFs3LDksImdfMyIsMix7ImN1cnZlIjoyfV0sWzgsOSwiXFx0YXUiXV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A &&&& A \\
+		C && {Z_1} & {Z_2} & C && {Z_2} & {Z_3} \\
+		& B &&&& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{f_1}", from=1-2, to=2-3]
+		\arrow["{g_1}"', from=3-2, to=2-3]
+		\arrow["{f_2}", curve={height=-12pt}, from=1-2, to=2-4]
+		\arrow["{g_2}"', curve={height=12pt}, from=3-2, to=2-4]
+		\arrow["\sigma", from=2-3, to=2-4]
+		\arrow["{f_2}", from=1-6, to=2-7]
+		\arrow["{g_2}"', from=3-6, to=2-7]
+		\arrow["{f_3}", curve={height=-12pt}, from=1-6, to=2-8]
+		\arrow["\alpha", from=2-5, to=1-6]
+		\arrow["\beta"', from=2-5, to=3-6]
+		\arrow["{g_3}"', curve={height=12pt}, from=3-6, to=2-8]
+		\arrow["\tau", from=2-7, to=2-8]
+	\end{tikzcd},\]
+	we can compose them as follows. First, combine them as depicted below.
+	% https://q.uiver.app/?q=WzAsNixbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaXzEiXSxbMywxLCJaXzIiXSxbNCwxLCJaXzMiXSxbMiwxLCJcXGFscGhhIl0sWzIsMCwiXFxiZXRhIiwyXSxbMSwzLCJmXzEiXSxbMCwzLCJnXzEiLDJdLFsxLDQsImZfMiIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo3MCwiY3VydmUiOi0yfV0sWzAsNCwiZ18yIiwyLHsibGFiZWxfcG9zaXRpb24iOjcwLCJjdXJ2ZSI6Mn1dLFszLDQsIlxcc2lnbWEiXSxbNCw1LCJcXHRhdSJdLFsxLDUsImZfMyIsMCx7ImN1cnZlIjotNH1dLFswLDUsImdfMyIsMix7ImN1cnZlIjo0fV1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A \\
+		C && {Z_1} & {Z_2} & {Z_3} \\
+		& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{f_1}", from=1-2, to=2-3]
+		\arrow["{g_1}"', from=3-2, to=2-3]
+		\arrow["{f_2}"{pos=0.7}, curve={height=-12pt}, from=1-2, to=2-4]
+		\arrow["{g_2}"'{pos=0.7}, curve={height=12pt}, from=3-2, to=2-4]
+		\arrow["\sigma", from=2-3, to=2-4]
+		\arrow["\tau", from=2-4, to=2-5]
+		\arrow["{f_3}", curve={height=-24pt}, from=1-2, to=2-5]
+		\arrow["{g_3}"', curve={height=24pt}, from=3-2, to=2-5]
+	\end{tikzcd}\]
+	The resulting diagram is seen to be commutative. In particular, it is commutative when we remove the middle object, $Z_2$.
 	
+	% https://q.uiver.app/?q=WzAsNSxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaXzEiXSxbMywxLCJaXzMiXSxbMiwxLCJcXGFscGhhIl0sWzIsMCwiXFxiZXRhIiwyXSxbMSwzLCJmXzEiXSxbMCwzLCJnXzEiLDJdLFsxLDQsImZfMyIsMCx7ImN1cnZlIjotMn1dLFswLDQsImdfMiIsMix7ImN1cnZlIjoyfV0sWzMsNCwiXFx0YXVcXHNpZ21hIl1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A \\
+		C && {Z_1} & {Z_3} \\
+		& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{f_1}", from=1-2, to=2-3]
+		\arrow["{g_1}"', from=3-2, to=2-3]
+		\arrow["{f_3}", curve={height=-12pt}, from=1-2, to=2-4]
+		\arrow["{g_2}"', curve={height=12pt}, from=3-2, to=2-4]
+		\arrow["\tau\sigma", from=2-3, to=2-4]
+	\end{tikzcd}.\]
+	Identities in this category are morphisms of the form
+	% https://q.uiver.app/?q=WzAsNSxbMSwyLCJCIl0sWzEsMCwiQSJdLFswLDEsIkMiXSxbMiwxLCJaIl0sWzMsMSwiWiJdLFsyLDEsIlxcYWxwaGEiXSxbMiwwLCJcXGJldGEiLDJdLFsxLDMsImYiXSxbMCwzLCJnIiwyXSxbMSw0LCJmIiwwLHsiY3VydmUiOi0yfV0sWzAsNCwiZyIsMix7ImN1cnZlIjoyfV0sWzMsNCwiMV9aIl1d
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		& A \\
+		C && Z & Z \\
+		& B
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["f", from=1-2, to=2-3]
+		\arrow["g"', from=3-2, to=2-3]
+		\arrow["f", curve={height=-12pt}, from=1-2, to=2-4]
+		\arrow["g"', curve={height=12pt}, from=3-2, to=2-4]
+		\arrow["{1_Z}", from=2-3, to=2-4]
+	\end{tikzcd}.\qedhere\]
 	
 	
 \end{solution}

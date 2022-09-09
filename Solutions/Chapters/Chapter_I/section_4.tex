@@ -21,14 +21,32 @@
 	Carefully working out the case \(n = 5\) is helpful.) [\(\S 4.1, \S \RNo{2}.1.3\)]
 \end{exercise}
 \begin{solution}
-	content...
+	We use strong induction on the number of morphisms, call it $n$, to prove that, if the morphisms to be composed are \(f_n f_{n-1} \dots f_1\), then all nested compositions equal $((\dots ((f_n f_{n-1}) f_{n-2}) \dots )f_1)$. For $n = 1$ the proposition is clear. Suppose inductively that if we have $k$ morphisms to compose, say $f_k f_{k-1}\ldots f_1$, for some $k<n$ then all nested compositions equal $((\ldots ((f_kf_{k-1})f_{k-2})\ldots)f_1)$. Then, if we are composing $n$ morphisms we have a product of two maps
+	\[
+		(\ldots)(\ldots),
+	\] 
+	where each of the parenthesis contain the composition of fewer than $n$ maps. Hence, by the inductive hypothesis, this is equal to
+	\begin{equation}\label{eq:nest_comp_ind1}
+		((\ldots ((g_sg_{s-1})g_{s-2})\ldots)g_1)((\ldots ((h_th_{t-1})h_{t-2})\ldots)h_1)
+	\end{equation}
+	for some $s,t<n$ with $s+t = n$. We want the above to equal
+	\begin{equation}\label{eq:nest_comp_ind2}
+		((\ldots((((\ldots((g_sg_{s-1})g_{s-2})\ldots)g_1)h_t)h_{t-1})\ldots)h_1),
+	\end{equation}
+	and if we can show this then we are done. Thus, we use induction on $t$ to prove that (\ref{eq:nest_comp_ind1}) equals (\ref{eq:nest_comp_ind2}). If $t=1$ this is obvious. Assume the result is true when we have $t-1$ morphisms; this is our new inductive hypothesis. Then, we can write (\ref{eq:nest_comp_ind1}) as follows, by associativity
+	\begin{gather*}
+		(\;\; \underbrace{(((\ldots ((g_sg_{s-1})g_{s-2})\ldots)g_1)((\ldots ((h_th_{t-1})h_{t-2})\ldots)h_2))}_{\textnormal{Apply new inductive hypothesis}}\;\; h_1).
+	\end{gather*}
+	Then, applying our new inductive hypothesis on the middle expression we get exactly (\ref{eq:nest_comp_ind2}). This closes both induction arguments, so we are done.
+	
+	\note{While this proof is not as bad a I'd imagined, I wonder whether there is a simpler proof of such an intuitive fact.}
 \end{solution}
 
 \begin{exercise}
 	\(\triangleright\) In Example 3.3 we have seen how to construct a category from a set endowed with a relation, provided this latter is reflexive and transitive. For what types of relations is the corresponding category a groupoid (cf. Example 4.6)? [\(\S 4.1\)]
 \end{exercise}
 \begin{solution}
-	content...
+	When the relation is, in addition, symmetric, i.e. when it is an equivalence relation.
 \end{solution}
 
 \begin{exercise}
@@ -38,20 +56,51 @@
 		\item Show that the converse does not hold, by giving an explicit example of a category and an epimorphism without a right-inverse.
 	\end{itemize}
 \end{exercise}
-\begin{solution}
-	content...
+\begin{solution}\leavevmode
+	\begin{itemize}
+		\item Let $g$ be a right inverse. Let $Z$ be an object of $\srf{C}$ and let $\beta',\beta''\colon B \to Z$ be morphisms. If we have $\beta'\circ f = \beta''\circ f$ then apply $g$ on the right as follows.
+		\[
+			\begin{matrix}
+				&(\beta'\circ f) \circ g = (\beta''\circ f)\circ g\\[6pt]
+				\implies &\beta' \circ (f\circ g) = \beta'' \circ (f\circ g)\\[6pt]
+				\implies &\beta'\circ 1_B = \beta'' \circ 1_B\\[6pt]
+				\implies &\beta' = \beta''.
+			\end{matrix}
+		\]
+		Thus $f$ is an epimorphism.
+		\item The category $\leq$ on $\bZ$, take any non-identity morphism. \qedhere
+	\end{itemize}
 \end{solution}
 
 \begin{exercise}
 	Prove that the composition of two monomorphisms is a monomorphism. Deduce that one can define a subcategory \serif{C\(_{\text{mono}}\)} of a category \serif{C} by taking the same objects as in \serif{C} and defining \serif{\(\Hom_{\text{C}_{\text{mono}}}(A, B)\)} to be the subset of \(\Hom_{\text{\serif{C}}}(A, B)\) consisting of monomorphisms, for all objects \(A, B\). (Cf. Exercise 3.8; of course, in general \serif{C\(_{\text{mono}}\)} is not full in \serif{C}.) Do the same for epimorphisms. Can you define a subcategory \serif{C\(_{\text{nonmono}}\)} of \serif{C} by restricting to morphisms that are \textit{not} monomorphisms?
 \end{exercise}
 \begin{solution}
-	content...
+	Let $f\colon A \to B$ and $g\colon B \to C$ be monomorphisms. We need to prove that $g\circ f \colon A \to C$ is a monomorphism. Let $Z$ be an object of $\srf{C}$ and let $\alpha',\alpha''\colon Z \to A$ be morphisms. Furthermore, suppose that $(g\circ f)\circ \alpha' = (g\circ f)\alpha''$. By associativity we have $g\circ (f\circ \alpha') = g\circ (f\circ \alpha'')$. Since $g$ is monic this implies that $f\circ \alpha' = f\circ \alpha''$, and since $f$ is monic this implies that $\alpha' = \alpha''$. So, $g\circ f$ is indeed a monomorphism. Clearly identity morphisms are monomorphisms; this is all that is really needed to check the axioms of a subcategory. 
+	
+	Now, let $f\colon A \to B$ and $g\colon B \to C$ be epimorphisms. We need to prove that $g\circ f \colon A \to C$ is an epimorphism. Let $Z$ be an object of $\srf{C}$ and let $\beta',\beta''\colon C \to Z$ be morphisms. Furthermore, suppose that $\beta'\circ (g\circ f) =\beta'' \circ (g\circ f)$. By associativity we have $(\beta'\circ g)\circ f =(\beta'' \circ g)\circ f$. Since $f$ is monic this implies that $\beta'\circ g = \beta'' \circ g$, and since $g$ is monic this implies that $\beta' = \beta''$. So, $g\circ f$ is indeed an epimorphism. Clearly identity morphisms are epimorphisms; and again, this is all that is really needed to check the axioms of a subcategory. 
+	
+	A ``subcategory'' $\srf{C}_{\srf{nonmono}}$ would lack identities, hence it would not be a subcategory.
 \end{solution}
 
 \begin{exercise}
 	Give a concrete description of monomorphisms and epimorphisms in the category \serif{MSet} you constructed in Exercise 3.9. (Your answer will depend on the notion of morphism you defined in that exercise!)
 \end{exercise}
 \begin{solution}
-	content...
+	Recall that a morphism $f\colon (A,\sim_A) \to (B,\sim_B)$ is a function $f\colon A \to B$ that respects the equivalence relations. Note that we identify the morphism of multisets with its underlying set-function. This morphism is a \emph{monomorphism} if and only if its underlying set-function is injective, and it an \emph{epimorphism} if and only if the underlying set-function is surjective. The proofs are pretty much the same as in $\srf{Set}$, but we go through them anyway. 
+	
+	Suppose $f$ is injective. Let $(Z,\sim_Z)$ be a multiset and let $\alpha',\alpha''\colon Z \to A$ be morphisms of multisets. Furthermore, suppose that $f\circ \alpha' = f \circ \alpha''$. Forget for a moment that we are dealing with multisets and regard these morphisms as set-functions, i.e. morphisms in $\srf{Set}$. Then, since $f$ is injective, $f$ is a monomorphism in $\srf{Set}$ and thus $\alpha' = \alpha''$ as set-functions, which of course implies they are the same morphism of multisets; this shows that $f$ is a monomorphism. We have that ``injective $\implies$ monomorphism'' in $\srf{MSet}$, and essentially the same argument proves that ``surjective $\implies$ epimorphism''.
+	
+	Now assume that $f$ is a monomorphism (in $\srf{MSet}$). For the sake of contradiction, suppose there are some $x,y\in A$ such that $x\neq y$ but $f(x) = f(y)$. Consider the singleton multiset $(\{*\}, =)$ and let $\alpha'\alpha'' \colon \{*\} \to A$ be functions defined by $\alpha'(*) = x$ and $\alpha''(*) = y$. Clearly these respects equivalence relations so they are morphisms of multisets, and further $f\circ \alpha' = f\circ \alpha''$. As $f$ is a monomorphism, $\alpha' = \alpha''$, but this is clearly not the case, so we have a contradiction. Thus, $f$ is injective and we have shown ``monomorphism $\implies$ injective'' in $\srf{MSet}$.
+	
+	Finally, assume $f$ is an epimorphism (in $\srf{MSet}$). For the sake of contradiction, suppose there is some $b_0 \in B$ such that $f(a)\neq b$ for all $a\in A$. Consider the multiset $(\{0,1\}, \sim)$, where $\sim$ is the relation dictating that all elements of the set are equivalent (in particular $0\sim 1$). Let $\beta',\beta'' \colon B \to \{0,1\}$ be morphisms of multisets defined by
+	\[
+	\beta'(b) \coloneqq 0 \,\textnormal{ and } \,\beta''(b)\coloneqq \begin{cases}
+		0 & \textnormal{if } b\neq b_0\\
+		1 & \textnormal{if } b = b_0
+	\end{cases},
+	\]
+	for all $b\in B$. Notice that our definition of $\sim$ ensures that these maps respect equivalence. Then $\beta' \circ f = \beta'' \circ f$ but $\beta' \neq \beta''$, contradicting the fact that $f$ is epic. Hence we must conclude that $f$ was surjective in the first place. This shows that ``epimorphism $\implies$ surjective'' and we are done.
+	
+	\note{Characterizing morphisms with left inverses and morphisms with right inverses would have resulted in a much more interesting exercise.}
 \end{solution}
