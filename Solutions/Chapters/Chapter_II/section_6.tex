@@ -1,1 +1,236 @@
 \section{Subgroups}
+\extitle
+\begin{exercise}
+	$\neg$ (If you know about matrices.) The group of invertible $n\times n$ matrices with entries in $\bR$ is denoted $\GL_n(\bR)$ (Example 1.5). Similarly, $\GL_n(\bC)$ denotes the group of $n\times n$ invertible matrices with \emph{complex} entries. Consider the following sets of matrices:
+	\begin{itemize}%Didn't attempt to mess with the margins this time
+		\item $\SL_n(\bR) = \{M\in \GL_n(\bR)\mid \det(M) = 1\}$;
+		\item $\SL_n(\bC) = \{M \in \GL_n(\bC) \mid \det(M) = 1\}$;
+		\item $\textnormal{O}_n(\bR) = \{M \in \GL_n(\bR) \mid MM^t = M^tM = I_n\}$;
+		\item $\SO_n(\bR) = \{M \in \textnormal{O}_n(\bR) \mid \det(M) = 1\}$;
+		\item $\U(n) = \{M \in \GL_n(\bC) \mid MM^{\dagger} = M^\dagger M = I_n\}$;
+		\item $\SU(n) = \{M \in \U(n) \mid \det(M) = 1\}$.
+	\end{itemize}
+	Here $I_n$ stands for the $n\times n$ \emph{identity matrix}, $M^t$ is the \emph{transpose} of $M$, $M^{\dagger}$ is the \emph{conjugate transpose} of $M$, and $\det(M)$ denotes the \emph{determinant} of $M$. Find all possible inclusions among these sets, and prove that in every case the smaller set is a subgroup of the larger one.
+	
+	These sets of matrices have compelling geometric interpretations: for example, $\SO_3(\bR)$ is the group of `rotations' in $\bR^3$. [8.8, 9.1, $\RNo{3}.1.4$, $\RNo{6}.6.16$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Prove that the set of $2\times 2$ matrices 
+	\[
+		\begin{pmatrix}
+			a & b \\
+			0 & d
+		\end{pmatrix}
+	\]
+	with $a,b,d$ in $\mathbb{C}$ and $ad \neq 0$ is a subgroup of $\GL_2(\mathbb{C})$. More generally, prove that the set of $n\times n$ complex matrices $(a_{ij})_{1\leq i,j\leq n}$ with $a_{ij} = 0$ for $i > j$ and $a_{11},\ldots, a_{nn}\neq 0$ is a subgroup of $\GL_n(\mathbb{C})$. (These matrices are called `upper triangular', for evident reasons.) [$\RNo{4}.1.20$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Prove that every matrix in $\SU(2)$ may be written in the form
+	\[
+		\begin{pmatrix}
+			a + bi & c + di \\
+			-c + di & a - bi
+		\end{pmatrix}
+	\]
+	where $a,b,c,d\in \mathbb{R}$ and $a^2 + b^2 + c^2 + d^2 = 1$. (Thus $\SU(2)$ may be realized as a three-dimensional sphere embedded in $\mathbb{R}^4$; in particular, it is \emph{simply connected}.) [8.9, $\RNo{3}.2.5$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ Let $G$ be a group, and let $g\in G$. Verify that the image of the exponential map $\epsilon_g \colon \mathbb{Z} \to G$ is a cyclic group (in the sense of Definition 4.7). [$\S 6.3$, $\S 7.5$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+\begin{exercise}
+	Let $G$ be a \emph{commutative} group, and let $n>0$ be an integer. Prove that $\{g^n\mid g \in G\}$ is a subgroup of $G$. Prove that this is not necessarily the case if $G$ is not commutative.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that the union of a family of subgroups of a group $G$ is not necessarily a subgroup of $G$. In fact:
+	\begin{itemize}
+		\item Let $H$, $H'$ be subgroups of a group $G$. Prove that $H\cup H'$ is a subgroup of $G$ only if $H\subseteq H'$ or $H'\subseteq H$.
+		\item On the other hand, let $H_0\subseteq H_1\subseteq H_2\subseteq \ldots$ be subgroups of a group $G$. Prove that $\bigcup_{i\geq 0}H_i$ \emph{is} a subgroup of $G$. 
+	\end{itemize}
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Show that \emph{inner} automorphisms (cf. Exercise 4.8) form a subgroup of $\Aut(G)$; this subgroup is denoted $\Inn(G)$. Prove that $\Inn(G)$ is cyclic if and only if $\Inn(G)$ is trivial if and only if $G$ is abelian. (Hint: Assume that $\Inn(G)$ is cyclic; with notation as in Exercise 4.8, this means that there exists an element $a\in G$ such that $\forall g\in G\exists n \in \mathbb{Z} \gamma_g = \gamma_a^n$. In particular, $gag^{-1}= a^n a a^-n = a$. Thus $a$ commutes with every $g$ in $G$. Therefore\ldots .) Deduce that if $\Aut(G)$ is cyclic, then $G$ is abelian. [7.10, $\RNo{4}.1.5$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that an \emph{abelian} group $G$ is finitely generated if and only if there is a surjective homomorphism
+	\[
+		\bZ \oplus \cdots \oplus \bZ \twoheadrightarrow G
+	\]
+	for some $n$.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Prove that every finitely generated subgroup of $\bQ$ is cyclic. Prove that $\bQ$ is not finitely generated.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ The set of $2\times 2$ matrices with integer entries and determinant 1 is denoted $\SL_2(\bZ)$:
+	\[
+		\SL_2(\bZ) = 
+		\left\{
+			\begin{pmatrix}
+				a & b \\
+				c & d
+			\end{pmatrix}
+			\textnormal{ such that }
+			a,b,c,d\in \bZ,
+			ad - bc = 1
+		\right\}.
+	\]
+	Prove that $\SL_2(\bZ)$ is generated by the matrices
+	\[
+		s = 
+		\begin{pmatrix*}[r]
+			0 & -1 \\
+			1 & 0
+		\end{pmatrix*}
+		\;\;
+		\textnormal{ and }
+		\;\;
+		t = 
+		\begin{pmatrix*}[r]
+			1 & 1 \\
+			0 & 1
+		\end{pmatrix*}
+	\]
+	(Hint: This is a little tricky. Let $H$ be the subgroup generated by $s$ and $t$. Given a matrix $m = \begin{pmatrix} a & b \\ c & d\end{pmatrix}$ in $\SL_2(\bZ)$, it suffices to show that you can obtain the identity by multiplying $m$ by suitably chosen elements of $H$. Prove that $\begin{pmatrix} 1 & -q \\ 0 & 1\end{pmatrix}$ and  $\begin{pmatrix} 1 & 0 \\ -q & 1\end{pmatrix}$ are in $H$, and note that
+	\[
+		\begin{pmatrix}
+			a & b\\
+			c & d
+		\end{pmatrix}
+		\begin{pmatrix} 1 & -q \\ 0 & 1\end{pmatrix} 
+		=
+		\begin{pmatrix}
+			a & b-qa \\
+			c & d-qc
+		\end{pmatrix}
+		\;\;
+		\textnormal{ and }
+		\;\;
+		\begin{pmatrix}
+			a & b\\
+			c & d
+		\end{pmatrix}
+		\begin{pmatrix} 1 & 0 \\ -q & 1\end{pmatrix}
+		=
+		\begin{pmatrix}
+			a - qb & b \\
+			c - qd & d
+		\end{pmatrix}
+	\]
+	Note that if $c$ and $d$ are both nonzero, one of these two operations may be used to decrease the absolute value of one of them. Argue that suitable applications of these operations reduce to the case in which $c = 0$ or $d = 0$. Prove directly that $m\in H$ in that case.) [7.5]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Since direct sums are coproducts in $\srf{Ab}$, the classification theorem for abelian groups mentioned in the text says that every finitely generated \emph{abelian group} is a coproduct of cyclic groups in $\srf{Ab}$. The reader may be tempted to conjecture that every finitely generated \emph{group} is a coproduct in \emph{in} $\srf{Grp}$. Show that this is not the case, by proving that $S_3$ is not a coproduct of cyclic groups.
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	Let $m$, $n$ be positive integers, and consider the subgroup $\langle m,n\rangle$ of $\mathbb{Z}$ they generate. By Proposition 6.9, 
+	\[
+		\langle m,n\rangle = d\mathbb{Z}
+	\]
+	for some positive integer $d$. What is $d$, in relation to $m$, $n$?
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\neg$ Draw and compare the lattices of subgroups of $C_2\times C_2$ and $C_4$. Draw the lattice of subgroups of $S_3$, and compare it with the one for $C_6$. [7.1] 
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ If $m$ is a positive integer, denote by $\phi(m)$ the number of positive integers $r\leq m$ that are \emph{relatively prime} to $m$ (that is, for which the gcd of $r$ and $m$ is 1); this is called \emph{Euler's $\phi$- (or `totient') function}. For example, $\phi(12) = 4$. In other words, $\phi(m)$ is the order of the group $(\zmod{m})^*$; cf. Proposition 2.6.
+	
+	Put together the following observations:
+	\begin{itemize}
+		\item $\phi(m) =$ the number of generators of $C_m$,
+		\item every element of $C_n$ generates a subgroup of $C_n$,
+		\item The discussion following Proposition 6.11 (in particular, every subgroup of $C_n$ is isomorphic to $C_m$, for some $m\divides n$),
+	\end{itemize}
+	to obtain a proof of the formula
+	\[
+		\sum_{m>0,m\divides n}\phi(m) = n.
+	\]
+	(For example, $\phi(1) + \phi(2) + \phi(3) + \phi(4) + \phi(6) + \phi(12) = 1 + 1 + 2 + 2 + 2 + 4 = 12$.) [4.14, $\S 6.4$, 8.15, $\RNo{5}.6.8$, $\S \RNo{7}.5.2$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ Prove that if a group homomorphism $\varphi \colon G \to G'$ has a left-inverse, that is, a group homomorphism $\psi \colon G'\to G$ such that $\psi\circ\varphi = \id_G$, then $\varphi$ is a monomorphism. [$\S 6.5$, 6.16]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}
+
+\begin{exercise}
+	$\triangleright$ Counterpoint to Exercise 6.15: the homomorphism $\varphi\colon \zmod{3} \to S_3$ given by
+	\[
+		\varphi([0]) = 
+		\begin{pmatrix}
+			1 & 2 & 3\\
+			1 & 2 & 3
+		\end{pmatrix}, 
+		\;\;\;\;
+		\varphi([1]) = 
+		\begin{pmatrix}
+			1 & 2 & 3\\
+			3 & 1 & 2
+		\end{pmatrix}, 
+		\;\;\;\;
+		\varphi([2]) = 
+		\begin{pmatrix}
+			1 & 2 & 3\\
+			2 & 3 & 1
+		\end{pmatrix}
+	\]
+	is a monomorphism; show that it has \emph{no} left-inverse in $\srf{Grp}$. (Knowing about \emph{normal} subgroups will make this problem particularly easy.) [$\S 6.5$]
+\end{exercise}
+\begin{solution}
+	content...
+\end{solution}

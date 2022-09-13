@@ -4,28 +4,42 @@
 	$\triangleright$ Write a careful proof that every group is the group of isomorphisms of a groupoid. In particular, every group is the group of automorphisms of some object in some category. [$\S 2.1$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $(G,\cdot)$ be a group. Define a category $\srf{G}$ with one object $\ast$, and morphisms $\Hom_{\srf{G}}(\ast,\ast) = G$. Composition is given by the multiplication $\cdot$. By definition of a group, this composition is associative, has an identity element, and in fact all morphisms are isomorphisms, so this defines a groupoid.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Consider the `sets of numbers' listed in $\S 1.1$, and decide which are made into groups by conventional operations such as $+$ and $\cdot$. Even if the answer is negative (for example, $(\bR, \cdot)$ is not a group), see if variations on the definitions of these sets lead to groups (for example, $(\bR^{*}, \cdot)$ \emph{is} a group; cf. $\S 1.4$). [$\S 1.2$] 
 \end{exercise}
 \begin{solution}
-	content...
+	$(\mathbb{Z},+)$, $(\mathbb{Q}, +)$, $(\mathbb{R}, +)$, and $(\mathbb{C},+)$ are all groups. This amounts to saying that addition is associative, that there is an additive identity 0, and that every element has an additive inverse (its negation). 
+	
+	$(\mathbb{Q}^*, \cdot)$, $(\mathbb{R}^*, \cdot)$, and $(\mathbb{C}^*,\cdot)$ are all groups. This amounts to saying that multiplication is associative, that there is a multiplicative identity 1, and that every nonzero element has a multiplicative inverse (its reciprocal).
 \end{solution}
 
 \begin{exercise}
 	Prove that $(gh)^{-1} = h^{-1}g^{-1}$ for all elements $g$, $h$ of a group $G$.
 \end{exercise}
 \begin{solution}
-	content...
+	Indeed, 
+	\begin{equation*}
+		(gh)(h^{-1}g^{-1}) = g(hh^{-1})g^{-1} = geg^{-1} = gg^{-1} = e,
+	\end{equation*}
+	and similarly,
+	\begin{equation*}
+		(h^{-1}g^{-1})(gh) = h^{-1}(g^{-1}g)h = h^{-1}eh = h^{-1}h = e,
+	\end{equation*}
+	so $h^{-1}g^{-1} $ is \emph{the} inverse of $gh$.
 \end{solution}
 
 \begin{exercise}
 	Suppose that $g^2 = e$ for all elements $g$ of a group $G$; prove that $G$ is commutative.
 \end{exercise}
 \begin{solution}
-	content...
+	Multiply the given equation by $g^{-1}$ to see that this implies $g = g^{-1}$ for all $g\in G$. Let $g$ and $h$ be elements of $G$, and consider the following chain of reasoning
+	\[
+		gh(hg)^{-1} = ghhg= gh^2g = geg = g^2 = e.
+	\]
+	Multiply this equation by $hg$ to conclude that $gh=hg$. As $g$, $h$ were arbitrary, the group is commutative.
 \end{solution}
 
 \begin{exercise}
@@ -47,19 +61,78 @@
 		\end{array}
 	\]
 	}
+
 	(Here $e$ is the identity element. Of course the table depends on the order in which the elements are listed in the top row and leftmost column.) Prove that every row and every column of the multiplication table of a group contains all elements of the group exactly once (like Sudoku diagrams!).
 \end{exercise}
 \begin{solution}
-	content...
+	Let $G$ be the group in question. First, we show that left- and right-multiplication are bijective. For all $g\in G$ define $l_g\colon G\to G$ by $h\mapsto g\bullet h$ for all $h\in G$; this map is always a bijection since a two-sided inverse is given by $l_{g^{-1}}$. Similarly, define a bijection $r_g\colon G \to G$ by $h\mapsto h\bullet g$ for all $h\in G$.
+	
+	Look at any row corresponding to some element of the group, say $g$. A little thought reveals that the row is really what you get when applying $l_g$ to all the elements in $G$. As $l_g$ is a bijection of the underlying set of $G$ to itself, every element of $G$ appears exactly once in the row. Similarly, by considering $r_g$, one sees that the same is true for columns.
 \end{solution}
 
 \begin{exercise}
-	$\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly $1,2$, or $3$ elements. Analyze the possible multiplication tables for groups with exactly $4$ elements, and show that there are \emph{two} distinct tables, up to reordering of the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.
+	$\neg$ Prove that there is only \emph{one} possible multiplication table for $G$ if $G$ has exactly $1,2$, or $3$ elements. Analyze the possible multiplication tables for groups with exactly $4$ elements, and show that there are \emph{two} distinct tables, up to re-ordering of the elements of $G$. Use these tables to prove that all groups with $\leq$ 4 elements are commutative.
 	
 	(You are welcome to analyze groups with 5 elements using the same technique, but you will soon know enough about groups to be able to avoid such brute-force approaches.) [$2.19$]
 \end{exercise}
 \begin{solution}
-	content...
+	Suppose $G$ has one element, say $e$. Then the only possible multiplication is $e\bullet e = e$. This is trivially a group, and it is the only one (up to isomorphism) of order 1.
+	
+	Suppose $G$ has two elements, $e$ and $f$, where $e$ is the identity. Then multiplication where one of the factors is $e$ is uniquely determined by the fact that $e$ is an identity, as shown.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c}
+			\bullet & e & f\\
+			\hline
+			\hline
+			e & e & f \\
+			\hline
+			f & f & f^2
+		\end{array}
+		\]
+	}
+	By Exercise 1.5, $f^2$ cannot be $f$, hence $f^2 = e$.
+	
+	Suppose $G$ has three elements, $e$, $f$, and $g$, where $e$ is the identity. 
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c}
+			\bullet & e & f & g\\
+			\hline
+			\hline
+			e & e & f & g\\
+			\hline
+			f & f & f^2 & f\bullet g\\
+			\hline
+			g & g & g\bullet f & g^2
+		\end{array}
+		\]
+	}
+	By Exercise 1.5, $f\bullet g$ and $g\bullet f$ are neither $f$ nor $g$, so $f\bullet g = g\bullet f = e$. Therefore, again by Exercise 1.5, $f^2$ cannot be $f$ nor $e$, and $g^2$ cannot $g$ nor $e$. Thus $f^2 = g$ and $g^2 = f$.
+	
+	Suppose $G$ has four elements, $e$, $f$, $g$, and $h$.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & f^2 & f\bullet g & f\bullet h\\
+			\hline
+			g & g & g\bullet f & g^2 & g\bullet h\\
+			\hline
+			h & h & h \bullet f & h\bullet g & h^2
+		\end{array}
+		\]
+	}
+	By the same reasoning as in the previous paragraph, $f\bullet g \neq f $and $f\bullet g\neq g$. Here we have two cases.
+	\subsubsection*{Case I: $f\bullet g = e$}
+	
 \end{solution}
 
 \begin{exercise}

@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{gensymb}
 %For definining theorem-like environments
 \usepackage{amsthm}
 %For beautiful letters (e.g. for a partition, see $\mathscr{P}$)
@@ -20,12 +21,11 @@
 \usepackage{mleftright}
 %Set paragraph spacing. I believe this is close to what is used in the book.
 \usepackage[skip=.3\baselineskip, indent = 15pt]{parskip}
-
-
+%To customize lists
+\usepackage{enumitem}
 %For bibliography
 \usepackage{biblatex}
 \addbibresource{main.bib}
-
 
 %Fix section numbering to match the book's convention
 \renewcommand\thesection{\arabic{section}}
@@ -52,6 +52,7 @@
 \newcommand{\bQ}{\mathbb{Q}}
 \newcommand{\bR}{\mathbb{R}}
 \newcommand{\bC}{\mathbb{C}}
+\newcommand{\zmod}[1]{\bZ/#1\bZ}
 
 %Miscellaneous commands
 \newcommand{\defeq}{\coloneqq}
@@ -64,6 +65,15 @@
 \DeclareMathOperator{\Obj}{Obj}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\U}{U}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Inn}{Inn}
+\DeclareMathOperator{\PSL}{PSL}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\coker}{coker}
 \DeclarePairedDelimiter{\ord}{\lvert}{\rvert}
 
 %Exercise environment
