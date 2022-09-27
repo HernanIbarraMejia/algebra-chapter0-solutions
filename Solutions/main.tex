@@ -23,9 +23,16 @@
 \usepackage[skip=.3\baselineskip, indent = 15pt]{parskip}
 %To customize lists
 \usepackage{enumitem}
+%To strikethrough terms in equations
+\usepackage{cancel}
 %For bibliography
 \usepackage{biblatex}
+%For pictures
+\usepackage{tikz}
+\usetikzlibrary{calc,positioning}
+
 \addbibresource{main.bib}
+
 
 %Fix section numbering to match the book's convention
 \renewcommand\thesection{\arabic{section}}
@@ -74,6 +81,8 @@
 \DeclareMathOperator{\PSL}{PSL}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\coker}{coker}
+\DeclareMathOperator{\rot}{rot}
+\DeclareMathOperator{\rf}{ref}
 \DeclarePairedDelimiter{\ord}{\lvert}{\rvert}
 
 %Exercise environment

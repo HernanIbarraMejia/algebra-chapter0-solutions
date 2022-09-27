@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.30) (preloaded format=pdflatex 2022.8.10)  13 SEP 2022 18:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.30) (preloaded format=pdflatex 2022.8.10)  27 SEP 2022 17:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -545,6 +545,9 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@count@id=\count302
 \enitdp@description=\count303
 )
+(C:\Program Files\MiKTeX\tex/latex/cancel\cancel.sty
+Package: cancel 2013/04/12 v2.2 Cancel math terms
+)
 (C:\Program Files\MiKTeX\tex/latex/biblatex\biblatex.sty
 Package: biblatex 2022/07/12 v3.18b programmable bibliographies (PK/MW)
 
@@ -800,26 +803,30 @@ Package: xparse 2022-06-22 L3 Experimental document command parser
 Package: blx-case-expl3 2022/07/12 v3.18b expl3 case changing code for biblatex
 
 ))
+(C:\Program Files\MiKTeX\tex/generic/pgf/frontendlayer/tikz/libraries\tikzlibra
+rypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
 \c@exercise=\count431
 \@quotelevel=\count432
 \@quotereset=\count433
  (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
-LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -855,14 +862,14 @@ LaTeX Font Info:    ... okay on input line 98.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \celsius on input line 98.
-Package gensymb Info: Faking symbols for \degree and \celsius on input line 98.
-
+LaTeX Info: Redefining \celsius on input line 107.
+Package gensymb Info: Faking symbols for \degree and \celsius on input line 107
+.
 
 Package gensymb Warning: Not defining \perthousand.
 
-LaTeX Info: Redefining \ohm on input line 98.
-Package gensymb Info: Using \Omega for \ohm on input line 98.
+LaTeX Info: Redefining \ohm on input line 107.
+Package gensymb Info: Using \Omega for \ohm on input line 107.
 
 Package gensymb Warning: Not defining \micro.
 
@@ -901,8 +908,8 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
  (main.bbl)
-Package biblatex Info: Reference section=0 on input line 98.
-Package biblatex Info: Reference segment=0 on input line 98.
+Package biblatex Info: Reference section=0 on input line 107.
+Package biblatex Info: Reference segment=0 on input line 107.
 
 Chapter 1.
 (Chapters/Chapter_I/section_1.tex
@@ -935,16 +942,21 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 Chapter 2.
 (Chapters/Chapter_II/section_1.tex [27
 
-] [28] [29] [30])
-(Chapters/Chapter_II/section_2.tex [31] [32])
-(Chapters/Chapter_II/section_3.tex [33] [34])
-(Chapters/Chapter_II/section_4.tex [35] [36])
-(Chapters/Chapter_II/section_5.tex [37] [38])
-(Chapters/Chapter_II/section_6.tex [39] [40] [41])
-(Chapters/Chapter_II/section_7.tex [42] [43])
-(Chapters/Chapter_II/section_8.tex [44] [45] [46] [47] [48])
-(Chapters/Chapter_II/section_9.tex [49] [50] [51])
-(Chapters/Chapter_II/section_10.tex [52]) [53] [54
+] [28] [29] [30] [31] [32] [33] [34]
+[35] [36]) (Chapters/Chapter_II/section_2.tex [37] [38] [39]
+Overfull \hbox (0.26279pt too wide) in paragraph at lines 189--191
+\OT1/cmr/m/n/10 using the al-go-rithm de-scribed in Ex-er-cise 2.5. There-fore 
+we have $\OML/cmm/m/it/10 x[]y[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 x[]y[]$\OT1
+/cmr/m/n/10 .
+ []
+
+[40] [41] [42] [43] [44] [45]) (Chapters/Chapter_II/section_3.tex [46])
+(Chapters/Chapter_II/section_4.tex [47] [48] [49])
+(Chapters/Chapter_II/section_5.tex [50]) (Chapters/Chapter_II/section_6.tex
+[51] [52] [53] [54]) (Chapters/Chapter_II/section_7.tex [55] [56])
+(Chapters/Chapter_II/section_8.tex [57] [58] [59] [60])
+(Chapters/Chapter_II/section_9.tex [61] [62] [63])
+(Chapters/Chapter_II/section_10.tex [64]) [65] [66
 
 ] (main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
@@ -952,10 +964,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 26514 strings out of 478337
- 555182 string characters out of 2846455
- 1229964 words of memory out of 3000000
- 44502 multiletter control sequences out of 15000+600000
+ 26655 strings out of 478337
+ 558019 string characters out of 2846455
+ 1231767 words of memory out of 3000000
+ 44636 multiletter control sequences out of 15000+600000
  477681 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  129i,18n,132p,1976b,1211s stack positions out of 10000i,1000n,20000p,200000b,80000s
@@ -974,14 +986,15 @@ mss10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:
 iles/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files/MiKTeX/fonts/type1/p
 ublic/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/ms
-am10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pf
-b><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Pr
-ogram Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (54 pages, 468639 bytes).
+s/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/latxfont/l
+ine10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.p
+fb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/
+Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb><C:/Program 
+Files/MiKTeX/fonts/type1/public/rsfs/rsfs10.pfb><C:/Program Files/MiKTeX/fonts/
+type1/public/cm-super/sfrm1000.pfb>
+Output written on main.pdf (66 pages, 522694 bytes).
 PDF statistics:
- 290 PDF objects out of 1000 (max. 8388607)
+ 333 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

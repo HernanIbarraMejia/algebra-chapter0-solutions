@@ -25,84 +25,263 @@
 	 for all $\sigma, \tau\in S_n$, where the product on the right is the ordinary product of matrices. [\RNo{4}.4.13]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $\mathbf{e}_1,\ldots, \mathbf{e}_n$ be the standard basis, but expressed as \emph{row vectors}. Note that if we have an $n\times n$ matrix $A$, then $\mathbf{e}_iA$ is the $i$-th row of $A$.
+	
+	By definition, we see that the $i$-th row of $M_\sigma$ is just $\mathbf{e}_{(i)\sigma}$. That is, we have the identity
+	\[
+		\mathbf{e}_iM_\sigma = \mathbf{e}_{(i)\sigma}.
+	\]
+	Therefore we have the following chain of reasoning,
+	\begin{align*}
+		\mathbf{e}_i(M_\sigma M_\tau) &= \mathbf{e}_{(i)\sigma}M\tau\\
+		&= \mathbf{e}_{((i)\sigma)\tau} \\
+		&\overset{!}{=} \mathbf{e}_{(i)(\sigma\tau)}\\
+		&= \mathbf{e}_iM_{\sigma\tau}. 
+	\end{align*}
+	At the first equality we used the fact that matrix multiplication is associative. At $\overset{!}{=}$ we used the fact that $S_n$ \emph{acts} on the set $\{1,\ldots, n\}$, that is, we assumed $((i)\sigma)\tau = (i)(\sigma\tau)$, which is evident from the definition of multiplication in $S_n$. We have deduced from the above that the $i$-th row of $M_{\sigma\tau}$ is the same as the $i$-th row of $M_{\sigma}M_\tau$. As $i$ was arbitrary, we must conclude that $M_{\sigma\tau} = M_{\sigma}M\tau$.
 \end{solution}
+
 
 \begin{exercise}
 	$\triangleright$ Prove that if $d\leq n$, then $S_n$ contains elements of order $d$. [$\S 2.1$]
 \end{exercise}
 \begin{solution}
-	content...
+	The ``cycle'' of length $d$:
+	\[ 
+		\begin{pmatrix}
+			1 & 2 & \cdots & d - 1 & d & d+1 & \cdots & n\\
+			2 & 3 & \cdots & d & 1 & d + 1 & \cdots & n
+		\end{pmatrix}.
+	\]
 \end{solution}
 
 \begin{exercise}
 	For every positive integer $n$, find an element of order $n$ in $S_{\bN}$.
 \end{exercise}
 \begin{solution}
-	content...
+	If $n=1$ then the identity function works, so assume $n>1$. Using the same idea as in Exercise 2.2, we construct a ``cycle'' of length $n$. Let $f\colon \mathbb{N} \to \mathbb{N}$ be given by
+	\[
+		f(x) \coloneqq 
+		\begin{cases}
+			x + 1 & \textnormal{ if }x< n-1,\\
+			0 & \textnormal{ if }x = n-1,\\
+			x & \textnormal{ otherwise.}
+		\end{cases}
+	\]
+	It can easily be checked that this function is bijective, hence an element of $S_\mathbb{N}$.
 \end{solution}
 
 \begin{exercise}
 	Define a homomorphism $D_8 \to S_4$ by labeling vertices of a square, as we did for a triangle in $\S 2.2$. List the 8 permutations in the image of this homomorphism.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $\rot_\theta$ represent a counterclockwise rotation by an angle of $\theta$ radians, and let $\rf_\theta$ represent a reflection with respect to a line, passing through the origin, at an angle $\frac{\theta}{2}$ from the $x$-axis (measured counterclockwise). Label the vertices of a square as in $\rot_0$ below. With this notation, we can see the resulting permutations of $D_8$.
+	
+	\[
+	\begin{tikzpicture}[sq/.style = {rectangle,draw, inner sep=0pt, minimum size=1.5cm}, label distance= 2pt]	
+		%	
+		\node (rot0) at (0,0) [sq, label=above:$\textnormal{rot}_0$] {};
+		\node [sq, label=above:$\textnormal{rot}_{\frac{\pi}{2}}$] (rot90) [right=of rot0] {};
+		\node [sq, label=above:$\textnormal{rot}_\pi$] (rot180) [right=of rot90] {};
+		\node [sq, label=above:$\textnormal{rot}_\frac{3\pi}{2}$] (rot270) [right=of rot180] {};
+		
+		\node [sq, label=above:$\textnormal{ref}_{0}$] (ref0) [below=of rot0] {};
+		\node [sq, label=above:$\textnormal{ref}_{\frac{\pi}{2}}$] (ref90) [below=of rot90] {};
+		\node [sq, label=above:$\textnormal{ref}_{\pi}$] (ref180) [below=of rot180] {};
+		\node [sq, label=above:$\textnormal{ref}_{\frac{3\pi}{2}}$] (ref270) [below=of rot270] {};
+		
+		\begin{scope}[on grid, node distance=.7]
+		\node [above left= of rot0] {1};
+		\node [above right= of rot0] {2};
+		\node [below right= of rot0] {3};
+		\node [below left= of rot0] {4};
+		
+		\node [above left= of rot90] {2};
+		\node [above right= of rot90] {3};
+		\node [below right= of rot90] {4};
+		\node [below left= of rot90] {1};
+		
+		\node [above left= of rot180] {3};
+		\node [above right= of rot180] {4};
+		\node [below right= of rot180] {1};
+		\node [below left= of rot180] {2};
+		
+		\node [above left= of rot270] {4};
+		\node [above right= of rot270] {1};
+		\node [below right= of rot270] {2};
+		\node [below left= of rot270] {3};
+		
+		\node [above left= of ref0] {4};
+		\node [above right= of ref0] {3};
+		\node [below right= of ref0] {2};
+		\node [below left= of ref0] {1};
+		
+		\node [above left= of ref90] {3};
+		\node [above right= of ref90] {2};
+		\node [below right= of ref90] {1};
+		\node [below left= of ref90] {4};
+		
+		\node [above left= of ref180] {2};
+		\node [above right= of ref180] {1};
+		\node [below right= of ref180] {4};
+		\node [below left= of ref180] {3};
+		
+		\node [above left= of ref270] {1};
+		\node [above right= of ref270] {4};
+		\node [below right= of ref270] {3};
+		\node [below left= of ref270] {2};
+		\end{scope}
+	\end{tikzpicture}
+	\]
+	
+	From the diagram above, one can read all the permutations of $S_4$. For example, the permutation corresponding to $\rf_\pi$ is
+	\[
+		\begin{pmatrix}
+			1 & 2 & 3 & 4\\
+			2 & 1 & 4 & 3
+		\end{pmatrix}.
+	\]
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Describe the generators and relations for all dihedral groups $D_{2n}$. (Hint: Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. The group $D_{2n}$ will be generated by $x$ and $y$ subject to three relations. To see that these relations really determine $D_{2n}$, use them to show that any product $x^{i_1} y^{i_2}x^{i_3}y^{i_4}\cdots$ equals $x^iy^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0\leq j < n$.)[8.4, $\RNo{4}.2.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $x$ be the reflection about a line through the center of a regular $n$-gon and a vertex, and let $y$ be the counterclockwise rotation by $2\pi/n$. Then $x^2 = e$ and $y^n = e$. Also, it is true that $yxyx= (yx)^2=e$; perhaps the easiest way to see this is to notice that $yx$ must be a reflection along some line (since the $n$-gon is ``flipped'' as a result) and hence it must be its own inverse.
+	
+	Suppose we have an arbitrary element of the form $x^{i_1}y^{j_1}x^{i_2}y^{j_2}\cdots x^{i_n}y^{j_n}$ for integers $i_k$, $j_k$. Actually we can assume all $i_k$ and $j_k$ are natural numbers, since if some were negative we can use the identities $x^{-1} = x$ and $y^{-1} = y^{n-1}$ to turn them positive. We will prove, using induction on $n$, that this product equals $x^iy^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0\leq j < n$.
+	
+	Let $n = 1$. Then we have the product $x^{i_1}y^{j_1}$. Divide $i_1$ by 2 with remainder such that $i_1 = 2q_i + r_i$ for $0\leq r_i \leq 1$ and $q_i\in \mathbb{N}$. Similarly, divide $j_1$ by $n$ with remainder such that $j_1 = nq_j + r_j$ for $0\leq r_j < n$ and $q_j\in \mathbb{N}$. Then 
+	\[
+		x^{i_1}y^{j_1} = x^{2q_i + r_i} y^{nq_j + r_j} = (x^2)^{q_i}x^r_i (y^n)^{q_j}y^{r_j} = x^{r_i}y^{r_j},
+	\]
+	as desired; this closes the base case. Assume inductively that the result is true for a positive integer $n$. Now, consider the product $x^{i_1}y^{j_1}\cdots x^{i_n}y^{j_n}x^{i_{n+1}}y^{j_{n+1}}$. By inductive hypothesis, this is equal to $x^iy^jx^{i_{n+1}}y^{j_{n+1}}$ for some $i$, $j$ with $0 \leq i \leq 1$, $0\leq j < n$.
+	
+	Note that we can assume $i_{n+1}$ is either 0 or 1 using division with remainder, as in the base case. If $i_{n+1} = 0$ then we have that the product is $x^iy^{j+j_n}$ and then we can use division with remainder again to reduce $j+j_n$ to be in the desired range. So if $i_{n+1} = 0$ we can close the induction.
+	
+	If $i_{n+1} = 1$ then we have $x^iy^jxy^{j_{n+1}}$. Using the relation $yxy = x^{-1} = x$ it is not hard to show (using induction) that $y^kxy^k = x$ for all natural numbers $k$. Then we have 
+	\[
+		x^iy^jxy^{j_{n+1}} = x^i(y^jxy^j)y^{j_{n+1} - j} = x^{i+1}y^{j_{n+1} - j}.
+	\]
+	We can assume $j_{n+1} - j$ is nonnegative by possibly replacing it with $(n-1)(j-j_{n+1})$(see the paragraph before the induction started). Using division with remainder, this reduces the exponents to the desired range and we are done with the induction.
+	
+	We have proven that $x$ and $y$, subject to the relations $x^2 = y^n= (yx)^2 = e$, generate exactly $2n$ elements $x^iy^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0\leq j < n$. As $D_{2n}$ has exactly $2n$ elements, and $x,y\in D_{2n}$, these generators and relations completely characterize $D_{2n}$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ For every positive integer $n$ construct a group containing elements $g$, $h$ such that $|g| = 2$, $|h| = 2$, and $|gh|= n$. (Hint: For $n > 1$, $D_{2n}$ will do.) [$\S 1.6$] 
 \end{exercise}
 \begin{solution}
-	content...
+	For $n = 1$ any group with an element of order 2 will do since, if $g$ is such an element, then $|g| = |g^{-1}| = 2$ and $|gg^{-1}|= |e| = 1$.
+	
+	For $n> 1$ take the dihedral group $D_{2n}$ and consider two reflections with respect to adjacent reflection lines. They both have order 2 and their product will be a rotation by $2\pi/n$. If you prefer presentations, take $g = x$ and $h = yx$ with notation as in Exercise 2.5. 
 \end{solution}
 
 \begin{exercise}
 	$\neg$ Find all elements of $D_{2n}$ that commute with every other element. (The parity of $n$ plays a role.) [\RNo{4}.1.2]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $g$ be an element of $D_{2n}$ commuting with every other element. Using Exercise 2.5 we can assume that $g = x^iy^j$ for some $i$, $j$ with $0 \leq i \leq 1$, $0\leq j < n$. 
+	
+	In particular we must have $xg = gx$. That is $x^{i+1}y^j = x^i(y^jx)$. Notice that 
+	\[
+		y^jx = (y^jxy^j)y^{-j} = xy^{-j} = xy^{n-j}
+	\]
+	using the algorithm described in Exercise 2.5. Therefore we have $x^{i+1}y^j = x^{i+1}y^{n-j}$. As $0\leq j < n$ we must have $0<n-j\leq n$.
+	
+	If $n-j = n$ then $j = 0$ and in that case it is clear that $xg=gx$ holds. If $0<n-j <n$ then both $x^{i+1}y^j$ and $x^{i+1}y^{n-j}$ are in the canonical form described in Exercise 2.5, and as they are equal this implies $j = n-j$, i.e. $n = 2j$. In conclusion either $j = 0$ or $n = 2j$ and in that case we have $gx = xg$.
+	
+	If $n$ is odd then the only possibility is $j=0$ so only elements that could commute with everything are $e$ and $x$. But $xy\neq yx$; for if we had $xy = yx$ we deduce $x = yxy^{-1} = yxy^{n-1} = (yxy)y^{n-2} = xy^{n-2}$, and by cancellation we get $y^{n-2} = e$ but we know $n>2$ and $|y| = n$, giving our contradiction. Therefore when $n$ is odd the only element that commutes with every other element is the identity.
+	
+	If $n$ is even then we have $j = n/2$ and $x^iy^{n/2} x = x^{i+1}y^{n/2}$ for all $i\in\{0,1\}$. This is only interesting when $i = 1$ so we have $xy^{n/2}x = x^2y^{n/2}$ which by cancellation implies $y^{n/2}x = xy^{n/2}$ which means that $y^{n/2}$ commutes with $x$, and as it also commutes with $y$ this shows that it commutes with every element of the group.
+	
+	We have not discarded the possibility that $xy^{n/2}$ commutes with everything. By the above it clearly commutes with $x$, so let's check if it commutes with $y$. If we had $xy^{\frac{n}{2} + 1} = yxy^{n/2}$ then we can say  $xy^{\frac{n}{2} + 1} = (yxy)y^{\frac{n}{2} - 1}$ and as $yxy= x$ we get  $xy^{\frac{n}{2} + 1} = xy^{\frac{n}{2} - 1}$ and by cancellation this simplifies to $y^2 = e$. This is absurd since $n>2$ and $|y| = n$. Thus $xy^{n/2}$ does not commute with everything.
+	
+	In summary, if $n$ is odd the only element that commutes with everything is the identity, and if $n$ is even we get in addition the element $y^{n/2}$ but	 nothing else.
 \end{solution}
 
 \begin{exercise}
 	Find the orders of the groups of symmetries of the five `platonic solids'.
 \end{exercise}
 \begin{solution}
-	content...
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+	\[
+		\begin{array}{c|c}
+			\text{Polyhedron} & \text{Order}\\
+			\hline
+			\hline
+			\text{Tetrahedron} & 24 \\
+			\hline
+			\text{Cube} & 48\\
+			\hline
+			\text{Octahedron} & 48\\
+			\hline
+			\text{Dodecahedron} & 120 \\
+			\hline
+			\text{Icosahedron} & 120
+		\end{array}
+	\]
+	}
 \end{solution}
 
 \begin{exercise}
 	Verify carefully that `congruence mod $n$' is an equivalence relation.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $a,b,c\in \mathbb{Z}$ and let $n$ be a positive integer. Clearly $n$ divides $a-a = 0$ since $0 = 0n$, so $a\equiv a \mod n$ and the relation is reflexive. If $a\equiv b \mod n$ then $n\divides (b-a)$, that is $b-a = kn$ for some integer $k$. Then $a-b = (-k)n$ and thus $n\divides(a-b)$ so that $b\equiv a\mod n$; thus the relation is symmetric.
+	
+	Now suppose $a\equiv b \mod n$ and $b \equiv c \mod n$. Then $n\divides(b-a)$ and $n\divides (c - b)$ so that $b-a = kn$ and $c-b = k'n$ for integers $k$ and $k'$. But then $c - a = (b-a) + (c-b)  = kn + k'n = (k+k')n$, which means $n\divides (c-a)$ and so $a \equiv c \mod n$. Therefore the relation is also transitive.
 \end{solution}
 
 \begin{exercise}
 	Prove that if $n>0$, then $\bZ/n\bZ$ consists of precisely $n$ elements.
 \end{exercise}
 \begin{solution}
-	content...
+	We claim that every integer is equivalent to exactly one of $0$, 1, \ldots, $n-1$; from this the result follows immediately. Indeed, for every integer $m$ we can perform division by $n$ with remainder so that $m = qn + r$ where $q$ and $r$ are integers such that $0\leq r \leq n - 1$. Then notice that we have $m - r  = qn$ and so $n\divides (m-r)$ so that $m\equiv r \mod n$. This proves that every integer is equivalent to one of $0$, 1, \ldots, $n-1$.
+	
+	Now let us show that none of $0$, 1, \ldots, $n-1$ are equivalent to one another. Suppose $a$, $b$ are distinct integers such that $0\leq a<b<n$, and for the sake of contradiction suppose that $a\equiv b \mod n$. It immediately follows that $0< b-a < n$. By definition we have that $n\divides (b-a)$ so that $b-a = kn$ for some integer $k$. But then we have $0< \frac{b-a}{n} = k < 1$ which is absurd since $k$ is an integer. This is our contradiction and the claim follows.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Prove that the square of every odd integer is congruent to 1 modulo 8. [$\RNo{7}.5.1$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $n = 2k + 1$ be an odd integer. Then 
+	\[
+		n^2 = (2k+1)^2 = 4k^2 + 4k + 1.
+	\]
+	There are two cases. If $k$ is even then write $k = 2p$ for some integer $p$ so that 
+	\[
+		n^2 = 4(2p)^2 + 4(2p) + 1 = 8(2p^2 + p) + 1,
+	\]
+	from which it follows that $n^2 \equiv 1 \mod 8$.
+	
+	If $k$ is odd then write $k = 2p+1$ so that
+	\[
+		n^2 = 4(2p+1)^2 + 4(2p+1) + 1 = 16p^2 + 24p + 9 = 8(2p^2 + 3p + 1) + 1,
+	\]
+	and again it follows that $n^2 \equiv 1 \mod 8$.
 \end{solution}
 
 \begin{exercise}
 	Prove that there are no nonzero integers $a,b,c$ such that $a^2 + b^2 = 3c^2$. (Hint: By studying the equation $[a]_4^2 + [b]_4^2 = 3[c]_4^2$ in $\bZ/4\bZ$, show that $a$, $b$, $c$ would all have to be even. Letting $a = 2k$, $b= 2l$, $c = 2m$, you would have $k^2 + l^2 = 3m^2$. What's wrong with that?)
 \end{exercise}
 \begin{solution}
-	content...
+	Let us begin by studying squares in $\bZ/4\bZ$. We have that
+		\begin{align*}
+			0^2 &\equiv 0 \mod 4\\
+			1^2 &\equiv 1 \mod 4 \\
+			2^2 = 4 &\equiv 0 \mod 4\\
+			3^2 = 9 &\equiv 1 \mod 4. 
+		\end{align*}
+	We do not have to check anything further since if $x$ is an integer and we are interested in knowing $x^2$ modulo 4 we can perform division by 4 with remainder on $x$, i.e. writing $x = 4q + r$ for some integers $q$ and $r$ with $0\leq r \leq 3$, and then noticing that $x^2 = 4(4q^2 + 2qr) + r^2$ so that $x^2 \equiv r^2 \mod 4$. This shows that every integer squared is congruent to 0 or 1 modulo 4.
+	
+	So, if $c^2 \equiv 1 \mod 4$ then it is not hard to see that $3c^2 = a^2+b^2 \equiv 3 \mod 4$. This congruence relation has no solution since $a^2$ and $b^2$ are congruent to 0 or 1 modulo 4, which implies that $a^2 + b^2$ is congruent to 0, 1, or 2 modulo 4.  Therefore we must have $c^2 \equiv 0 \mod 4$, which implies $a^2 + b^2 \equiv 0 \mod 4$, and this is only satisfied when $a^2 \equiv b^2 \equiv 0 \mod 4$.
+	
+	We have deduced that in any solution to the equation $a^2 + b^2 = 3c^2$ we must have $4$ dividing $a^2$, $b^2$, and $c^2$. For any integer $x$, if $x$ has no factor of 2, i.e. is odd, then $x^2$ will not have a factor of 2. It follows that if $x^2$ does have a factor of 2, as is the case for $a^2$, $b^2$, and $c^2$, then $x$ does as well, i.e. $x$ is even. Hence, $a$, $b$, and $c$ are all even.
+	
+	We have shown that any solution to the equation $a^2 + b^2 = 3c^2$ must have $a$, $b$, and $c$, be even. Assume, for the sake of contradiction, that $a,b,c$ is a solution and further assume $a,b,c > 0$, since we can clearly negate the variables while keeping equality. Write $a = 2k$, $b = 2l$, and $c = 2m$. Plugging these expressions in, we get $k^2 + l^2 = 3m^2$ so that $k$, $l$, and $m$ are even. Repeating this process would yield an infinite decreasing sequence of positive integers; but there is no such thing so in fact the equation has no non-zero solutions.
 \end{solution}
 
 \begin{exercise}
@@ -113,14 +292,26 @@
 	(Use Corollary 2.5.) Conversely, prove that if $am+bn = 1$ for some integers $a$ and $b$, then $\gcd(m,n) = 1$. [2.15, $\S \RNo{5}.2.1$, $\RNo{5}.2.4$]
 \end{exercise}
 \begin{solution}
-	content...
+	If $\gcd(m,n) = 1$ then Corollary 2.5 says that $[m]_n$ generates $\bZ/n\bZ$. In particular, there is some integer $a$ such that $a\cdot[m]_n = [1]_n$, which implies $[am]_n = [1]_n$, and that is $am\cong 1 \mod n$. Then $n\divides 1-am$ and there exists some integer $b$ such that $1-am = bn$, i.e. $am + bn = 1$. 
+	
+	Conversely, suppose $am+bn = 1$ for some integers $a$ and $b$. If $d>0$ divides both $n$ and $m$ then it clearly divides $am +bn = 1$, and hence $d = 1$. Then $\gcd(m,n) = 1$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ State and prove an analog of Lemma 2.2, showing that the multiplication on $\bZ/n\bZ$ is a well-defined operation. [$\S 2.3$, $\S \RNo{3}$.1.2]
 \end{exercise}
 \begin{solution}
-	content...
+	The claim is that if $a \equiv a' \mod n$ and $b\equiv b' \mod n$ then 
+	\[
+		ab \equiv a'b' \mod n.
+	\]
+	The proof is given below.
+	
+	By hypothesis $n\divides (a'-a)$ and $n\divides (b' - b)$; therefore there exists some integers $k$ and $l$ such that 
+	\[
+		a'-a = kn, \;\;\; b' - b = ln.
+	\]
+	It follows that $a' = kn + a$ and $b' = b+ln$. Then, $a'b' = (a+kn)(b+ln) = ab+ n(al + bk + kln)$. Hence $n\divides (a'b' - ab)$ and the claim follows.
 \end{solution}
 
 \begin{exercise}
@@ -132,34 +323,114 @@
 	\end{itemize}
 	The number $\phi(n)$ of elements of $(\bZ/n\bZ)^*$ is \emph{Euler's $\phi$-function}. The reader has just proved that if $n$ is odd, then $\phi(2n) = \phi(n)$. Much more general formulas will be given later on (cf. Exercise $\RNo{5}.6.8$). [$\RNo{7}.5.11$]
 \end{exercise}
-\begin{solution}
-	content...
+\begin{solution}\leavevmode
+	\begin{itemize}
+		\item By Exercise 2.13 there are some integers $a$ and $b$ such that
+		\[
+			am + bn = 1.
+		\]
+		As $n$ is odd write $n = 2p + 1$ for some integer $p$. Then
+		\begin{align*}
+			\intertext{\centering$[(2pb - ap-1)(m+p)](2n) + [1 + 2ap(m+p)](2m + n)$}% equation I'm taking out of the alignment
+			&= (m+p)[(2n)(2pb - \cancel{ap} -1) + 2ap(2m+\cancel{n})] + 2m + n\\
+			&= 2(m+p)[n(2pb - 1) + ap(2m)] + 2(m+p) + 1\\
+			&= 2(m+p)[2pnb - n + 2map + 1] + 1\\
+			&= 2(m+p)[2p(am + bn) +1 -n ] + 1\\
+			&= 2(m+p)[2p + 1 -n] +1\\
+			&= 1.
+		\end{align*}
+		This shows, by Exercise 2.13, that $\gcd(2m + n, 2n) = 1$. 
+		\item By Exercise 2.13 there are some integers $a$ and $b$ such that
+		\[
+			ar + b(2n) = 1.
+		\]
+		We have that $r$ is odd---if it were even the above equation gives a contradiction modulo 2. It follows that $r-n$ is even and that $\frac{r-n}{2}$ is an integer. Then
+		\begin{align*}
+			2a\left(\frac{r-n}{2}\right)  + (2b+a)n	&= a(r-n) + (2b + a)n\\
+			&= ar + b(2n) \\
+			&=1.
+		\end{align*}
+		This shows, by Exercise 2.13, that $\gcd\left(\frac{r-n}{2}, n\right) = 1$. 
+		\item By the first bullet point the assignment $[m]_n \to [2m + n]_{2n}$ is a well-defined function between $(\bZ/n\bZ)^*$ and $(\bZ/2n\bZ)^*$. By the second bullet point the assignment $[r]_{2n} \to \left[\frac{r-n}{2}\right]_n$ is a well-defined function between $(\bZ/2n\bZ)^*$ and $(\bZ/n\bZ)^*$. These two functions are readily seen to be inverses of each other and the claim follows.
+	\end{itemize}
 \end{solution}
 
 \begin{exercise}
 	Find the last digit of $1238237^{18238456}$. (Work in $\bZ/10\bZ$.)
 \end{exercise}
 \begin{solution}
-	content...
+	From Exercise 2.14 it follows that if $a\equiv a' \mod n$ then $a^k \equiv a'^k \mod n$ for all nonnegative integers $k$. We clearly have $1238237 \equiv 7 \mod 10$, so 
+	\[1238237^{18238456} \equiv 7^{18238456} \mod 10.\]
+	
+	Now, notice that $7^2 = 49 \equiv 9 \equiv -1 \mod 10$. Then,
+	\[
+		7^{18238456} = (7^2)^{9119228} \equiv (-1)^9119228 = 1 \mod 10.
+	\]
+	Thus, the last digit of $1238237^{18238456}$ is 1.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Show that if $m\equiv m'$ mod $n$, then $\gcd(m,n) = 1$ if and only if $\gcd(m',n) = 1$. [$\S 2.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	As $m \equiv m' \mod n$ there is some integer $k$ such that $kn = m' - m$. Notice that the statement is symmetrical so it suffices to prove only one direction.
+	
+	Suppose $\gcd(m,n) = 1$. By Exercise 2.13 there exists some integers $a$ and $b$ such that $am + bn = 1$. Then $am' + (b-ak)n = a(m' - kn) + bn = am + bn = 1$, which shows, by Exercise 2.13, that $\gcd(m',n) = 1$.	
 \end{solution}
 
 \begin{exercise}
 	For $d\leq n$, define an injective function $\bZ/d\bZ \to S_n$ preserving the operation, that is, such that the sum of equivalence classes in $\bZ/d\bZ$ corresponds to the product of the corresponding permutations.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $c_d \in S_n$ stand for the permutation defined in Exercise 2.2:
+	\[ 
+	\begin{pmatrix}
+		1 & 2 & \cdots & d - 1 & d & d+1 & \cdots & n\\
+		2 & 3 & \cdots & d & 1 & d + 1 & \cdots & n
+	\end{pmatrix}.
+	\]
+	Define a function $\bZ/d\bZ \to S_n$ by the rule $[m]_d \mapsto (c_d)^m$ for $0\leq m \leq d-1$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Both $(\bZ/5\bZ)^*$ and $(\bZ/12\bZ)^*$ consist of $4$ elements. Write their multiplication tables, and prove that no re-ordering of the elements will make them match. (Cf. Exercise 1.6.) [$\S 4.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	For $(\bZ/5\bZ)^*$ we have the following table.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+	\[
+		\begin{array}{c||c|c|c|c}
+			& [1]_5 & [2]_5 & [3]_5 &  [4]_5\\
+			\hline
+			\hline
+			[1]_5 & [1]_5 & [2]_5 & [3]_5 & [4]_5\\
+			\hline
+			[2]_5 & [2]_5 & [4]_5 & [1]_5 & [3]_5\\
+			\hline
+			[3]_5 & [3]_5 & [1]_5& [4]_5 & [2]_5 \\
+			\hline
+			[4]_5 & [4]_5 & [3]_5  & [2]_5 & [1]_5
+		\end{array}
+	\]
+	}
+	For $(\bZ/12\bZ)^*$ we have the following table.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			& [1]_{12} & [5]_{12} & [7]_{12} &  [11]_{12}\\
+			\hline
+			\hline
+			[1]_{12} & [1]_{12} & [5]_{12} & [7]_{12} & [11]_{12}\\
+			\hline
+			[5]_{12} & [5]_{12} & [1]_{12} & [11]_{12} & [7]_{12}\\
+			\hline
+			[7]_{12} & [7]_{12} & [11]_{12}& [1]_{12} & [5]_{12} \\
+			\hline
+			[11]_{12} & [11]_{12} & [7]_{12}  & [5]_{12} & [1]_{12}
+		\end{array}
+		\]
+	}
+	Note that reordering the elements will not change the fact that in $(\bZ/12\bZ)^*$ all elements square to the (unique) identity, but this is not the case for $(\bZ/5\bZ)^*$.
 \end{solution}

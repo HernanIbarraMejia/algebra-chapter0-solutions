@@ -132,42 +132,334 @@
 	}
 	By the same reasoning as in the previous paragraph, $f\bullet g \neq f $and $f\bullet g\neq g$. Here we have two cases.
 	\subsubsection*{Case I: $f\bullet g = e$}
+	We have the following Sudoku puzzle.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &  & e & \\
+			\hline
+			g & g & &  & \\
+			\hline
+			h & h &   &  & 
+		\end{array}
+		\]
+	}
+	Note that $f\bullet h $ cannot be $h$, $e$, nor $f$; therefore it must be $g$. Then we can fill the remaining entry in the second row $f^2 = h$.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & h & e & g\\
+			\hline
+			g & g &  &  & \\
+			\hline
+			h & h &   &  & 
+		\end{array}
+		\]
+	}
+	Here we find that $g\bullet f$ cannot be $g$, $h$, nor $f$, so we have $g\bullet h = e$. This implies that $g\bullet h$ is not $g$, $h$, nor $e$; hence $g\bullet h = f$. At this point the puzzle solves itself and we are left with the following multiplication table.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & h & e & g\\
+			\hline
+			g & g & e& h &f \\
+			\hline
+			h & h & g  & f & e
+		\end{array}
+		\]
+	}
+	\subsubsection*{Case II: $f\bullet g = h$}
+	Here is our starting point.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &  & h & \\
+			\hline
+			g & g & &  & \\
+			\hline
+			h & h &   &  & 
+		\end{array}
+		\]
+	}
+	However, we soon realize that more information is needed to solve this one. Indeed, there is more than one multiplication table with $f\bullet g = h$. For instance, note that $f^2$ cannot be $h$ nor $f$. Thus, we can further subdivide into two cases.
+	\subsubsection*{Case IIa: $f\bullet g = h$ and $f^2 = g$}
+	Here is the puzzle.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &g & h & \\
+			\hline
+			g & g & &  & \\
+			\hline
+			h & h &   &  & 
+		\end{array}
+		\]
+	}
+
+	Immediately we deduce that $f\bullet h = e$. With this information, $g\bullet h$ is also uniquely determined: it must be $f$. Then the last entry in the last column must read $h^2 = g$, and at this point the rest is straightforward. We just reveal the answer below.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & g & h & e\\
+			\hline
+			g & g & h& e & f\\
+			\hline
+			h & h & e  & f & g
+		\end{array}
+		\]
+	}
+	\subsubsection*{Case IIb: $f\bullet g = h$ and $f^2 = e$}
+	We have the following.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & \\
+			\hline
+			g & g & &  & \\
+			\hline
+			h & h &   &  & 
+		\end{array}
+		\]
+	}
 	
+	The second row is solved immediately. Then, $g\bullet f$ is forced to be $h$ and hence $h\bullet f = g$.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & g\\
+			\hline
+			g & g & h &  & \\
+			\hline
+			h & h &  g &  & 
+		\end{array}
+		\]
+	}
+	Yet, there are two options for the multiplication table at this point. Notice that $g^2$ is either $f$ or $e$. We get two more cases, which are easily seen to be 
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & g\\
+			\hline
+			g & g & h & f & e\\
+			\hline
+			h & h &  g & e & f
+		\end{array}
+		\]
+	}
+	
+	and,
+	
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & g\\
+			\hline
+			g & g & h & e & f\\
+			\hline
+			h & h &  g & f & e
+		\end{array}
+		\]
+	}
+
+	To recap, we have four tables allowed by Exercise 1.5.
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & h & e & g\\
+			\hline
+			g & g & e& h &f \\
+			\hline
+			h & h & g  & f & e
+		\end{array}
+		\]
+	}
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f & g & h & e\\
+			\hline
+			g & g & h& e & f\\
+			\hline
+			h & h & e  & f & g
+		\end{array}
+		\]
+	}
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & g\\
+			\hline
+			g & g & h & f & e\\
+			\hline
+			h & h &  g & e & f
+		\end{array}
+		\]
+	}
+	{%Make spacing between the rows in the table a bit bigger
+		\renewcommand{\arraystretch}{1.5}
+		\[
+		\begin{array}{c||c|c|c|c}
+			\bullet & e & f & g & h\\
+			\hline
+			\hline
+			e & e & f & g & h\\
+			\hline
+			f & f &e & h & g\\
+			\hline
+			g & g & h & e & f\\
+			\hline
+			h & h &  g & f & e
+		\end{array}
+		\]
+	}
+
+	However, the first three tables are seen to be essentially the same. Start with the first table; swap the roles of $h$ and $g$ to get the second table. Similarly, swapping $h$ and $f$ will get you the third table. But the fourth table is really different from the other ones, since no relabelling is going to change the fact that in the fourth table all elements square to the identity, whereas this isn't true in the first three tables. Therefore, for groups of order four, there are two tables up to reordering of the elements.
+	
+	Notice that all the tables we have found so far are symmetric with respect to the main diagonal (the one with all the squares). This implies all groups with order 4 or less are commutative.	
 \end{solution}
 
 \begin{exercise}
 	Prove Corollary 1.11.
 \end{exercise}
 \begin{solution}
-	content...
+	Firstly, notice that $g^{-N}$, as defined in $\S 1.3$, is the inverse of $g^N$ (just multiply out). Therefore $g^{-N} = (g^N)^{-1}$. We will also use the identity $g^{nm} = (g^n)^m$ for integers $n$, $m$; this is immediate to verify.
+	
+	Suppose $g^N = e$, for $N$ an integer. If $N = 0$ then clearly $N$ is a multiple of $|g|$. If $N$ is positive, apply Lemma 1.10 directly to conclude that $N$ is a multiple of $N$.
+	
+	If $N$ is negative, notice that $g^{-N} = (g^N)^{-1} = e^{-1} = e$. Then, apply Lemma 1.10 to the positive integer $-N$ to conclude that $-N$ is a multiple of $|g|$, which implies that $N$ is a multiple of $|g|$.
+	
+	Conversely, now suppose that $N$ is a multiple of $|g|$, and write $N = k|g|$, for some integer $k$. Then $g^N = g^{k|g|} = (g^{|g|})^k = e^k = e$. 
 \end{solution}
 
 \begin{exercise}
 	$\neg$ Let $G$ be a finite abelian group with exactly one element $f$ of order 2. Prove that $\prod_{g\in G}g = f$. [4.16]
 \end{exercise}
 \begin{solution}
-	content...
-\end{solution}
+	Define an relation on $G$ by saying $x\sim y$ iff $x = y$ or $x = y^{-1}$. This relation is clearly reflexive and symmetric (because $y =(y^{-1})^{-1} $). We will show it is transitive. Suppose $x \sim y$ and $y\sim z$ for $x$, $y$, $z$ in $G$. If either $x = y$ or $y = z$ then $x\sim z$ is clear, so suppose $x = y^{-1}$ and $y = z^{-1}$. Then it follows that $x = (z^{-1})^{-1} = z$, i.e. $x\sim z$. Thus $\sim$ is an equivalence relation.
+	
+	In fact, each equivalence class can have at most two elements. This is because if $x$, $y$, and $z$ are distinct and they belong to the same class, we have $x\sim y$ and $y\sim z$ and the argument above shows $x= z$, a contradiction.
+	
+	It is clear that an element is in a singleton equivalence class iff that element satisfies $x = x^{-1}$, which happens iff $x^2 = e$. From this we deduce either $|x| = 1$, in which case $x = e$, or $|x| = 2$, in which case $x = f$. Thus we see the only singleton equivalence classes are $\{e\}$ and $\{f\}$; all other classes are of the form $\{y,y^{-1}\}$.
+	
+	As the group is abelian, the order in which we multiply does not matter. Let $y_1,y_2, \ldots, y_k$ be representatives of each equivalence class of size 2. Then, as the classes partition the group, we have
+	\begin{align*}
+		\prod_{g\in G}g &= (y_1y^{-1})(y_2y_2^{-1})\ldots(y_ky_k^{-1})(e)(f)\\
+		&= (e)(e)\ldots (e)(e)f\\
+		&=f.
+	\end{align*}
+\end{solution} 
 
 \begin{exercise}
 	Let $G$ be a finite group, of order $n$, and let $m$ be the number of elements $g\in G$ of order exactly 2. Prove that $n-m$ is odd. Deduce that if $n$ is even, then $G$ necessarily contains elements of order 2.
 \end{exercise}
 \begin{solution}
-	content...
+	Recall the equivalence relation defined in the solution of Exercise 1.8. We showed that all equivalence classes are of the form $\{y,y^{-1}\}$, $\{f\}$, or $\{e\}$, where $|y|\neq 2$, $|f| = 2$ and $e$ is the identity. Therefore, removing all equivalence classes of the form $\{f\}$ leaves us with an odd number of elements: the identity $\{e\}$ along with elements that come in pairs $\{y,y^{-1}\}$.
+	
+	Then if $n$ is even then $n-m$ is odd, which implies $m$ is odd, which implies $m>0$.
 \end{solution}
 
 \begin{exercise}
 	Suppose the order of $g$ is odd. What can you say about the order of $g^2$?
 \end{exercise}
 \begin{solution}
-	content...
+	If $|g|$ is odd, then, by Proposition 1.13, we have
+	\[
+		|g^2| = \frac{|g|}{\gcd(2,|g|)} = |g|.
+	\]
 \end{solution}
 
 \begin{exercise}
 	Prove that for all $g$, $h$ in a group $G$, $|gh| = |hg|$. (Hint: Prove that $|aga^{-1}| = |g|$ for all $a$, $g$ in $G$.)
 \end{exercise}
 \begin{solution}
-	content...
+	First we show that if $a,g\in G$ we have $|aga^{-1}| = |g|$. Notice that, for any integer $N$, we have
+	\begin{align*}
+		(aga^{-1})^N &= \underbrace{(aga^{-1})(aga^{-1})\cdots (aga^{-1})}_{N \textnormal{ times}}\\
+		&= ag(a^{-1}a)g(a^{-1}a)\cdots (a^{-1}a)ga^{-1})\\
+		&= agg\cdots ga^{-1}\\
+		&= ag^Na^{-1}.
+	\end{align*}
+	This easily implies that $g^N = e$ if and only if $ag^Na^{-1} = e$. Therefore it must be the case that $|aga^{-1}| = |g|$.
+	
+	Now, let $g,h\in G$. By our above remarks $|gh| = |h(gh)h^{-1}| = |hg|$.
 \end{solution}
 
 \begin{exercise}
@@ -188,28 +480,112 @@
 	Verify that $|g| = 4$, $|h| = 3$, and $|gh| = \infty$. [$\S 1.6$]
 \end{exercise}
 \begin{solution}
-	content...
+	We see that $g$ is a counter-clockwise rotation of 90\degree, so it makes sense that $|g| = 4$. Indeed,
+	\begin{gather*}
+		g^2 = 
+		\begin{pmatrix*}[r]
+			-1 & 0\\
+			0 & -1\\
+		\end{pmatrix*},
+		\; \; \;
+		g^3 = 
+		\begin{pmatrix*}[r]
+			0 & 1\\
+			-1 & 0\\
+		\end{pmatrix*},
+		\; \; \;
+		g^4 = 
+		\begin{pmatrix*}[r]
+			1 & 0\\
+			0 & 1\\
+		\end{pmatrix*}.
+	\end{gather*}
+	Analogously, 
+	\begin{gather*}
+		h^2 = 
+		\begin{pmatrix*}[r]
+			-1 & -1\\
+			1 & 0\\
+		\end{pmatrix*},
+		\; \; \;
+		h^3 = 
+		\begin{pmatrix*}[r]
+			1 & 0\\
+			0 & 1\\
+		\end{pmatrix*}.
+	\end{gather*}
+	Now, we have
+	\[
+		gh = 
+		\begin{pmatrix*}[r]
+			1 & 1\\
+			0 & 1\\
+		\end{pmatrix*}.
+	\]
+	We claim that 
+	\[
+		(gh)^s =  
+		\begin{pmatrix*}[r]
+			1 & s\\
+			0 & 1\\
+		\end{pmatrix*}.
+	\]
+	for all natural numbers $s$, and we prove so by induction. For $s = 0$ this is evident. Suppose the above equation holds for a particular value of $s$. Then,
+	\[
+		(gh)^{s+1} =(gh)^s(gh)=  
+		\begin{pmatrix*}[r]
+			1 & s\\
+			0 & 1\\
+		\end{pmatrix*}
+		\begin{pmatrix*}[r]
+			1 & 1\\
+			0 & 1\\
+		\end{pmatrix*} =
+		\begin{pmatrix*}[r]
+			1 & s+1\\
+			0 & 1\\
+		\end{pmatrix*}.
+	\]
+	This closes the induction. Now it is clear that no positive value of $s$ will yield the identity; thus $|gh| = \infty$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Give an example showing that $|gh|$ is not necessarily equal to $\lcm(|g|,|h|)$, even if $g$ and $h$ commute. [$\S 1.6$, 1.14]
 \end{exercise}
 \begin{solution}
-	content...
+	Consider the group with 3 elements; we derived its multiplication table in Exercise 1.6. The two non-identity elements commute (because the group is commutative), they both have order 3, so that the least common multiple of their order is also 3. However, they multiply to give the identity, which has order $1$; a counterexample.
+	
+	Formally, we need to prove that this is in fact a group. This will be done in the next section. (Can the reader prove this before then?)
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ As a counterpoint to Exercise 1.13, prove that if $g$ and $h$ commute \emph{and} $\gcd(|g|,|h|) = 1$, then $|gh| = |g||h|$. (Hint: Let $N=|gh|$; then $g^N = (h^{-1})^N$. What can you say about this element?) [$\S 1.6$, 1.15, $\RNo{4}.2.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $N = |gh|$. We wish to show that $N = |g||h|$. We will be using the identity $(a^M)^{-1} = (a^{-1})^M$, valid for all $a\in G$ and for all positive integers $M$; this is proved by verifying that $(a^{-1})^N$ is the inverse of $a^N$. From this identity it easily follows that $|a| = |a^{-1}|$, for all $a\in G$.
+		
+	As $g$ and $h$ commute, we have that $(gh)^N = g^N h^N$. But $(gh)^N = e$ by definition of $N$. Hence, $g^N h^N = e$, which implies $g^N = (h^N)^{-1}$.
+	
+	This means that $|g^N|= |(h^N)^{-1}| = |h^N|$. By Proposition 1.13, we have that $|g^N|$ divides $|g|$ and $|h^N|$ divides $|h|$. Thus, $|g^N| = |h^N|$ is a common divisor of $|g|$ and $|h|$, hence $|g^N| = |h^N| = 1$, that is, $g^N = h^N = e$. By Lemma 1.10, $|g|$ divides $N$ and $|h|$ divides $N$. \emph{As $|g|$ and $|h|$ are coprime} we can deduce $|g||h|\divides N$, by basic number theory. 
+	
+	We also have $N \divides |g||h|$ by Proposition 1.14. Therefore $N = |g||h|$ as desired.
 \end{solution}
 
 \begin{exercise}
 	$\neg$ Let $G$ be a commutative group, and let $g\in G$ be an element of maximal \emph{finite} order, that is, such that if $h\in G$ has finite order, then $|h|\leq |g|$. Prove that in fact if $h$ has finite order in $G$, then $h$ \emph{divides} $g$. (Hint: Argue by contradiction. If $h$ is finite but does not divide $g$, then there is a prime integer $p$ such that $|g| = p^mr$, $|h| = p^ns$, with $r$ and $s$ relatively prime to $p$ and $m < n$. Use Exercise 1.14 to compute the order of $g^{p^{m}}h^s$.) [$\S 2.1$, 4.11, \RNo{4}.6.15]
 \end{exercise}
 \begin{solution}
-	content...
+	Consider the prime factorization of $|h|$, say  $|h|= p_1^{n_1}p_2^{n_2}\cdots p_k^{n_k}$, such that all $p_i$'s are distinct primes, and all $n_i$'s are positive. We wish to show that each of these factors, that each $p_i^{n_i}$ divides $|g|$, so, for the sake of contradiction, suppose there is some $i$ for which $p_i^{n_i}$ does not divide $|g|$ and write $p \coloneqq p_i$ and $n\coloneqq n_i$. Then clearly we can write $|h| = p^ns$ for some integer $s$ relatively prime to $p$. Furthermore, if $m$ is the largest nonnegative integer (possibly zero) such that $p^m \divides |g|$ then we must have $m<n$ and we can write $|g| = p^m r $ where $r$ is relatively prime to $p$.
+	
+	By Proposition 1.13, 
+	\[
+		|g^{p^m}| = \frac{|g|}{\gcd(p^m, |g|)} = \frac{|g|}{p^m} = r,
+	\]
+	and,
+	\[
+		|h^{s}| = \frac{|h|}{\gcd(s, |h|)} = \frac{|h|}{s} = p^n.
+	\]
+	Therefore $\gcd(|g^{p^m}|, |h^s|) = \gcd(r,p^n)  = 1$. Then we can apply Exercise 1.14 to conclude that $|g^{p^m}h^s| = |g^{p^m}||h^s| = p^nr$. But this is nonsense since $p^nr > p^mr = |g|$ but $|g|$ was supposed to have maximal order; this is our contradiction.
 \end{solution}
 
 
