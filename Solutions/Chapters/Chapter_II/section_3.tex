@@ -2,12 +2,36 @@
 \extitle
 
 \begin{exercise}
-	$\triangleright$ Let $\varphi\colon G \to H$ ve a morphism in a category $\srf{C}$ with products. Explain why there is a unique morphism $(\varphi\times\varphi)\colon G\times G \to H \times H$ compatible in the evident way with the natural projections. 
+	$\triangleright$ Let $\varphi\colon G \to H$ be a morphism in a category $\srf{C}$ with products. Explain why there is a unique morphism $(\varphi\times\varphi)\colon G\times G \to H \times H$ compatible in the evident way with the natural projections. 
 	
 	(This morphism is defined explicitly for $\srf{C} = \srf{Set}$ in $\S 3.1$.) [$\S 3.1, 3.2$]
 \end{exercise}
 \begin{solution}
-	content...
+	As $\srf{C}$ has products then the products $G\times G$ and $H\times H$ exist and they are depicted as follows.
+	% https://q.uiver.app/?q=WzAsNixbMCwxLCJHXFx0aW1lcyBHIl0sWzEsMCwiRyJdLFsxLDIsIkciXSxbMywxLCJIXFx0aW1lcyBIIl0sWzQsMCwiSCJdLFs0LDIsIkgiXSxbMCwxLCJcXHBpX0deMSJdLFswLDIsIlxccGlfR14yIiwyXSxbMyw0LCJcXHBpX0heMSJdLFszLDUsIlxccGlfSF4yIiwyXV0=
+	\[\begin{tikzcd}
+		& G &&& H \\
+		{G\times G} &&& {H\times H} \\
+		& G &&& H
+		\arrow["{\pi_G^1}", from=2-1, to=1-2]
+		\arrow["{\pi_G^2}"', from=2-1, to=3-2]
+		\arrow["{\pi_H^1}", from=2-4, to=1-5]
+		\arrow["{\pi_H^2}"', from=2-4, to=3-5]
+	\end{tikzcd}\]
+	Now, there is a map $\varphi\colon G \to H$, that is used to define two maps from $G\times G \to H$ as below. Then, by the universal property of $H\times H$, there exists a unique map $\varphi\times \varphi$ such that the diagram commutes.
+	% https://q.uiver.app/?q=WzAsNixbMCwxLCJHXFx0aW1lcyBHIl0sWzEsMCwiRyJdLFsxLDIsIkciXSxbMywxLCJIXFx0aW1lcyBIIl0sWzQsMCwiSCJdLFs0LDIsIkgiXSxbMCwxLCJcXHBpX0deMSJdLFswLDIsIlxccGlfR14yIiwyXSxbMyw0LCJcXHBpX0heMSJdLFszLDUsIlxccGlfSF4yIiwyXSxbMCwzLCJcXGV4aXN0cyEgXFx2YXJwaGlcXHRpbWVzXFx2YXJwaGkiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XSxbMSw0LCJcXHZhcnBoaSIsMCx7ImN1cnZlIjotM31dLFsyLDUsIlxcdmFycGhpIiwyLHsiY3VydmUiOjN9XV0=
+	\[\begin{tikzcd}
+		& G &&& H \\
+		{G\times G} &&& {H\times H} \\
+		& G &&& H
+		\arrow["{\pi_G^1}", from=2-1, to=1-2]
+		\arrow["{\pi_G^2}"', from=2-1, to=3-2]
+		\arrow["{\pi_H^1}", from=2-4, to=1-5]
+		\arrow["{\pi_H^2}"', from=2-4, to=3-5]
+		\arrow["{\exists! \varphi\times\varphi}", dashed, from=2-1, to=2-4]
+		\arrow["\varphi", curve={height=-18pt}, from=1-2, to=1-5]
+		\arrow["\varphi"', curve={height=18pt}, from=3-2, to=3-5]
+	\end{tikzcd}\]
 \end{solution}
 
 \begin{exercise}
@@ -18,28 +42,94 @@
 	(This is part of the commutativity of the diagram displayed in $\S 3.2$.)
 \end{exercise}
 \begin{solution}
-	content...
+	We have the map $\psi\varphi \colon G \to K$. By Exercise 3.1, $(\psi\varphi)\times(\psi\varphi)$ is the unique map $G\times G \to K \times K$ that makes the diagram below commute (I am obviating the names of the projections).
+	% https://q.uiver.app/?q=WzAsNixbMCwxLCJHXFx0aW1lcyBHIl0sWzAsMCwiRyJdLFswLDIsIkciXSxbMiwxLCJLXFx0aW1lcyBLIl0sWzIsMCwiSyJdLFsyLDIsIksiXSxbMSw0LCJcXHBzaVxcdmFycGhpIl0sWzIsNSwiXFxwc2lcXHZhcnBoaSIsMl0sWzAsMl0sWzAsMV0sWzMsNF0sWzMsNV0sWzAsMywiXFxleGlzdHMhIChcXHBzaVxcdmFycGhpKVxcdGltZXMoXFxwc2lcXHZhcnBoaSkiLDIseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}[column sep=large]
+		G && K \\
+		{G\times G} && {K\times K} \\
+		G && K
+		\arrow["\psi\varphi", from=1-1, to=1-3]
+		\arrow["\psi\varphi"', from=3-1, to=3-3]
+		\arrow[from=2-1, to=3-1]
+		\arrow[from=2-1, to=1-1]
+		\arrow[from=2-3, to=1-3]
+		\arrow[from=2-3, to=3-3]
+		\arrow["{\exists! (\psi\varphi)\times(\psi\varphi)}"', dashed, from=2-1, to=2-3]
+	\end{tikzcd}\]
+
+	But, by applying Exercise 3.1 twice, we have that the diagram below also commutes and the claim follows.
+% https://q.uiver.app/?q=WzAsOSxbMCwxLCJHXFx0aW1lcyBHIl0sWzAsMCwiRyJdLFswLDIsIkciXSxbMiwxLCJLXFx0aW1lcyBLIl0sWzIsMCwiSyJdLFsyLDIsIksiXSxbMSwwLCJIIl0sWzEsMSwiSFxcdGltZXMgSCJdLFsxLDIsIkgiXSxbMCwyXSxbMCwxXSxbMyw0XSxbMyw1XSxbNyw2XSxbNyw4XSxbMSw2LCJcXHZhcnBoaSJdLFs2LDQsIlxccHNpIl0sWzAsNywiXFx2YXJwaGkgXFx0aW1lcyBcXHZhcnBoaSJdLFs3LDMsIlxccHNpXFx0aW1lc1xccHNpIl0sWzIsOCwiXFx2YXJwaGkiLDJdLFs4LDUsIlxccHNpIiwyXV0=
+\[\begin{tikzcd}[column sep=huge]
+	G & H & K \\
+	{G\times G} & {H\times H} & {K\times K} \\
+	G & H & K
+	\arrow[from=2-1, to=3-1]
+	\arrow[from=2-1, to=1-1]
+	\arrow[from=2-3, to=1-3]
+	\arrow[from=2-3, to=3-3]
+	\arrow[from=2-2, to=1-2]
+	\arrow[from=2-2, to=3-2]
+	\arrow["\varphi", from=1-1, to=1-2]
+	\arrow["\psi", from=1-2, to=1-3]
+	\arrow["{\varphi \times \varphi}", from=2-1, to=2-2]
+	\arrow["\psi\times\psi", from=2-2, to=2-3]
+	\arrow["\varphi"', from=3-1, to=3-2]
+	\arrow["\psi"', from=3-2, to=3-3]
+\end{tikzcd}\]
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Show that if $G,H$ are $\emph{abelian}$ groups, then $G\times H$ satisfies the universal property for coproducts in $\srf{Ab}$ (cf. $\S \RNo{1}.5.5$). [$\S 3.5$, 3.6, $\S \RNo{3}.6.1$]
 \end{exercise}
 \begin{solution}
-	content...
+	Define group homomorphisms $i_G \colon G \to G\times H$ by $g\mapsto (g,e_H)$ and $i_H\colon H \to G\to H$ by $h\mapsto (e_G,h)$; it is immediate to check that these are indeed homomorphisms. Let $Z$ be an arbitrary abelian group and let $\varphi\colon G \to Z$ and $\psi \colon H \to Z$ be homomorphisms. 
+	% https://q.uiver.app/?q=WzAsNCxbMCwwLCJHIl0sWzEsMSwiR1xcdGltZXMgSCJdLFswLDIsIkgiXSxbMiwxLCJaIl0sWzAsMSwiaV9HIl0sWzIsMSwiaV9IIiwyXSxbMCwzLCJcXHZhcnBoaSIsMCx7ImN1cnZlIjotM31dLFsyLDMsIlxccHNpIiwyLHsiY3VydmUiOjN9XSxbMSwzLCJcXGV4aXN0cyFcXHNpZ21hIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}[column sep=large]
+		G \\
+		& {G\times H} & Z \\
+		H
+		\arrow["{i_G}", from=1-1, to=2-2]
+		\arrow["{i_H}"', from=3-1, to=2-2]
+		\arrow["\varphi", curve={height=-18pt}, from=1-1, to=2-3]
+		\arrow["\psi"', curve={height=18pt}, from=3-1, to=2-3]
+		\arrow["{\exists!\sigma}", dashed, from=2-2, to=2-3]
+	\end{tikzcd}\]
+	Then if we define a homomorphism $\sigma\colon G\times H \to Z$ by $\sigma(g,h) =\varphi(g)\psi(h)$. It is a homomorphism by the following chain of reasoning:
+	\begin{align*}
+		\sigma((g,h)(g',h')) &= \sigma(gg',hh')\\
+		&=\varphi(gg')\psi(hh')\\
+		&=\varphi(g)\varphi(g')\psi(h)\psi(h')\\
+		&\overset{!}{=} (\varphi(g)\psi(h))(\varphi(g')\psi(h'))\\
+		&= \sigma(g,h)\sigma(g',h'),
+	\end{align*}
+	where at $\overset{!}{=}$ we used the crucial fact that $Z$ is abelian.
+	
+	Of course $\sigma$ makes the diagram commute. It is easy to see that this definition is forced by the commutativity of the diagram and the fact that $\sigma$ is a homomorphism.
 \end{solution}
 
 \begin{exercise}
 	Let $G$, $H$ be groups, and assume that $G \cong H \times G$. Can you conclude that $H$ is trivial? (Hint: No. Can you construct a counterexample?)
 \end{exercise}
 \begin{solution}
-	content...
+	No. Let $\mathbb{R}^{\oplus \mathbb{N}}$ be the set of functions $f\colon \mathbb{N \to \mathbb{R}}$, i.e. real-valued sequences. If $f,g\in \mathbb{R}^{\oplus\mathbb{N}}$, then define a function $f+g\in \mathbb{R}^{\oplus \mathbb{N}}$ by the rule $f+g(n)\coloneqq f(n) + g(n)$ for all $n\in\mathbb{N}$. It is easy to check that operation this turns $\mathbb{R}^{\oplus \mathbb{N}}$ into an abelian group. Notice that $\mathbb{R}^{\oplus \mathbb{N}} \cong \mathbb{R}\times \mathbb{R}^{\oplus \mathbb{N}}$	since there is an isomorphism $\varphi \colon \mathbb{R}^{\oplus \mathbb{N}} \to \mathbb{R}\times \mathbb{R}^{\oplus \mathbb{N}}$ defined by $\varphi(f)\coloneqq (f(0), g)$, where $g\colon \mathbb{N}\to \mathbb{R}$ is defined by the rule $g(n)\colon f(n+1)$. 
 \end{solution}
 
 \begin{exercise}
 	Prove that $\bQ$ is not the direct product of two nontrivial groups.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $G$ and $H$ be groups such that $G\times H \cong \bQ$, and let $\varphi\colon G\times H \to \bQ$ be an isomorphism. Define two subsets of $\bQ$ by
+	\begin{align*}
+		G' &\coloneqq \{q \in \bQ\mid q= \varphi(g,e_H) \text{ for some }g\in G\}\\
+		H' &\coloneqq \{q \in \bQ\mid q= \varphi(e_G,h) \text{ for some }h\in H\}.
+	\end{align*}
+	Note that $G'\cap H' = \{0\}$. Indeed, it is clear that $\varphi(e_G,e_H) = 0 \in G'\cap H'$; conversely, if there is some $q\in \bQ$ such that $q = \varphi(g,e_H) = \varphi(e_G,h)$ for some $g\in G$ and $h\in H$ then $g=e_G$ and $h = e_H$, and hence $q = 0$, since $\varphi$ is injective. 
+	
+	Furthermore, we claim that both $G'$ and $H'$ are (abelian) groups under addition. We prove this only for $G'$ since the argument for $H'$ is completely analogous. If $q, r\in G'$ such that $q = \varphi(g_1,e_H)$ and $r = \varphi(g_2,e_H)$ then $q+r = \varphi(g_1g_2,e_H)$ since $\varphi$ is a homomorphism; thus addition does define a binary operation on $G'$. This operation is clearly associative, and $G'$ has the identity element 0, as we noted in the previous paragraph. Finally, $G'$ has inverses, for if $q = (g,e_H)\in G'$ then $-q = (g^{-1},e_H)$ as it is verified by computing $q+ (-q)$ and using the fact that $\varphi$ is a homomorphism.
+	
+	For the sake of contradiction, suppose both $G$ and $H$ are nontrivial. This easily implies that $G'$ and $H'$ are nontrivial, so let $\frac{a}{b} \in G'$ and $\frac{c}{d}\in H'$ for nonzero integers $a$, $b$, $c$, $d$. But then $(bc)\frac{a}{b} = ac\in G'$, since $G'$ is a group, and $(ad)\frac{c}{d} = ac\in H'$, since $H'$ is a group. Hence $ac\in G'\cap H' = \{0\}$, which is a contradiction since $a,c\neq 0$. Thus either $G$ or $H$ is trivial.
+	
+	\note{This is the simplest proof I could come up with. It also proves the stronger claim that there are no injective homomorphism $G\times H \to \bQ$ unless one of $G$ or $H$ is trivial.}
 \end{solution}
 
 \begin{exercise}
@@ -52,7 +142,53 @@
 	[$\S 3.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	Before we begin, let us say that we identity $C_n$ with $\mathbb{Z}/n\mathbb{Z}$ during this solution.
+	\begin{itemize}
+		\item Use the homomorphisms found in Exercise 2.18. Call them $\varphi \colon C_2 \to S_3$ and $\psi\colon C_3 \to S_3$. Use the notation $c_2$ and $c_3$ as in Exercise 2.18:
+		\[ 
+			c_2=
+			\begin{pmatrix}
+				1 & 2 & 3\\
+				2 & 1 & 3
+			\end{pmatrix},
+			\;\;\;
+			c_3=
+			\begin{pmatrix}
+				1 & 2 & 3\\
+				2 & 3 & 1
+			\end{pmatrix}.
+		\]
+		\item For the sake of contradiction, suppose $C_2\times C_3$ is a coproduct of $C_2$ and $C_3$ in $\sf{Grp}$. Then, by the universal property of coproducts, there exists a (unique) homomorphism $\sigma \colon C_2\times C_3 \to S_3$ such that the diagram below commutes. Here $i_{C_2}$ and $i_{C_3}$ are defined as in Exercise 3.3.
+		% https://q.uiver.app/?q=WzAsNCxbMCwwLCJDXzIiXSxbMSwxLCJDXzJcXHRpbWVzIENfMyJdLFswLDIsIkNfMyJdLFsyLDEsIlNfMyJdLFswLDEsImlfe0NfMn0iXSxbMiwxLCJpX3tDXzN9IiwyXSxbMCwzLCJcXHZhcnBoaSIsMCx7ImN1cnZlIjotM31dLFsyLDMsIlxccHNpIiwyLHsiY3VydmUiOjN9XSxbMSwzLCJcXGV4aXN0cyFcXHNpZ21hIiwwLHsic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+		\[\begin{tikzcd}[column sep=large]
+			{C_2} \\
+			& {C_2\times C_3} & {S_3} \\
+			{C_3}
+			\arrow["{i_{C_2}}", from=1-1, to=2-2]
+			\arrow["{i_{C_3}}"', from=3-1, to=2-2]
+			\arrow["\varphi", curve={height=-18pt}, from=1-1, to=2-3]
+			\arrow["\psi"', curve={height=18pt}, from=3-1, to=2-3]
+			\arrow["{\exists!\sigma}", dashed, from=2-2, to=2-3]
+		\end{tikzcd}.\]
+		\item This implies that $\sigma\circ i_{C_2} ([1]_2) = \varphi([1]_2)$, i.e. $\sigma([1]_2,[0]_3) = c_2$. Similarly, we have $\sigma([0]_2, [1]_3) = c_3$. In particular, since $\sigma$ is a homomorphism,
+		\[
+			c_2c_3 = \sigma([1]_2,[0]_3)\sigma([0]_2, [1]_3) = \sigma([1]_2,[1]_3) =  \sigma([0]_2, [1]_3)\sigma([1]_2, [0]_3) = c_3c_2.
+		\]
+		But this simply is not true, giving our contradiction.
+		\[
+			c_2c_3 = 
+			\begin{pmatrix}
+				1 & 2 & 3\\
+				1 & 3 & 2
+			\end{pmatrix},
+			\;\;\;
+			c_3c_2=
+			\begin{pmatrix}
+				1 & 2 & 3\\
+				3 & 2 & 1
+			\end{pmatrix}.
+		\]
+	\end{itemize}
 \end{solution}
 
 \begin{exercise}
@@ -61,19 +197,134 @@
 	One can think of $\bZ$ $\ast$ $\bZ$ as a group with two generators $x, y,$ subject to no relations whatsoever. (We will study a general version of such groups in $\S 5$; see Exercise 5.6.)
 \end{exercise}
 \begin{solution}
-	content...
+	There clearly are surjective homomorphisms $\mathbb{Z} \to C_2$ and $\mathbb{Z}\to C_3$ sending $1$ to the generator of $C_2$ and the generator of $C_3$ respectively. Then, using notation as in Exercise 3.8, we have the following diagram.
+	% https://q.uiver.app/?q=WzAsNixbMCwwLCJcXG1hdGhiYntafSJdLFswLDIsIlxcWiJdLFsxLDEsIlxcWiAqXFxaIl0sWzEsMCwiQ18yIl0sWzEsMiwiQ18zIl0sWzIsMSwiQ18yKkNfMyJdLFszLDUsIlxcaW90YV8yIl0sWzQsNSwiXFxpb3RhXzMiLDJdLFswLDJdLFsxLDJdLFswLDNdLFsxLDRdLFsyLDUsIlxcZXhpc3RzICEgXFxzaWdtYSIsMCx7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dXQ==
+	\[\begin{tikzcd}[column sep=large]
+		{\mathbb{Z}} & {C_2} \\
+		& {\bZ \ast \bZ} & {C_2\ast C_3} \\
+		\bZ & {C_3}
+		\arrow["{\iota_2}", from=1-2, to=2-3]
+		\arrow["{\iota_3}"', from=3-2, to=2-3]
+		\arrow[from=1-1, to=2-2]
+		\arrow[from=3-1, to=2-2]
+		\arrow[from=1-1, to=1-2]
+		\arrow[from=3-1, to=3-2]
+		\arrow["{\exists ! \sigma}", dashed, from=2-2, to=2-3]
+	\end{tikzcd}\]
+	Using the universal property of $\mathbb{Z} \ast \mathbb{Z}$, we get that there is a unique $\sigma$ as above, that makes the diagram commute. We will prove that $\sigma$ is surjective, giving the desired result.
+	
+	Indeed, we know by Exercise 3.8 that $C_2\ast C_3$ is generated by two elements $x$ and $y$, so we just need to verify that these are in the image of $\sigma$ and then, since $\sigma$ is a homomorphism, the claim would follow. But this is clear from the commutativity of the diagrams, since the surjective maps take $1$ to the generators and $\iota_2$ and $\iota_3$ take the generators to $x$ and $y$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Define a group $G$ with two generators $x,y$ subject (only) to the relations $x^2 = e_G, y^3 = e_G$. Prove that $G$ is a coproduct of $C_2$ and $C_3$ \emph{in} $\srf{Grp}$. (The reader will obtain an even more concrete description for $C_2\ast C_3$ in Exercise 9.14; it is called the \emph{modular group}.) [$\S 3.4$, $9.14$]
 \end{exercise}
 \begin{solution}
-	content...
+	We define a group $G$ whose elements are ``words'' in the alphabet 
+	\[
+		\{x,y,x^{-1},y^{-1}\}
+	\]
+	 but we identify words $w$ and $w'$ whenever one can get from $w$ to $w'$ by ``using'' the rule
+	 \[
+		 xx^{-1}=x^{-1} x=yy^{-1} = y^{-1}y= x^2=y^3 = e,
+	 \]
+	 where $e$ symbolizes the empty word. Multiplication in $G$ is given by concatenation.\footnote{This definition is informal, but it will be treated rigorously in section 5.} This gives $G$ a group structure. Then there are natural group homomorphisms $\iota_2 \colon C_2 \to G$ and $\iota_3 \colon C_3 \to G$ given by sending the generator of $C_2$ to $x$ and the generator of $C_3$ to $y$ respectively. 
+	 
+	 Now let $Z$ be a group with group homomorphisms $f\colon C_2 \to Z$ and $g\colon C_3 \to Z$. Then we will define a $\sigma \colon G \to Z$ that makes the relevant diagram commute. In particular, we will require that $\sigma$ sends $x$ to where $f$ sends the generator of $C_2$ and that $\sigma$ sends $y$ to where $g$ sends the generator of $C_3$. It's easily seen that this uniquely determines $\sigma$.
 \end{solution}
 
 \begin{exercise}
 	Show that \emph{fiber} products and coproducts exist in $\srf{Ab}$. (Cf. Exercise \RNo{1}.5.12. For coproducts, you may have to wait until you know about \emph{quotients}.)
 \end{exercise}
 \begin{solution}
-	content...
+	Let $G$, $H$, and $K$ be abelian groups and let $\alpha\colon G \to K$ and $\beta\colon H \to K$ be homomorphisms. Then the fibered product of $G$ and $H$ in this case is the set $G\times_K H \coloneqq \{(g,h)\in G\times H\mid \alpha(g) = \beta(h)\}$ viewed as a subgroup of $G\times H$.
+	
+	First we need to prove that that $G\times_K H$ is indeed an (abelian) subgroup of $G\times H$. Firstly, the binary operation is closed since if $(g,h)$ and $(g',h')$ are elements of $G\times_K H$ then 
+	\[
+		\alpha(gg') = \alpha(g)\alpha(g') = \beta(h)\beta(h') = \beta(hh')
+	\]
+	as $\alpha$ and $\beta$ are homomorphisms, hence $(gg',hh')\in G\times_K H$. The identity element is clearly $(e_G,e_H)$, which is in $G\times_K H$ since $\alpha(e_G) = \beta(e_H) = e_K$, as homomorphisms take identities to identities. Similarly, if $(g,h)\in G\times_K H$  then its inverse $(g^{-1},h^{-1})$ is in $G\times_K H$. This is because 
+	\[
+		\alpha(g^{-1}) = (\alpha(g))^{-1} = (\beta(h))^{-1} = \beta(h^{-1}),
+	\]
+	since homomorphisms preserve inverses. The operation is clearly associative and commutative. Thus we have proved that $G\times_K H$ is a subgroup of $G\times H$, and in particular it is an abelian group.
+	
+	There are natural homomorphisms $p_G \colon G\times_K H \to G$ and $p_H\colon G \times_K H \to H$ given by projecting the first and second coordinates respectively (it's easy to check these are indeed homomorphisms). It is immediate that $\alpha \circ p_G = \beta \circ p_H$ by definition of $G\times_K H$. 
+	
+	We will show that $G\times_K H$, with these maps, satisfies the universal property of a fibered coproduct. Suppose $Z$ is an abelian group and $f\colon Z \to G$ and $g\colon Z \to H$ are homomorphisms that satisfy $\alpha \circ f = \beta \circ g$. We need to prove that there is a unique homomorphism $\sigma$ making the diagram below commute
+	% https://q.uiver.app/?q=WzAsNSxbMiwyLCJIIl0sWzIsMCwiRyJdLFsxLDEsIkdcXHRpbWVzX0sgSCJdLFszLDEsIksiXSxbMCwxLCJaIl0sWzIsMSwicF9BIiwwLHsibGFiZWxfcG9zaXRpb24iOjQwfV0sWzIsMCwicF9CIiwyLHsibGFiZWxfcG9zaXRpb24iOjQwfV0sWzEsMywiXFxhbHBoYSJdLFswLDMsIlxcYmV0YSIsMl0sWzQsMSwiZiIsMCx7ImN1cnZlIjotM31dLFs0LDAsImciLDIseyJjdXJ2ZSI6M31dLFs0LDIsIlxcZXhpc3RzIVxcLFxcc2lnbWEiLDAseyJzdHlsZSI6eyJib2R5Ijp7Im5hbWUiOiJkYXNoZWQifX19XV0=
+	\[\begin{tikzcd}[column sep=2.25em,row sep=tiny]
+		&& G \\
+		Z & {G\times_K H} && K \\
+		&& H
+		\arrow["{p_A}"{pos=0.4}, from=2-2, to=1-3]
+		\arrow["{p_B}"'{pos=0.4}, from=2-2, to=3-3]
+		\arrow["\alpha", from=1-3, to=2-4]
+		\arrow["\beta"', from=3-3, to=2-4]
+		\arrow["f", curve={height=-18pt}, from=2-1, to=1-3]
+		\arrow["g"', curve={height=18pt}, from=2-1, to=3-3]
+		\arrow["{\exists!\,\sigma}", dashed, from=2-1, to=2-2]
+	\end{tikzcd}\]
+	But by Exercise I.5.12, it is clear that there is a unique \emph{set-function} $\sigma$, defined by $\sigma(z) \coloneqq = (f(z),g(z))$ for all $z\in Z$, making the diagram commute. So, the only thing we need to verify is that $\sigma$ is a group homomorphism. Let $z,z'\in Z$. Then
+	\[
+		\sigma(zz')  = (f(z)f(z'),g(z)g(z')) = (f(z),g(z))(f(z'),g(z')) = \sigma(z)\sigma(z').
+	\]
+	
+	Now we will describe fibered coproducts. Again we let $G,H,K$ be abelian groups but now we assume $\alpha \colon K \to G$ and $\beta \colon K \to H$. Define a relation on $G\times H$ by the following rule. For $x,y \in G\times H$ we say 
+	\[
+	x\sim y \iff 
+		x = \iota_G\circ\alpha(k)\textnormal{ and }y = \iota_H\circ\beta(k)\textnormal{ for some }k\in K,
+	\]
+	where $\iota_G\colon G \to G\times H$ and $\iota_H\colon H \to G\times H$ are as in Exercise 3.3. Now define a subset of $G\times H$ by
+	\[
+		S\coloneqq \{xy^{-1} \mid x,y\in G\times H \textnormal{ and } x\sim y\}.
+	\]
+	Let $\langle S \rangle$ be the smallest subgroup of $G\times H$ generated by $S$, as in $\S 6.3$. As $G\times H$ is abelian, $\langle S \rangle$ is normal and hence we can define
+	\[
+		G \ast_K H \coloneqq (G\times H)/\langle S \rangle 
+	\]
+	to be the fibered coproduct of $G$ and $H$; and we know it to be an abelian group. In particular, there is a natural homomorphism $\pi \colon G \times H \to  (G\times H)/\langle S \rangle$ that satisfies the universal property of quotients. Hence we can think of the inclusions of the fibered coproduct as $\pi \circ i_G$ and $\pi \circ i_H$. We need to verify, firstly, that 
+	\begin{gather*}
+		\pi \circ \iota_G \circ \alpha = \pi \circ \iota_H\circ \beta.
+	\end{gather*}
+	But notice that for all $k\in K$, we have that $\iota_G\circ \alpha (k)\sim \iota_H\circ \beta (k)$ and thus 
+	\[
+		(\iota_G\circ \alpha (k))(\iota_H\circ \beta (k))^{-1}\in S\subseteq \langle S \rangle,
+	\]
+	which makes the claim obvious.
+	
+	Now we will verify that $(G\times H)/\langle S \rangle$ satisfies the universal property of fibered coproducts. Let $Z$ be an abelian group with maps $f\colon G \to Z$ and $g\colon H\to Z$ that satisfy $f\circ \alpha = g \circ \beta$. We will show that there exists some unique $\sigma$ as below such the diagram commutes.
+	% https://q.uiver.app/?q=WzAsNixbMSwyLCJIIl0sWzEsMCwiRyJdLFswLDEsIksiXSxbMiwxLCJHXFx0aW1lcyBIICJdLFs0LDEsIloiXSxbMywxLCIoR1xcdGltZXMgSCkvXFxsYW5nbGUgU1xccmFuZ2xlICJdLFsyLDEsIlxcYWxwaGEiXSxbMiwwLCJcXGJldGEiLDJdLFsxLDMsImlfRyIsMCx7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFswLDMsImlfSCIsMix7ImxhYmVsX3Bvc2l0aW9uIjo2MH1dLFsxLDQsImYiLDAseyJjdXJ2ZSI6LTV9XSxbMCw0LCJnIiwyLHsiY3VydmUiOjV9XSxbMyw1LCJcXHBpIiwyLHsic3R5bGUiOnsiaGVhZCI6eyJuYW1lIjoiZXBpIn19fV0sWzUsNCwiXFxleGlzdHMhXFwsXFxzaWdtYSIsMix7InN0eWxlIjp7ImJvZHkiOnsibmFtZSI6ImRhc2hlZCJ9fX1dLFszLDQsIlxcZXhpc3RzISBcXHRhdSIsMCx7ImN1cnZlIjotMywic3R5bGUiOnsiYm9keSI6eyJuYW1lIjoiZGFzaGVkIn19fV1d
+	\[\begin{tikzcd}[column sep=large]
+		& G \\
+		K && {G\times H } & {(G\times H)/\langle S\rangle } & Z \\
+		& H
+		\arrow["\alpha", from=2-1, to=1-2]
+		\arrow["\beta"', from=2-1, to=3-2]
+		\arrow["{i_G}"{pos=0.6}, from=1-2, to=2-3]
+		\arrow["{i_H}"'{pos=0.6}, from=3-2, to=2-3]
+		\arrow["f", curve={height=-30pt}, from=1-2, to=2-5]
+		\arrow["g"', curve={height=30pt}, from=3-2, to=2-5]
+		\arrow["\pi"', two heads, from=2-3, to=2-4]
+		\arrow["{\exists!\,\sigma}"', dashed, from=2-4, to=2-5]
+		\arrow["{\exists! \tau}", curve={height=-18pt}, dashed, from=2-3, to=2-5]
+	\end{tikzcd}\]
+	By the universal property of coproducts, there exists a unique $\tau\colon G \times H \to Z$ such that 
+	\begin{gather*}
+		f = \tau \circ \iota_G\\
+		g = \tau \circ \iota_H.
+	\end{gather*}
+	We claim that $S \subseteq \ker \tau$. Indeed, if $g \in S$ then, by definition, there is some $k$ such that if we define $x \coloneqq \iota_G \circ \alpha (k)$ and $y\coloneqq \iota_H \circ \beta (k)$ then $g = xy^{-1}$. But then
+	\begin{align*}
+		\tau(g) &= \tau(xy^{-1})\\
+		&= \tau(x)(\tau(y))^{-1}\\
+		&= (\tau\circ \iota_G \circ \alpha (k))(\tau\circ \iota_H \circ \beta (k))^{-1}\\
+		&=(f\circ \alpha (k))(g\circ \beta(k))^{-1}\\
+		&= e
+	\end{align*}
+	since $f\circ \alpha = g\circ \beta$. This shows that $S \subseteq \ker \tau$. As $\langle S \rangle$ is the smallest subgroup containing $S$, we have $\langle S \rangle \subseteq \ker \tau$. By Proposition 7.12, there exists a unique homomorphism $\sigma \colon (G\times H)/ \langle S \rangle \to Z$ such that
+	\[
+		\tau = \sigma \circ \pi.
+	\]
+	That the whole diagram commutes is immediate and uniqueness follows from the uniqueness of $\tau$ and $\sigma$ itself.
 \end{solution}

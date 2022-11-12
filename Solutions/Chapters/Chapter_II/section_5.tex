@@ -4,28 +4,116 @@
 	Does the category $\mathscr{F}^A$ defined in $\S 5.2$ have final objects? If so, what are they?
 \end{exercise}
 \begin{solution}
-	content...
+	Yes, trivial groups are final in  $\mathscr{F}^A$. Let $j\colon A \to \{e\}$ be the set-function defined by $j(a) \coloneqq e$ for all $a\in A$. Let $G$ be a group and let $f\colon A \to G$ be a set-function. Then there clearly exists a unique group homomorphism $\sigma \colon G \to \{e\}$, and it is evident that $j = \sigma \circ f$.
 \end{solution}
 
 \begin{exercise}
 	Since trivial groups $T$ are initial in $\srf{Grp}$, one may be led to think that $(e,T)$ should be initial in $\mathscr{F}^A$, for every $A$, $e$ would be defined by sending every element of $A$ to the (only) element in $T$; and for any other group $G$, \emph{there is a unique} homomorphism $T \to G$. Explain why $(e,T)$ is \emph{not} initial in $\mathscr{F}^A$ (unless $A =\emptyset$).
 \end{exercise}
 \begin{solution}
-	content...
+	If $A \neq \emptyset$ then let $a\in A$. For any nontrivial group $G$ let $f\colon A \to G$ be a function such that $f(a)$ is not the identity. Then the $f(a)$ is not the same as the image of the homomorphism $T\to G$ composed with $e$, showing that the relevant diagram is not commutative. 
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Use the universal property of free groups to prove that the map $j\colon A \to F(A)$ is injective, for all sets $A$. (Hint$\colon$ It suffices to show that for every two elements $a$, $b$ of $A$ there is a group $G$ and a set-function $f\colon A \to G$ such that $f(a) \neq f(b)$. Why? How do you construct $f$ and $G$?) [$\S\RNo{3}.6.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $G = \{e,g\}$ be a group of order 2 (which is unique up to isomorphism). Let $a,b \in A$ be distinct and let $f\colon A \to G$ be the function defined by
+	\[
+		f(x) \coloneqq 
+		\begin{cases}
+			e & \text{if }x = a\\
+			g & \text{otherwise}.
+		\end{cases}
+	\]
+	Then, by the universal property of free groups, there is a unique homomorphism $\sigma \colon F(A) \to G$ such that $\sigma \circ j = f$. As $f(a)\neq f(b)$ we have that $\sigma(j(a)) \neq \sigma(j(b))$ which implies $j(a)\neq j(b)$. As $a,b \in A$ were arbitrary distinct elements, $j$ is injective.
 \end{solution}
 
 \begin{exercise}
 	In the `concrete' construction of free groups, one can try to reduce words by performing cancellations in any order; the process of `elementary reductions' used in the text (that is, from left to right) is only one possibility. Prove that the result of iterating cancellations on a word is independent of the order in which the cancellations are performed. Deduce the associativity of the product in $F(A)$ from this. [$\S5.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	First we fix some notation. For $w,w'\in W(A)$ write $w\to_r w'$ iff $w'$ can be obtained from $w$ by deleting exactly one instance of a pair $aa^{-1}$ or $a^{-1}a$ for some $a\in A$ (not necessarily the leftmost one). So, for example, $w \to_r r(w)$ for any \emph{non-reduced} $w\in W(A)$, but we also have other examples such as
+	\[
+		a^{-1}a^{-1}aa\underline{aa^{-1}}aa^{-1} \to_ra^{-1}a^{-1}aaaa^{-1},
+	\]
+	where we ``cancel'' not from left to right but starting in the middle. Note that $w\to_r w$ is \emph{not} true for any $w\in W(A)$ since we are requiring that at least one (and at most one) cancellation is performed. Similarly, if $w$ is a reduced word, then $w \to_r v$ is false for all words $v\in W(A)$.
+	
+	We introduce another piece of notation. For $w,w'\in W(A)$ we write $w\twoheadrightarrow_r w'$ if, for some integer $n\geq 0$ there exists some $w_0,\ldots, w_n\in W(A)$ such that $w = w_0$ and $w'= w_n$ and $w_i \to_r w_{i+1}$ for all $0\leq i < n$. We usually write this as follows,
+	\[
+		w = w_0 \to_r w_1 \to_r \cdots \to_r w_n = w'.
+	\]
+	As we allow for $n = 0$ in this definition, we see that $w\twoheadrightarrow_r w$ for all $w\in W(A)$. Also, $\twoheadrightarrow_r$ is clearly a transitive relation. Now we prove some results.
+	\begin{claim}
+		Let $w,v,v'\in W(A)$ be such that $w\to_r v$ and $w\to_r v'$. Then either $v=v'$ or there exists some $u\in W(A)$ such that $v\to_r u$ and $v' \to_r u$. 
+	\end{claim}
+	\begin{proof}[Proof of Claim 1]
+		Let $w = a_1a_2\cdots a_n$ where each $a_i$ is either in $A$ or in $A'$. Unravelling the definitions, we see that $v$ is the word obtained by deleting from $w$ some pair $a_ia_{i+1}$ where there is some $a\in A$ such that either $a_i = a$ and $a_{i+1} = a^{-1}$ or $a_i = a^{-1}$ and $a_{i+1} = a$. Similarly, there is some $j$ such that $v'$ is the word obtained from $w$ by deleting $a_ja_{j+1}$. Without loss of generality, we can assume $i\leq j$. There are several cases.
+		\begin{itemize}[wide, labelwidth=!]
+			\item We have $i = j$. In this case, both $v$ and $v'$ are obtained from $w$ by deleting the same letters and so $v = v'$.
+			\item We have that $i$ and $j$ are consecutive integers, i.e. $j = i + 1$. Then, we have the following.
+			\[
+				w = a_1\cdots a_ia_{i+1}a_{j+1}\cdots a_n
+			\]
+			If $a_{i+1} =a_j = a\in A$ then, by our assumptions, $a_i = a_{j+1} = a^{-1}$ and whether we delete $a_ia_{i+1}$ or $a_ja_{j+1}$ the resulting word is the same, so $v=v'$. Similarly, if $a_{i+1} = a_j = a^{-1}$ for some $a\in A$ then it follows that $a_i=a_{j+1} = a$ and it is readily seen that $v = v'$.
+			\item We have that $i$ and $j$ are neither equal nor consecutive. Then $w$ looks as follows.
+			\[
+				w = a_1\cdots a_ia_{i+1} \cdots a_{j}a_{j+1} \cdots a_n
+			\]
+			Let $u$ be the word obtained by deleting both $a_ia_{i+1}$ and $a_{j}a_{j+1}$ from $w$. Then it is clear that $v\to_r u$ and $v'\to_r u$.\qedhere  
+		\end{itemize}
+	\end{proof}
+	\begin{claim}
+		Let $w,v,v'\in W(A)$ be such that $w\to_r v$ and $w\twoheadrightarrow_r v'$. Then there exists some $u\in W(A)$ such that $v \twoheadrightarrow_r u$ and $v' \twoheadrightarrow_r u$. 
+	\end{claim}
+	\begin{proof}[Proof of Claim 2]
+		We will use induction on a slightly stronger statement. Let $w,v\in W(A)$ be fixed words such that $w\to_r v$. For integers $n\geq 0$, let $P(n)$ be the following statement.
+		\begin{center}
+			\itshape
+			For all $v'\in W(A)$, if there exists $w_0,\ldots,w_n\in W(A)$, such that $w=w_0$ and $v'=w_n$ and $w_i\to_r w_{i+1}$ for all $i$, then there is some $u\in W(A)$ such that $v\twoheadrightarrow_r u$ and either $v' = u$ or $v'\to_r u$.
+		\end{center}
+		We will prove that $P(n)$ is true for all $n$ using induction. For $n = 0$ we see that $w = v'$ and so, if we let $u \coloneqq v$, then $v\twoheadrightarrow_r u$ as $v = u$, and $v' = w\to_r v = u$ by assumption. Therefore the base case, $P(0)$, is true. 
+		
+		Now assume inductively that $P(k)$ is true for some $k\geq 0$; we will show that $P(k+1)$ is true. So, let $v'\in W(A)$ be such that there are some $w_0,\ldots w_{k+1} \in W(A)$ such that
+		\[
+			w = w_0 \to_r \cdots \to_r w_{k} \to_r w_{k+1} = v'.
+		\]
+		By the inductive hypothesis, there is some $u_0\in W(A)$ such that $v\twoheadrightarrow_r u_0$ and either $w_k = u_0$ or $w_k \to_r u_0$.
+		
+		If $u_0 = w_k$ then we have $v\twoheadrightarrow_r w_k$ and then $v\twoheadrightarrow_r w_{k+1} = v'$. Then setting $u\coloneqq v'$ we have $v\twoheadrightarrow_r u$ and $v' = u$, as desired.
+		
+		On the other hand, suppose $w_k\to_r u_0$, and notice we also had $w_k\to_r v'$. By Claim 1, either $u_0 = v'$ or there exists some $u\in W(A)$ such that $u_0\to_r u$ and $v'\to_r u$. If $u_0 = v'$ then it suffices to set $u\coloneqq u_0$ since then $v \twoheadrightarrow_r u$ by assumption and $u = v'$. If we instead had a word $u$ such that $u_0\to_r u$ and $v'\to_r u$ then we only need to verify that $v\twoheadrightarrow_r u$, but this is obvious now since $v\twoheadrightarrow_r u_0$. This closes the induction and $P(n)$ is true for all $n\geq 0$.
+		
+		Now let $v'\in W(A)$ be a word such that $v'\twoheadrightarrow_r w$. Using the definition of $\twoheadrightarrow_r$ and the fact that $P(n)$ is always true, we can deduce that there is some $u\in W(A)$ such that $v\twoheadrightarrow_r u$ and either $v' = u$ or $v' \to_r u$. But both $v' = u$ and $v' \to_r u$ imply that $v'\twoheadrightarrow_r u$, so the claim follows.
+	\end{proof}
+	\begin{claim}
+		Let $w,v,v'\in W(A)$ be such that $w\twoheadrightarrow_r v$ and $w\twoheadrightarrow_r v'$. Then there exists some $u\in W(A)$ such that $v \twoheadrightarrow_r u$ and $v' \twoheadrightarrow_r u$. 
+	\end{claim}
+	\begin{proof}[Proof of Claim 3]
+		For $n,m\geq 0$, let $w_0,\ldots,w_n\in W(A)$ and $w_0',\ldots,w_m'$ be such that
+		\begin{gather*}
+				w = w_0 \to_r \cdots \to_r w_{n} = v.\\
+				w = w_0' \to_r \cdots \to_r w_m' = v';
+		\end{gather*}
+		these exist since $w\twoheadrightarrow_r v$ and $w\twoheadrightarrow_r v'$. We will prove the claim using induction on $n$. For $n = 0$ we see that $w =v$ and setting $u\coloneqq v'$ makes the statement evident. 
+		
+		Now suppose $n> 0$ and assume inductively that there exists some $u_0\in W(A)$ such that $w_{n-1}\twoheadrightarrow_r u_0$ and $v'\twoheadrightarrow_r u_0$. Then, as $w_{n-1}\to_r v$, we can apply Claim 2 to deduce that there is a word $u\in W(A)$ such that $u_0 \twoheadrightarrow_r u$ and $v\twoheadrightarrow_r u$. We only need to check that $v'\twoheadrightarrow_r u$, but this is evident since $v'\twoheadrightarrow_r u_0$. This closes the induction.
+	\end{proof}
+	\begin{claim}
+		Let $w,v,v'\in W(A)$ be such that $w\twoheadrightarrow_r v$ and $w\twoheadrightarrow_r v'$ and both $v$ and $v'$ are reduced words. Then $v = v'$.
+	\end{claim}
+	\begin{proof}[Proof of Claim 4]
+		Indeed, by Claim 3 there is some $u\in W(A)$ such that $v\twoheadrightarrow_r u$ and $v'\twoheadrightarrow_r u$. As $v$ and $v'$ are reduced, it must be the case that $v = u$ and $v' = u$, and the claim follows.
+	\end{proof}
+	With Claim 4 at hand, proving associativity is not difficult. We have to show that, for $u,v,w\in F(A)$ we have
+	\[
+		u\cdot (v\cdot w) = (u\cdot v) \cdot w.
+	\]
+	By definition, this is equivalent to proving that
+	\[
+		R(uR(vw)) = R(R(uv)w).
+	\]
+	So, it is clear that $vw \twoheadrightarrow_r R(vw)$, from which we can see $uvw \twoheadrightarrow_r uR(vw) \twoheadrightarrow_r R(uR(vw))$, which is reduced. Similarly, we have that $uv \twoheadrightarrow_r R(uv)$ and so $uvw \twoheadrightarrow_r R(uv)w \twoheadrightarrow_r R(R(uv)w)$, which is reduced. By Claim 4, the above equality is true.
 \end{solution}
 
 \begin{exercise}

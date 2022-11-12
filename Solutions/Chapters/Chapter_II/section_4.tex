@@ -4,77 +4,162 @@
 	$\triangleright$ Check that the function $\pi^n_m$ defined in $\S 4.1$ is well-defined and makes the diagram commute. Verify that it is a group homomorphism. Why is the hypothesis $m|n$ necessary? [$\S 4.1$]
 \end{exercise}
 \begin{solution}
-	content...
+	 The commutativity of the diagram simply states that for all integers $a$ we have 
+	 \[
+	 	\pi_m^n ([a]_n) = [a]_m,
+	 \]
+	 which we can take as our definition of $\pi_m^n$. We need to verify this assignment is well-defined, i.e. that if $[a]_n = [a']_n$ then $\pi_m^n([a]_n) = \pi_m^n([a']_n)$. In other words, we need to check that if $n\divides a-a'$ then $m\divides a-a'$; but this is obvious \emph{provided we know} that $m\divides n$. 
 \end{solution}
 
 \begin{exercise}
 	Show that the homomorphism $\pi_2^4 \times \pi_2^4\colon C_4 \to C_2 \times C_2$ is \emph{not} an isomorphism. In fact, is there \emph{any} isomorphism $C_4\to C_2\times C_2$?
 \end{exercise}
 \begin{solution}
-	content...
+	Indeed, $\pi_2^4 \times \pi_2^4$ is not injective since \hbox{$\pi_2^4 \times \pi_2^4([0]_1) = \pi_2^4 \times \pi_2^4([2]_4) = ([0]_2,[0]_2)$}. There is no isomorphism $C_4 \to C_2\times C_2$ since there is an element of order 4 in $C_4$ but there is none in $C_2\times C_2$.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Prove that a group of order $n$ is isomorphic to $\bZ/n\bZ$ if an only if it contains an element of order $n$. [$\S 4.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	If a group $G$ is isomorphic to $\mathbb{Z}/n\mathbb{Z}$ then there is an isomorphism \hbox{$\varphi\colon \mathbb{Z}/n\mathbb{Z} \to G$}. By Proposition 4.8, $|\varphi([1]_n)| = n$. 
+	
+	Conversely, suppose there is a group $G$ of order $n$ with an element $g\in G$ such that $|g| = n$. Consider $\varphi\colon \mathbb{Z}/n\mathbb{Z}\to G$ defined by $\varphi([a]_n) \coloneqq g^a$. We need to verify that this function is well-defined, i.e. that if $[a]_n = [a']_n$ then $\varphi([a]_n) = \varphi([a']_n)$. Indeed, if $n\divides a-a'$ then, by Corollary 1.11, $g^{a-a'} = e$ which means
+	\[
+		\varphi([a]_n) = g^a  = g^{a'} = \varphi([a']_n).
+	\]
+	Therefore $\varphi$ is well-defined. It is a homomorphism since, 
+	\[
+		\varphi([a]_n + [b]_n) = \varphi([a+b]_n) = g^{a+b} = g^ag^b = \varphi([a]_n)\varphi([b_n]).
+	\]
+	Now we verify that $\varphi$ is an isomorphism. Suppose that $\varphi([a]_n) = \varphi([b]_n)$, which means that $g^a = g^b$ and thus $g^{a-b} = e$. Again, by Corollary 1.11, $n\divides a-b$ and so $[a]_n = [b]_n$. This shows $\varphi$ is injective. As $|\mathbb{Z}/n\mathbb{Z}| = |G| =n$ then $\varphi$ is surjective. Thus $\varphi$ is an isomorphism. 
 \end{solution}
 
 \begin{exercise}
 	Prove that no two of the groups $(\bZ, +), (\bQ, +), (\bR,+)$ are isomorphic to one another. Can you decide whether $(\bR,+),(\bC,+)$ \emph{are} isomorphic to one another? (Cf. Exercise $\RNo{6}.1.1$.)
 \end{exercise}
 \begin{solution}
-	content...
+	Firstly, $(\mathbb{R},+)$ is isomorphic to neither $(\mathbb{Z},+)$ nor $(\mathbb{Q}, +)$ since the underlying sets have different cardinalities---$\mathbb{R}$ is uncountable while both $\mathbb{Z}$ and $\mathbb{Q}$ are countable. Also notice that while $1$ generates all of $(\mathbb{Z},+)$ but there is no element in $(\mathbb{Q},+)$ playing an analogous role. Indeed, if $\frac{a}{b}\in \mathbb{Q}$, where $a,b$ are integers with $b>0$, then $n\frac{a}{b} = \frac{na}{b}$ for all integers $n$ and notice that, for example $\frac{1}{b+1}$ is not of this form. To prove this assume, for the sake of contradiction, that $\frac{na}{b} = \frac{1}{b+1}$; then this would imply $na = \frac{b}{b+1}$ and, since $na$ is an integer, we have that $(b+1)\divides b$, which is impossible since both $b$ and $b+1$ are positive yet $b + 1 > b$. 
+	
+	The groups $(\mathbb{R},+)$ and $(\mathbb{C},+)$ are isomorphic to each other. For a proof see Exercise VI.1.1.
 \end{solution}
 
 \begin{exercise}
 	Prove that the groups $(\bR\smallsetminus\{0\},\cdot)$ and $(\bC\smallsetminus\{0\}, \cdot)$ are not isomorphic.
 \end{exercise}
 \begin{solution}
-	content...
+	Notice that, in $(\mathbb{C}\smallsetminus\{0\},\cdot)$, we have that the order of $i$ is 4, yet if $r\in \mathbb{R}/\smallsetminus\{0\}$ and $r^4 = 1$ then either $r = 1$ or $r = -1$, and neither of these have order 4.
 \end{solution}
 
 \begin{exercise}
 	We have seen that $(\bR,+)$ and $(\bR^{>0}, \cdot)$ are isomorphic (Example 4.4). Are the groups $(\bQ,+)$ and $(\bQ^{>0}, \cdot)$ isomorphic?
 \end{exercise}
 \begin{solution}
-	content...
+	No. For the sake of contradiction, assume there is an isomorphism $\varphi\colon (\mathbb{Q},+)\to (\mathbb{Q}^{>0}, \cdot)$. We will show that $\varphi(1) = 1$ which will contradict injectivity as $\varphi(0) = 1$ since homomorphisms take identities to identities.
+	
+	To do this we need a small lemma. We claim that if $y$ is a positive integer such that for all $n\in\mathbb{Z}^+$ there is an $x\in\mathbb{Z}^+$ such that $y = x^n$ then $y = 1$. We prove this as follows. Let $y$ be as above and define
+	\[
+		S \coloneqq \{x\in\mathbb{Z}^+ \mid y = x^n \textnormal{ for some }n\in\mathbb{Z}^+\}.
+	\]
+	Clearly $y\in S$, so $S$ is nonempty. By the well-ordering principle, $S$ has a minimal element, so let $x_0\coloneqq \min S$ such that $y = x_0^{n_0}$ for some positive integer $n_0$. By the property we assumed of $y$, there is a positive integer $x_1$ such that $y = x_1^{n_0 + 1}$. It is clear that $x_1\in S$, so $x_0\leq x_1$. Then it follows that $x_0^{n_0} \leq x_1^{n_0}$, i.e. we have $y\leq x_1^{n_0}$. But $y = x_1^{n_0 + 1}$ so $x_1^{n_0+1} \leq x_1^{n_0}$, from which we deduce $x_1\leq 1$. As $x_1$ is a positive integer we have that $x_1 = 1$, and thus $y = 1^{n_0 + 1} = 1$, as desired. We have proved the lemma we required.
+	
+	Now for the solution. Let $\varphi(1) = \frac{a}{b}$ for some positive \emph{coprime} integers $a$ and $b$. Let $n$ be an arbitrary positive integer and notice that $\varphi(1) = \varphi(n\frac{1}{n}) = (\varphi(\frac{1}{n}))^n$. Then, if $\varphi(\frac{1}{n}) = \frac{c}{d}$ for coprime positive integers $c$ and $d$, we have
+	\[
+		\frac{a}{b} = \frac{c^n}{d^n}.
+	\]
+	As $c$ and $d$ are coprime, it is easy to see that $c^n$ and $d^n$ are also coprime. A positive rational can be \emph{uniquely} represented as a ratio of two positive coprime integers, so the equation above implies $a = c^n$ and $b = d^n$. But $n$ was arbitrary, so the lemma we proved implies that $a = 1$ and $b =1$. Therefore $\varphi(1) = 1$ and contradiction follows.
 \end{solution}
 
 \begin{exercise}
 	Let $G$ be a group. Prove that the function $G\to G$ defined by $g\mapsto g^{-1}$ is a homomorphism if and only if $G$ is abelian. Prove that $g\mapsto g^2$ is a homomorphism if and only if $G$ is abelian.
 \end{exercise}
 \begin{solution}
-	content...
+	Let $\varphi_1 ,\varphi_2 \colon G \to G$ be the functions defined by $g\mapsto g^{-1}$ and $g\mapsto g^2$ respectively. If $G$ is abelian then it follows, for all $g,h\in G$, that
+	\[
+		\varphi_1(gh) = (gh)^{-1} = h^{-1}g^{-1} = g^{-1}h^{-1} = \varphi_1(g)\varphi_1(h),
+	\]
+	so $\varphi_1$ is a homomorphism. Similarly, for all $g,h\in G$ we have
+	\[
+		\varphi_2(gh) = (gh)^2 = ghgh = gghh = g^2h^2 = \varphi_2(g)\varphi_2(h),
+	\]
+	so $\varphi_2$ is a homomorphism.
+	
+	Conversely, assume that $\varphi_1$ is a homomorphism. Then, for all $g,h \in G$  we have
+	\[gh = (h^{-1}g^{-1})^{-1} = (\varphi_1(h)\varphi_1(g))^{-1} = (\varphi_1(hg))^{-1} = ((hg)^{-1})^{-1}  = hg,\]
+	so $G$ is abelian. Now assume instead that $\varphi_2$ is a homomorphism. Then, for all $g,h \in G$ we have
+	\[
+		gh = g^{-1}(g^2h^2)h^{-1} = g^{-1}\varphi_2(g)\varphi_2(h)h^{-1} = g^{-1}\varphi_2(gh)h^{-1} = g^{-1}ghghh^{-1} = hg,
+	\]
+	so $G$ is abelian.
 \end{solution}
 
 \begin{exercise}
 	$\neg$ Let $G$ be a group, and let $g\in G$. Prove that the function $\gamma_g\colon G \to G$ defined by $(\forall a\in G): \gamma_g(a)=gag^{-1}$ is an automorphism of $G$. (The automorphisms $\gamma_g$ are called `inner' automorphisms of $G$.) Prove that the function $G \to \Aut(G)$ defined by $g\mapsto \gamma_g$ is a homomorphism. Prove that this homomorphism is trivial if and only if $G$ is abelian. [6.7, 7.11, $\RNo{4}.1.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $g,a,b\in G$ be arbitrary. Then, 
+	\[\gamma_g(a)\gamma_g(b) = gag^{-1}gbg^{-1} = gabg^{-1} = \gamma_g(ab).\]
+	So, $\gamma_g$ is a homomorphism for all $g\in G$. It is an isomorphism since $\gamma_{g^{-1}}$ is clearly its inverse. Therefore it is an automorphism.
+	
+	Now, consider the function $G\to \Aut(G)$ defined by $g\mapsto \gamma_g$. For $g,h\in G$ we wish to show that $\gamma_g\circ \gamma_h = \gamma_{gh}$. Indeed, for all $x\in G$ we have 
+	\[
+		\gamma_g\circ\gamma_h(x) = \gamma_g (hxh^{-1}) = ghxh^{-1}g^{-1} = (gh)x(gh)^{-1} = \gamma_{gh}(x).
+	\]
+	Therefore this function is a homomorphism. Notice that for all $g,h\in G$ we have
+	\[
+		\gamma_g(h)   = ghg^{-1}   = h = \id(h) \iff gh= hg,
+	\]
+	and it is easy to see that the homomorphism is trivial if and only if the group is abelian.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Prove that if $m$, $n$ are positive integers such that $\gcd(m,n) = 1$, then $C_{mn} \cong C_m \times C_n$. [$\S 4.3$, 4.10, $\S\RNo{4}.6.1$, $\RNo{5}.6.8$]
 \end{exercise}
 \begin{solution}
-	content...
+	As remarked in the text, we have a homomorphism $\pi_m^{mn}\times \pi_n^{mn}$ going from $C_{mn}$ to $C_m\times C_n$. We will verify this homomorphism is injective, and since we have $|C_{mn}| = |C_m \times C_n|$ this will be enough to show it is in fact an isomorphism.
+	
+	So, suppose we have $[a]_{mn}$ and $[b]_{mn}$ in $C_{mn}$ such that they have the same image under $\pi_m^{mn}\times \pi_n^{mn}$. This means that $([a]_m,[a]_n) = ([b]_m,[b]_n)$, from which it follows that $m\divides b-a$ and $n \divides b-a$. Now, \emph{as $m$ and $n$ are coprime} we can deduce $mn \divides b-a$ and so $[a]_{mn} = [b]_{mn}$, showing the function is injective.
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Let $p\neq q$ be odd prime integers; show that $(\bZ/pq\bZ)^{\ast}$ is not cyclic. (Hint: Use Exercise 4.9 to compute the order $N$ of $(\bZ/pq\bZ)^{\ast}$, and show that no element can have order $N$.) [$\S 4.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	By Exercise 4.9, we have that $\mathbb{Z}/pq\mathbb{Z} \cong \mathbb{Z}/p\mathbb{Z} \times \mathbb{Z}/q\mathbb{Z}$ via the isomorphism $\pi_p^{pq}\times \pi_q^{pq}$. We claim that is isomorphism restricts to a bijection (not necessarily a homomorphism) $(\mathbb{Z}/pq\mathbb{Z})^{\ast} \to (\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}$. 
+	
+	Firstly we need to check that if $[a]_{pq}\in(\mathbb{Z}/pq\mathbb{Z})^{\ast}$ then its image under $\pi_p^{pq}\times \pi_q^{pq}$ is in $(\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}$. This is just saying that if $\gcd (a,pq) = 1$ then $\gcd(a,p) = 1$ and $\gcd(a,q) = 1$; but this is evident (if an integer divided $a$ and $p$ then it would divide $pq$ \ldots). 
+	
+	Secondly, we will show that the restriction is in fact a bijection. It is clearly an injection since $\pi_p^{pq}\times \pi_q^{pq}$ was injective before the restriction, so we will only show that it is a surjection $(\mathbb{Z}/pq\mathbb{Z})^{\ast} \to (\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}$. Let $([x]_p,[y]_q) \in (\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}$. Again, as $\pi_p^{pq}\times \pi_q^{pq}$ is a surjection $\mathbb{Z}/pq\mathbb{Z} \to \mathbb{Z}/p\mathbb{Z} \times \mathbb{Z}/q\mathbb{Z}$, there is some $[a]_{pq}$ such that $[a]_p = [x]_p$ and $[a]_q = [y]_q$; so we need to check $[a]_{pq}\in (\mathbb{Z}/pq\mathbb{Z})^{\ast}$. As $\gcd(x,p) = 1$ and $\gcd(y,q) = 1$ it follows that $\gcd(a,p) = 1$ and $\gcd(a,q) = 1$; see Exercise 2.17. Thus it follows that $\gcd(a,pq) = 1$ (see the proof of Proposition 2.6) as desired. 
+	
+	All of this shows that there is a bijection $(\mathbb{Z}/pq\mathbb{Z})^{\ast} \to (\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}$. In particular, 
+	\[|(\mathbb{Z}/pq\mathbb{Z})^{\ast}| = |(\mathbb{Z}/p\mathbb{Z})^{\ast} \times (\mathbb{Z}/q\mathbb{Z})^{\ast}| = |(\mathbb{Z}/p\mathbb{Z})^{\ast}|\cdot |(\mathbb{Z}/q\mathbb{Z})^{\ast}| = (p-1)(q-1).\]
+	
+	Let $[x]_{pq} \in (\mathbb{Z}/pq\mathbb{Z})^{\ast}$. Notice that, by assumption, $\gcd(x,pq) = 1$, from which it follows that $p\nmid x$ and $q\nmid x$. Then, by Fermat's little theorem, $x^{p-1} \equiv 1 \mod p$, and so $x^{\frac{(p-1)(q-1)}{2}} \equiv 1 \mod p$, where we have used the crucial fact that $q-1$ is even. Similarly we can get $x^{\frac{(p-1)(q-1)}{2}} \equiv 1 \mod q$, using the fact that $p-1$ is even. We can see then, as $p$ and $q$ are primes, that
+	\[
+		p\text{ and }q \text{ divide } x^{\frac{(p-1)(q-1)}{2}}  - 1 \implies pq \text{ divides }x^{\frac{(p-1)(q-1)}{2}}  - 1.
+	\]
+	So, $x^{\frac{(p-1)(q-1)}{2}} \equiv 1 \mod pq$. This implies that 
+	\[
+		|[x]_{pq}| \leq \frac{(p-1)(q-1)}{2} < (p-1)(q-1).
+	\]
+	In particular $|[x]_{pq}| \neq (p-1)(q-1)$ for all $[x]_{pq} \in (\mathbb{Z}/pq\mathbb{Z})^{\ast}$. By Exercise 4.3, $(\mathbb{Z}/pq\mathbb{Z})^{\ast}$ is not cyclic.
+	
+	\note{I failed to come up with a solution not involving Fermat's little theorem, which has not been covered thus far in the book, though it follows easily from the aforementioned---not yet proved---Lagrange's Theorem. It also follows from Wilson's Theorem, if I recall correctly, which is only a few exercises below. There is no circularity, but it does leave the question of what the author had in mind for a valid solution to this problem.
+	
+	There is an, in my opinion, easier and more natural way to compute the order of $(\mathbb{Z}/pq\mathbb{Z})^{\ast}$. This is classic application of the Inclusion-Exclusion principle, though you do not need to know what that is to come up with the following.
+	
+	We are trying to figure out how many of the integers $1,\ldots pq-1$ are coprime to $pq$. This is a list of $pq-1$ numbers. The ones that are not coprime to $pq$ are either divisible by $p$ or $q$ but not both (why?). These are clearly $p , 2p, \ldots (q-1)p$ and $q,2q,\ldots (p-1)q$. In total there are $(q-1) + (p-1)$ of these numbers. Therefore the amount of integers $1,\ldots pq-1$ that are coprime to $pq$ is
+	\[
+		(pq - 1) - [(q-1) + (p-1)] = pq - p - q + 1 = (p-1)(q-1).\qedhere
+	\]
+	}
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ In due time we will prove the easy fact that if $p$ is a prime integer, then the equation $x^d = 1$ can have at most $d$ solutions in $\bZ/p\bZ$. Assume this fact, and prove that the multiplicative group $G = (\bZ/p\bZ)^*$ is cyclic. (Hint: Let $g\in G$ be an element of maximal order; use Exercise 1.15 to show that $h^{|g|} = 1$ for all $h\in G$. Therefore\ldots .) [$\S4.3$, $4.15$, $4.16$, $\S\RNo{4}.6.3$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $g\in G$ be an element of maximal order; we will show that $|g| = p-1$ and so, by Exercise 4.3, we will be able to deduce that $(\bZ/p\bZ)^\ast$ is cyclic. Let $h\in G$ and notice that, by Exercise 1.15, $|h|$ divides $|g|$ and in particular $h^{|g|} = [1]_{p}$. But by our assumption, this can be true for at most $|g|$ elements $h$, and we have proven it is true for the $p-1$ elements of $(\bZ/p\bZ)^\ast$; it follows that $p-1 \leq |g|$. But the order of any element is less than or equal to the order of the group, so $|g| \leq p-1$. The claim follows.
 \end{solution}
 
 \begin{exercise} % I cannot make the \neg be before the bullet point like in the book and it's driving me insane
@@ -84,28 +169,61 @@
 		\item Does the equation $x^3- 9 = 0$ have solutions in $(\bZ/31\bZ)^*$? (Hint: Plugging in all 31 elements of $(\bZ/31\bZ)^*$ is too laborious and will not teach you much. Instead, use the result of the first part: if $c$ is a solution of the equation, what can you say about $|c|$?) [$\RNo{7}.5.15$]
 	\end{itemize}
 \end{exercise}
-\begin{solution}
-	content...
+\begin{solution}\leavevmode
+	\begin{itemize}
+		\item The order of $[9]_{31}$ in the group $(\bZ/31\bZ)^*$ is 15.
+		\item Suppose, for the sake of contradiction, that there is some integer $c$ such that $c^3 - 9 \equiv 0 \mod 31$. This implies $c^3 \equiv 9 \mod 31$. By our previous result, we must have $|[c^3]_{31}| = 15$. On the other hand, using Proposition 1.13, we have 
+		\[
+			15 = |[c^3]_{31}| = |([c]_{31})^3| = \frac{|[c]_{31}|}{\gcd(3,|[c]_{31}|)}.
+		\]
+		That is,
+		\[
+			|[c]_{31}| = 15\gcd(3,|[c]_{31}|).
+		\]
+		Then the order of $[c]_31$ is divisible by 15, and hence it is divisible by 3, so we get that the order of $[c]_31$ is actually 45, which is absurd since the order of an element must not exceed the order of the group.
+	\end{itemize}
 \end{solution}
 \begin{exercise}
 	$\neg$ Prove that $\Aut_{\srf{Grp}}(\bZ/2\bZ\times \bZ/2\bZ) \cong S_3$. [$\RNo{4}.5.14$]
 \end{exercise}
 \begin{solution}
-	content...
+	First of all, in $\bZ/2\bZ\times \bZ/2\bZ$ write $x\coloneqq (1,0)$ and $y\coloneqq (0,1)$. Then it is clear that $e,x,y,xy$ is a complete list of the elements of $\bZ/2\bZ\times \bZ/2\bZ$, and thus $x$ and $y$ generate this group. More abstractly, this group has two generators $x$ and $y$ subject to the rules
+	\[
+		x^2 = e\;\;\;\;\; y^2 = e \;\;\;\;\; xy = yx;
+	\]
+	it is easy to see that these ensure that any product of the generators is equal to either $e,x,y$ or $xy$.
+	
+	Furthermore, notice that a homomorphism $\varphi$ from $\bZ/2\bZ\times \bZ/2\bZ$ to a group $G$ is completely determined by the images of $x$ and $y$ under $\varphi$ since we then would have $\varphi(e) = e$ and $\varphi(xy) = \varphi(x)\varphi(y)$. Conversely, we can try to define an homomorphism from $\bZ/2\bZ\times \bZ/2\bZ$ to $G$ by sending  $x\mapsto g$ and $y\mapsto g'$ and $e\mapsto e$ and $xy\mapsto gg'$ for some $g,g'\in G$. However, to prove that this is a homomorphism we would need to ensure that any product of generators is mapped to the product of the images of the generators. This is achieved when $g^2=(g')^2 = e$ and $gg' = g'g$ (why?).
+	
+	Therefore, to construct an automorphism of $\bZ/2\bZ\times \bZ/2\bZ$ it suffices to map $x,y$ to $(0,0),(1,0),(0,1)$, or $(1,1)$; notice that all these elements satisfy the identities discussed previously. As isomorphisms preserve order, we cannot map to $(0,0)$ since $|x| = |y| = 2$. And as isomorphisms are injective we cannot map $x$ and $y$ to the same image. This gives us 6 choices, and by our previous remarks these are all homomorphisms. 
+	
+	Now notice that $x$ and $y$ are sent to distinct non-identity elements, and it is easy to see that the product of two such elements is not the identity and is distinct from the first two. Thus $xy$ is not sent to either the identity nor the images of $x$ or $y$, and it follows that the assignment is injective. As we are mapping the group to itself, it also follows that the assignment is surjective. Thus all of these 6 maps are isomorphisms.
+	
+	But there are 6 bijections from the set of $\bZ/2\bZ\times \bZ/2\bZ$ to itself that preserve the identity (the permutations of the three non-identity elements); hence all of these are our automorphisms. It is clear that the composition here correspond exactly with the operation in $S_3$, which has 6 elements. It follows that the group of automorphisms of $\bZ/2\bZ\times \bZ/2\bZ$ is isomorphic to $S_3$.	
 \end{solution}
 
 \begin{exercise}
 	$\triangleright$ Prove that the order of the group of automorphisms of a cyclic group $C_n$ is the number of positive integers $r\leq n$ that are relatively prime to $n$. (This is called \emph{Euler's $\phi$-function}; cf. Exercise 6.14.) [$\S\RNo{4}.1.4$, $\RNo{4}.1.22$, $\S\RNo{4}.2.5$]
 \end{exercise}
 \begin{solution}
-	content...
+	Throughout we assume $x$ is the generator of $C_n$ with $|x| = n$. It is clear that any automorphism of $C_n$ is determined by the image of $x$, and as automorphisms preserve order, the image of $x$ must have order $n$. By Proposition 2.3. there are $\phi(n)$ elements of order $n$, so there are at most $\phi(n)$ automorphisms of $C_n$, by mapping $x$ a class of positive integers relatively prime to $n$. We will prove that all of these are indeed automorphisms.
+	
+	Let $y\in C_n$ be such that $|y| = n$; we need to prove that the assignment $x\mapsto y$ is indeed an automorphism. First of all, it does define a function by mapping $x^j \mapsto y^j$ since we can express any element of $C_n$ as $x^j$ for some $j$, and it is well defined since if $x^j = x^{j'}$ then $n\divides (j-j')$ and so $y^j = y^{j'}$. It is evidently a homomorphism, and it is surjective since $y$ generates $C_n$, so it is injective. Then the assignment is an automorphism.	
 \end{solution}
 
 \begin{exercise}
 	$\neg$ Compute the group of automorphisms of $(\bZ, +)$. Prove that if $p$ is prime, then $\Aut_{\srf{Grp}}(C_p)\cong C_{p-1}$. (Use Exercise 4.11.) [$\RNo{4}.5.12$]
 \end{exercise}
 \begin{solution}
-	content...
+	Let $\varphi$ be an automorphism of $(\bZ, +)$. Then, as $\varphi$ is surjective, there is some integer $n$ such that $\varphi(n) = 1$. This implies $n\varphi(1) = 1$ and we see that $\varphi(1)$ divides $1$. So, it follows that $\varphi(1) = \pm1$. As $\varphi(n) = n\varphi(1)$ for all $n$ we see that $\varphi$ is determined by the value of $\varphi(1)$; hence there are at most two automorphisms of $(\bZ, +)$. The assignment $1\mapsto 1$ clearly corresponds to the identity, which is definitely an automorphism. The assignment $1\mapsto -1$ extends to the function $n \mapsto -n$. This function is clearly bijective and it is a homomorphism because $-(n+m) = -n + (-m)$. Hence both assignments yield an automorphism, and these are all automorphisms. There is only group of order 2 so we have computed the group of automorphisms of $(\bZ, +)$.
+	
+	From Exercise 4.14, it follows that $|\Aut_{\srf{Grp}}(C_p)| = p-1$, where $p$ is prime. Then, by Exercise 4.3, it suffices to find an automorphism of order $p-1$. 
+	
+	Thinking of $C_p$ as $\mathbb{Z}/p\mathbb{Z}$, we notice that, by Exercise 4.11, there is some $[n]_p\in (\mathbb{Z}/p\mathbb{Z})^{*}$ such that
+	\[
+		n,n^2,\ldots,n^{p-1}
+	\]
+	are all distinct modulo $p$ and $n^{p-1} \equiv 1\mod p$. Also, $n$ generates $\mathbb{Z}/p\mathbb{Z}$ additively since $p$ is prime. So, as we proved in the solution of Exercise 4.14, there is an automorphism of $\mathbb{Z}/p\mathbb{Z}$ mapping $1\mapsto n$, call it $\psi$. Then it follows by an easy induction that composing $\psi$ with itself $k$ times maps $1$ to $n^k$, and it is also clear that $\psi$ maps $1$ to $1$ if and only if it is the identity map. By our previous remarks it follows that $|\psi| = p-1$ in $\Aut_{\srf{Grp}}(C_p)$.
 \end{solution}
 
 \begin{exercise}
@@ -116,19 +234,27 @@
 	(For one direction, use Exercises 1.8 and 4.11. For the other, assume $d$ is a proper divisor of $p$, and note that $d$ divides $(p-1)!$; therefore\ldots .) [$\RNo{4}.4.11$]
 \end{exercise}
 \begin{solution}
-	content...
+	For $p = 2$ then the claim is obvious, so assume $p>2$.
+	
+	First suppose $p$ is prime. Let $n$ be an integer such that $n^2 \equiv 1 \mod p$. This means that $p\divides(n^2 - 1)$ and so $p\divides (n+1)(n-1)$ so either $n\equiv 1\mod p$ or $n\equiv -1 \mod p$ since $p$ is prime. As $-1$ is not congruent to $1$ when $p>2$, we have that $[-1]_p$ is the only element of order 2 in $(\mathbb{Z}/p\mathbb{Z})^*$. Hence, by Exercise 1.11, it follows that $[(p-1)!]_p = [-1]_p$.
+	
+	Conversely, suppose that $p>1$ is an integer and that $(p-1)! \equiv -1 \mod p$. For the sake of contradiction, assume there is some integer $d$ with $1< d \leq p-1$ so that $d\divides p$. Then we see that $d\divides (p-1)!$. We also know that $p \divides (p-1)! + 1$, from which it follows that $d\divides (p-1)! + 1$. But if $d\divides (p-1)!$ and $d\divides (p-1)! + 1$ then $d$ divides $(p-1)! + 1 - (p-1)! = 1$, which is absurd. Therefore $p$ is prime.
 \end{solution}
 
 \begin{exercise}
 	For a few small (but not too small) primes $p$, find a generator of $(\zmod{p})^{*}$.
 \end{exercise}
 \begin{solution}
-	content...
+	For $p=2,3,5,11$, we have that $[2]_p$ is a generator of $(\mathbb{Z}/p\mathbb{Z})^\ast$. Also $[3]_7$ is a generator of $(\mathbb{Z}/7\mathbb{Z})^\ast$.
 \end{solution}
 
 \begin{exercise}
 	Prove the second part of Proposition 4.8.
 \end{exercise}
 \begin{solution}
-	content...
+	Suppose $\varphi \colon G \to H$ is an isomorphism of groups. Let $G$ be abelian. Let $h,h'\in H$ and, since $\varphi$ is surjective, there are some $g$ and $g'$ such that $\varphi(g)  = h$ and $\varphi(g') = h'$. Then,
+	\[
+		hh' = \varphi(g)\varphi(g') = \varphi(gg') = \varphi(g'g) = \varphi(g')\varphi(g) = h'h.
+	\]
+	This proves $H$ is abelian. Conversely, now suppose $H$ is abelian. Then $\varphi^{-1}$ is an isomorphism $H \to G$ and the same argument proves $G$ is abelian.
 \end{solution}
