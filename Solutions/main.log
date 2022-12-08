@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.30) (preloaded format=pdflatex 2022.8.10)  4 NOV 2022 01:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7.30) (preloaded format=pdflatex 2022.8.10)  18 NOV 2022 17:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -991,7 +991,7 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 Here is how much of TeX's memory you used:
  27285 strings out of 478337
  573476 string characters out of 2846455
- 1231801 words of memory out of 3000000
+ 1231802 words of memory out of 3000000
  45257 multiletter control sequences out of 15000+600000
  482331 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
